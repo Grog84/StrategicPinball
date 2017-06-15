@@ -43,6 +43,23 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="916455738431161">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="508802884573374" type="Joint">
+                            <param id="0" name="Instance variable">Side</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Spring&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Physics" id="22" name="Create limited revolute joint" sid="166910921891688" type="Spring">
+                            <param id="0" name="This image point">1</param>
+                            <param id="1" name="Object">Joint</param>
+                            <param id="2" name="Lower angle">0</param>
+                            <param id="3" name="Upper angle">0</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-block>
         <event-block disabled="1" sid="676915557343748">
