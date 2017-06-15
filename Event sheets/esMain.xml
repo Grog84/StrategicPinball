@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>esMain</name>
+    <events>
+        <event-block sid="743830243251371">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="938328491798623" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Physics" id="22" name="Create limited revolute joint" sid="843055750574839" type="Paddle">
+                    <param id="0" name="This image point">1</param>
+                    <param id="1" name="Object">Paddle</param>
+                    <param id="2" name="Lower angle">0</param>
+                    <param id="3" name="Upper angle">60</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="721017388288507">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="487101784449249" type="Keyboard">
+                    <param id="0" name="Key">17 (Ctrl)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Physics" id="3" name="Apply impulse" sid="351588279663990" type="Paddle">
+                    <param id="0" name="Impulse X">0</param>
+                    <param id="1" name="Implulse Y">-150</param>
+                    <param id="2" name="Image point">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="676915557343748">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="989202182101196" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Physics" id="0" name="Apply force" sid="398491427259823" type="Paddle">
+                    <param id="0" name="Force X">0</param>
+                    <param id="1" name="Force Y">150</param>
+                    <param id="2" name="Image point">2</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
