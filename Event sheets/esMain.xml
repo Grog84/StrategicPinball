@@ -7,7 +7,11 @@
             <conditions>
                 <condition id="-2" name="On start of layout" sid="938328491798623" type="System" />
             </conditions>
-            <actions />
+            <actions>
+                <action behavior="Physics" id="12" name="Set world gravity" sid="345048069828200" type="Ball">
+                    <param id="0" name="Gravity">6</param>
+                </action>
+            </actions>
             <sub-events>
                 <event-block sid="334835437406140">
                     <conditions>
@@ -62,57 +66,282 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block disabled="1" sid="676915557343748">
-            <conditions>
-                <condition id="-1" name="Every tick" sid="989202182101196" type="System" />
-            </conditions>
-            <actions>
-                <action behavior="Physics" id="0" name="Apply force" sid="398491427259823" type="LeftPaddle">
-                    <param id="0" name="Force X">0</param>
-                    <param id="1" name="Force Y">150</param>
-                    <param id="2" name="Image point">2</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="283268393831443">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="479321292839850" type="Keyboard">
-                    <param id="0" name="Key">81 (Q)</param>
-                </condition>
-            </conditions>
-            <actions />
+        <event-group description="" sid="408848669544496" title="Paddles">
             <sub-events>
-                <event-block sid="974039879628809">
-                    <conditions />
+                <event-block sid="283268393831443">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="479321292839850" type="Keyboard">
+                            <param id="0" name="Key">81 (Q)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="974039879628809">
+                            <conditions />
+                            <actions>
+                                <action behavior="Physics" id="3" name="Apply impulse" sid="575087317198136" type="LeftPaddle">
+                                    <param id="0" name="Impulse X">0</param>
+                                    <param id="1" name="Implulse Y">-150</param>
+                                    <param id="2" name="Image point">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="721017388288507">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="487101784449249" type="Keyboard">
+                            <param id="0" name="Key">69 (E)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="840266944528037">
+                            <conditions />
+                            <actions>
+                                <action behavior="Physics" id="3" name="Apply impulse" sid="351588279663990" type="RightPaddle">
+                                    <param id="0" name="Impulse X">0</param>
+                                    <param id="1" name="Implulse Y">-150</param>
+                                    <param id="2" name="Image point">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="701591053174133">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="894086599794057" type="Keyboard">
+                            <param id="0" name="Key">81 (Q)</param>
+                        </condition>
+                    </conditions>
                     <actions>
-                        <action behavior="Physics" id="3" name="Apply impulse" sid="575087317198136" type="LeftPaddle">
-                            <param id="0" name="Impulse X">0</param>
-                            <param id="1" name="Implulse Y">-150</param>
+                        <action id="-10" name="Set value" sid="533295872947353" type="LeftPaddle">
+                            <param id="0" name="Instance variable">isCommandPressed</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="135492182880205">
+                    <conditions>
+                        <condition id="3" name="On key released" sid="200193660826195" type="Keyboard">
+                            <param id="0" name="Key">81 (Q)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="332879338414093" type="LeftPaddle">
+                            <param id="0" name="Instance variable">isCommandPressed</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="189407975884164">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="427955260230132" type="Keyboard">
+                            <param id="0" name="Key">69 (E)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="324288080719023" type="RightPaddle">
+                            <param id="0" name="Instance variable">isCommandPressed</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="813861554361609">
+                    <conditions>
+                        <condition id="3" name="On key released" sid="653579353930595" type="Keyboard">
+                            <param id="0" name="Key">69 (E)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="660885202713663" type="RightPaddle">
+                            <param id="0" name="Instance variable">isCommandPressed</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="959746822490296">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="876930477124081" type="LeftPaddle">
+                            <param id="0" name="Instance variable">isCommandPressed</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Physics" id="0" name="Apply force" sid="398491427259823" type="LeftPaddle">
+                            <param id="0" name="Force X">0</param>
+                            <param id="1" name="Force Y">150</param>
+                            <param id="2" name="Image point">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="378324819844998">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="920341875191859" type="RightPaddle">
+                            <param id="0" name="Instance variable">isCommandPressed</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Physics" id="0" name="Apply force" sid="207415623800467" type="RightPaddle">
+                            <param id="0" name="Force X">0</param>
+                            <param id="1" name="Force Y">150</param>
+                            <param id="2" name="Image point">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="227599208462632">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="282219226083484" type="LeftPaddle">
+                            <param id="0" name="Instance variable">isCommandPressed</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Physics" id="0" name="Apply force" sid="955476097863991" type="LeftPaddle">
+                            <param id="0" name="Force X">0</param>
+                            <param id="1" name="Force Y">-150</param>
+                            <param id="2" name="Image point">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="643212457947421">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="620652237996282" type="RightPaddle">
+                            <param id="0" name="Instance variable">isCommandPressed</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Physics" id="0" name="Apply force" sid="936223971519679" type="RightPaddle">
+                            <param id="0" name="Force X">0</param>
+                            <param id="1" name="Force Y">-150</param>
                             <param id="2" name="Image point">2</param>
                         </action>
                     </actions>
                 </event-block>
             </sub-events>
-        </event-block>
-        <event-block sid="721017388288507">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="487101784449249" type="Keyboard">
-                    <param id="0" name="Key">69 (E)</param>
-                </condition>
-            </conditions>
-            <actions />
+        </event-group>
+        <event-group description="" sid="406262345859210" title="Spring">
             <sub-events>
-                <event-block sid="840266944528037">
-                    <conditions />
+                <event-block sid="934417088490340">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="874115463075289" type="Keyboard">
+                            <param id="0" name="Key">16 (Maiusc)</param>
+                        </condition>
+                    </conditions>
                     <actions>
-                        <action behavior="Physics" id="3" name="Apply impulse" sid="351588279663990" type="RightPaddle">
-                            <param id="0" name="Impulse X">0</param>
-                            <param id="1" name="Implulse Y">-150</param>
-                            <param id="2" name="Image point">2</param>
+                        <action id="-10" name="Set value" sid="787042898308033" type="Spring">
+                            <param id="0" name="Instance variable">isShrinking</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="700407712544729" type="Spring">
+                            <param id="0" name="Instance variable">isReleasing</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="113878984885595">
+                    <conditions>
+                        <condition id="3" name="On key released" sid="949388996066854" type="Keyboard">
+                            <param id="0" name="Key">16 (Maiusc)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Physics" id="0" name="Apply force" sid="199315148508177" type="Ball">
+                            <param id="0" name="Force X">0</param>
+                            <param id="1" name="Force Y">Spring.maxForce * (1.0 - ((Spring.Height - Spring.minLength)/(Spring.maxLength-Spring.minLength)))</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="185834731032315" type="Spring">
+                            <param id="0" name="Instance variable">isShrinking</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="921051422439233" type="Spring">
+                            <param id="0" name="Instance variable">isReleasing</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="432431350208850">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="634740177151775" type="Spring">
+                            <param id="0" name="Instance variable">isShrinking</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-6" name="Compare height" sid="244045645137150" type="Spring">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Height">self.minLength</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-6" name="Set height" sid="473640766718827" type="Spring">
+                            <param id="0" name="Height">self.Height - Self.shrinkSpeed * dt</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="103033746997879">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="357588051188687" type="Spring">
+                            <param id="0" name="Instance variable">isShrinking</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-6" name="Compare height" sid="995518972986740" type="Spring">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="Height">self.minLength</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="100524991335709" type="Spring">
+                            <param id="0" name="Instance variable">isShrinking</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="593560591028351">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="545898663697357" type="Spring">
+                            <param id="0" name="Instance variable">isReleasing</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-6" name="Compare height" sid="664164303083758" type="Spring">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="Height">Self.maxLength</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-6" name="Set height" sid="363471320042395" type="Spring">
+                            <param id="0" name="Height">self.Height + Self.releaseSpeed * dt</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="561092042988328">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="664384952456807" type="Spring">
+                            <param id="0" name="Instance variable">isReleasing</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-6" name="Compare height" sid="364956096106773" type="Spring">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Height">Self.maxLength</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="106354133574066" type="Spring">
+                            <param id="0" name="Instance variable">isReleasing</param>
+                            <param id="1" name="Value">0</param>
                         </action>
                     </actions>
                 </event-block>
             </sub-events>
-        </event-block>
+        </event-group>
     </events>
 </c2eventsheet>

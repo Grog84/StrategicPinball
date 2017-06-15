@@ -41,7 +41,7 @@
         <prop name="Pause on unfocus">No</prop>
         <prop name="Physics engine">Box2D asm.js</prop>
         <prop name="Preload sounds">Yes</prop>
-        <prop name="Preview browser">(default)</prop>
+        <prop name="Preview browser">Chrome</prop>
         <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
@@ -75,7 +75,7 @@
                 </behavior-type>
             </behaviors>
             <animation-folder>
-                <animation framecount="6" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="635170484581842" speed="0">
+                <animation framecount="3" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="635170484581842" speed="0">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                         <collision-poly>
                             <point x="0" y="0" />
@@ -87,16 +87,6 @@
                         <collision-poly>
                             <point x="1" y="1" />
                             <point x="0" y="1" />
-                            <point x="1" y="0" />
-                        </collision-poly>
-                    </frame>
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                        <collision-poly>
-                            <point x="1" y="1" />
-                            <point x="0" y="1" />
-                            <point x="0" y="0" />
                             <point x="1" y="0" />
                         </collision-poly>
                     </frame>
@@ -106,6 +96,15 @@
         </object-type>
         <object-type name="Spring" sid="394053023406937">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="shrinkSpeed" sid="519802523653922" type="number" />
+                <instance-variable name="minLength" sid="547464890166946" type="number" />
+                <instance-variable name="maxForce" sid="580592792105533" type="number" />
+                <instance-variable name="maxLength" sid="104888962143985" type="number" />
+                <instance-variable name="releaseSpeed" sid="439478303543655" type="number" />
+                <instance-variable name="isShrinking" sid="998397394201184" type="number" />
+                <instance-variable name="isReleasing" sid="613339476671765" type="number" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Physics" sid="769040660516584">
                     <behavior id="Physics" />
@@ -113,7 +112,7 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="785049743859303" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1">
                         <image-point name="Joint" x="0.5" y="0.975" />
                     </frame>
                 </animation>
@@ -218,7 +217,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Sprite" sid="308379212300205">
+        <object-type name="Bumper" sid="308379212300205">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="253030515602617" speed="5">
@@ -273,11 +272,16 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Sprite2" sid="988962426761097">
+        <object-type name="Ball" sid="988962426761097">
             <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Physics" sid="410338431601528">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="300878247309622" speed="5">
-                    <frame duration="1" hotspotX="0.502222" hotspotY="0.502222" original-source="C:\Users\dbga_55\Pictures\Pinball_ball.png">
+                    <frame duration="1" hotspotX="0.52" hotspotY="0.52" original-source="C:\Users\dbga_55\Pictures\Pinball_ball.png">
                         <collision-poly>
                             <point x="0.168889" y="0.168889" />
                             <point x="0.497778" y="0.0355556" />
@@ -292,8 +296,53 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="CurvedWall" sid="364597524075140">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Physics" sid="642065188170430">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="123937956247224" speed="5">
+                    <frame duration="1" hotspotX="0.522168" hotspotY="0.49537" original-source="C:\Users\PU\Downloads\pinballBorder.png">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.995074" y="0" />
+                            <point x="0.990148" y="0.0624999" />
+                            <point x="0.714286" y="0.0891203" />
+                            <point x="0.408867" y="0.247685" />
+                            <point x="0.219828" y="0.459491" />
+                            <point x="0.114532" y="0.668982" />
+                            <point x="0.0788177" y="0.93287" />
+                            <point x="0" y="0.935185" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Door" sid="946600810053392">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="200827181977703" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="Imagepoint 1" x="0.5" y="0.5" />
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
-    <families />
+    <families>
+        <family name="Paddles" plugin-id="Sprite" sid="647063370935462">
+            <members>
+                <member>LeftPaddle</member>
+                <member>RightPaddle</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="isCommandPressed" sid="975276984046712" type="number" />
+            </instance-variables>
+        </family>
+    </families>
     <layout-folder>
         <layout>Main.xml</layout>
     </layout-folder>
