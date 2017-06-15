@@ -75,7 +75,7 @@
                 </behavior-type>
             </behaviors>
             <animation-folder>
-                <animation framecount="6" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="635170484581842" speed="5">
+                <animation framecount="6" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="635170484581842" speed="0">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                         <collision-poly>
                             <point x="0" y="0" />
@@ -113,7 +113,9 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="785049743859303" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="Joint" x="0.5" y="0.975" />
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
@@ -130,7 +132,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Paddle" sid="921927165645136">
+        <object-type name="LeftPaddle" sid="921927165645136">
             <plugin id="Sprite" />
             <behaviors>
                 <behavior-type name="Physics" sid="294116834541431">
@@ -139,15 +141,15 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="482345569559285" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                        <image-point name="Pivot" x="0.0733333" y="0.5" />
-                        <image-point name="Force" x="0.913333" y="0.5" />
+                    <frame duration="1" hotspotX="0.497326" hotspotY="0.546875" original-source="C:\Users\dbga_55\Pictures\Paddle_BW.png">
+                        <image-point name="Pivot" x="0.160428" y="0.1875" />
+                        <image-point name="Force" x="1.01604" y="0.859375" />
                         <collision-poly>
-                            <point x="0" y="0" />
-                            <point x="0.353333" y="0" />
-                            <point x="1" y="0.5" />
-                            <point x="0.355" y="1" />
-                            <point x="0" y="1" />
+                            <point x="0.0513904" y="0.10595" />
+                            <point x="0.231661" y="0.00395976" />
+                            <point x="1" y="0.675942" />
+                            <point x="0.875922" y="1" />
+                            <point x="0.00395721" y="0.45366" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -155,6 +157,66 @@
         </object-type>
         <object-type name="Keyboard" sid="622082649961197">
             <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="Joint" sid="452393036009839">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Side" sid="348834426144817" type="string" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Physics" sid="920814610736888">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="549134690658629" speed="5">
+                    <frame duration="1" hotspotX="0.636364" hotspotY="0.636364" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="RightPaddle" sid="705899933520171">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Physics" sid="217685880230360">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="777933723119862" speed="5">
+                    <frame duration="1" hotspotX="0.497326" hotspotY="0.546875" original-source="C:\Users\dbga_55\Pictures\Paddle_BW.png">
+                        <image-point name="Joint" x="0.839572" y="0.1875" />
+                        <image-point name="Force" x="-0.0160428" y="0.859375" />
+                        <collision-poly>
+                            <point x="0.790615" y="0" />
+                            <point x="0.983957" y="0.159247" />
+                            <point x="0.962086" y="0.49208" />
+                            <point x="0.0925671" y="1" />
+                            <point x="0" y="0.671447" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SideWall" sid="495899909945120">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Physics" sid="298450214585487">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="341720343245427" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\Paddle_Wall.png">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.263993" y="0" />
+                            <point x="0.886667" y="0.454545" />
+                            <point x="0.886667" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
         </object-type>
     </object-folder>
     <families />

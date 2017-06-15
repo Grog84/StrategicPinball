@@ -108,6 +108,82 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
+                <instance type="SideWall" uid="8">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Physics">
+                            <properties>
+                                <immovable>Yes</immovable>
+                                <collision-mask>Use collision polygon</collision-mask>
+                                <prevent-rotation>No</prevent-rotation>
+                                <density>1</density>
+                                <friction>0.5</friction>
+                                <elasticity>0.2</elasticity>
+                                <linear-damping>0</linear-damping>
+                                <angular-damping>0.01</angular-damping>
+                                <bullet>No</bullet>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>127</x>
+                        <y>896</y>
+                        <z>0</z>
+                        <width>150</width>
+                        <height>110</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="SideWall" uid="9">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Physics">
+                            <properties>
+                                <immovable>Yes</immovable>
+                                <collision-mask>Use collision polygon</collision-mask>
+                                <prevent-rotation>No</prevent-rotation>
+                                <density>1</density>
+                                <friction>0.5</friction>
+                                <elasticity>0.2</elasticity>
+                                <linear-damping>0</linear-damping>
+                                <angular-damping>0.01</angular-damping>
+                                <bullet>No</bullet>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>670</x>
+                        <y>896</y>
+                        <z>0</z>
+                        <width>-150</width>
+                        <height>110</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
                 <instance type="Wall" uid="7">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -118,7 +194,7 @@
                     <behavior-instances>
                         <behavior-instance type="Physics">
                             <properties>
-                                <immovable>No</immovable>
+                                <immovable>Yes</immovable>
                                 <collision-mask>Use collision polygon</collision-mask>
                                 <prevent-rotation>No</prevent-rotation>
                                 <density>1</density>
@@ -146,82 +222,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Wall" uid="8">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <behavior-instances>
-                        <behavior-instance type="Physics">
-                            <properties>
-                                <immovable>Yes</immovable>
-                                <collision-mask>Use collision polygon</collision-mask>
-                                <prevent-rotation>No</prevent-rotation>
-                                <density>1</density>
-                                <friction>0.5</friction>
-                                <elasticity>0.6</elasticity>
-                                <linear-damping>0</linear-damping>
-                                <angular-damping>0.01</angular-damping>
-                                <bullet>No</bullet>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>181</x>
-                        <y>930</y>
-                        <z>0</z>
-                        <width>250</width>
-                        <height>216</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="Wall" uid="9">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>1</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <behavior-instances>
-                        <behavior-instance type="Physics">
-                            <properties>
-                                <immovable>No</immovable>
-                                <collision-mask>Use collision polygon</collision-mask>
-                                <prevent-rotation>No</prevent-rotation>
-                                <density>1</density>
-                                <friction>0.5</friction>
-                                <elasticity>0.2</elasticity>
-                                <linear-damping>0</linear-damping>
-                                <angular-damping>0.01</angular-damping>
-                                <bullet>No</bullet>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>619</x>
-                        <y>930</y>
-                        <z>0</z>
-                        <width>250</width>
-                        <height>216</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="Wall" uid="10">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -232,7 +232,7 @@
                     <behavior-instances>
                         <behavior-instance type="Physics">
                             <properties>
-                                <immovable>No</immovable>
+                                <immovable>Yes</immovable>
                                 <collision-mask>Use collision polygon</collision-mask>
                                 <prevent-rotation>No</prevent-rotation>
                                 <density>1</density>
@@ -248,11 +248,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>741</x>
-                        <y>624</y>
+                        <x>740</x>
+                        <y>676.5</y>
                         <z>0</z>
                         <width>7</width>
-                        <height>402</height>
+                        <height>507</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -333,7 +333,7 @@
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
-                        <opacity>1</opacity>
+                        <opacity>0</opacity>
                     </world>
                 </instance>
                 <instance type="Border" uid="13">
@@ -371,7 +371,7 @@
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
-                        <opacity>1</opacity>
+                        <opacity>0</opacity>
                     </world>
                 </instance>
                 <instance type="Border" uid="14">
@@ -409,10 +409,10 @@
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
-                        <opacity>1</opacity>
+                        <opacity>0</opacity>
                     </world>
                 </instance>
-                <instance type="Paddle" uid="15">
+                <instance type="LeftPaddle" uid="15">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -428,6 +428,47 @@
                                 <density>1</density>
                                 <friction>0.5</friction>
                                 <elasticity>0.2</elasticity>
+                                <linear-damping>1</linear-damping>
+                                <angular-damping>1</angular-damping>
+                                <bullet>No</bullet>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>267</x>
+                        <y>969</y>
+                        <z>0</z>
+                        <width>187</width>
+                        <height>128</height>
+                        <depth>0</depth>
+                        <hotspotX>0.497326195</hotspotX>
+                        <hotspotY>0.546875</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Joint" uid="18">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Side>Left</Side>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Physics">
+                            <properties>
+                                <immovable>Yes</immovable>
+                                <collision-mask>Use collision polygon</collision-mask>
+                                <prevent-rotation>Yes</prevent-rotation>
+                                <density>1</density>
+                                <friction>0.5</friction>
+                                <elasticity>0.2</elasticity>
                                 <linear-damping>0</linear-damping>
                                 <angular-damping>0.01</angular-damping>
                                 <bullet>No</bullet>
@@ -438,19 +479,19 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>262</x>
-                        <y>950</y>
+                        <x>217</x>
+                        <y>931</y>
                         <z>0</z>
-                        <width>150</width>
-                        <height>30</height>
+                        <width>11</width>
+                        <height>11</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0.785398185</angle>
+                        <hotspotX>0.636363626</hotspotX>
+                        <hotspotY>0.636363626</hotspotY>
+                        <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Paddle" uid="16">
+                <instance type="RightPaddle" uid="19">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -466,6 +507,47 @@
                                 <density>1</density>
                                 <friction>0.5</friction>
                                 <elasticity>0.2</elasticity>
+                                <linear-damping>1</linear-damping>
+                                <angular-damping>1</angular-damping>
+                                <bullet>No</bullet>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>526</x>
+                        <y>969</y>
+                        <z>0</z>
+                        <width>187</width>
+                        <height>128</height>
+                        <depth>0</depth>
+                        <hotspotX>0.497326195</hotspotX>
+                        <hotspotY>0.546875</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Joint" uid="16">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Side>Right</Side>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Physics">
+                            <properties>
+                                <immovable>Yes</immovable>
+                                <collision-mask>Use collision polygon</collision-mask>
+                                <prevent-rotation>No</prevent-rotation>
+                                <density>1</density>
+                                <friction>0.5</friction>
+                                <elasticity>0.2</elasticity>
                                 <linear-damping>0</linear-damping>
                                 <angular-damping>0.01</angular-damping>
                                 <bullet>No</bullet>
@@ -476,15 +558,15 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>539</x>
-                        <y>950</y>
+                        <x>581</x>
+                        <y>931</y>
                         <z>0</z>
-                        <width>150</width>
-                        <height>30</height>
+                        <width>11</width>
+                        <height>11</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>2.356194496</angle>
+                        <hotspotX>0.636363626</hotspotX>
+                        <hotspotY>0.636363626</hotspotY>
+                        <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>

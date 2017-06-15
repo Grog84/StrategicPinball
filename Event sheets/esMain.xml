@@ -7,40 +7,95 @@
             <conditions>
                 <condition id="-2" name="On start of layout" sid="938328491798623" type="System" />
             </conditions>
-            <actions>
-                <action behavior="Physics" id="22" name="Create limited revolute joint" sid="843055750574839" type="Paddle">
-                    <param id="0" name="This image point">1</param>
-                    <param id="1" name="Object">Paddle</param>
-                    <param id="2" name="Lower angle">0</param>
-                    <param id="3" name="Upper angle">60</param>
-                </action>
-            </actions>
+            <actions />
+            <sub-events>
+                <event-block sid="334835437406140">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="868635959344887" type="Joint">
+                            <param id="0" name="Instance variable">Side</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Left&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Physics" id="22" name="Create limited revolute joint" sid="984056935507304" type="LeftPaddle">
+                            <param id="0" name="This image point">1</param>
+                            <param id="1" name="Object">Joint</param>
+                            <param id="2" name="Lower angle">0</param>
+                            <param id="3" name="Upper angle">60</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="751826191702579">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="351514453508998" type="Joint">
+                            <param id="0" name="Instance variable">Side</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Right&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Physics" id="22" name="Create limited revolute joint" sid="328560673807431" type="RightPaddle">
+                            <param id="0" name="This image point">1</param>
+                            <param id="1" name="Object">Joint</param>
+                            <param id="2" name="Lower angle">-60</param>
+                            <param id="3" name="Upper angle">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
-        <event-block sid="721017388288507">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="487101784449249" type="Keyboard">
-                    <param id="0" name="Key">17 (Ctrl)</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="Physics" id="3" name="Apply impulse" sid="351588279663990" type="Paddle">
-                    <param id="0" name="Impulse X">0</param>
-                    <param id="1" name="Implulse Y">-150</param>
-                    <param id="2" name="Image point">2</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="676915557343748">
+        <event-block disabled="1" sid="676915557343748">
             <conditions>
                 <condition id="-1" name="Every tick" sid="989202182101196" type="System" />
             </conditions>
             <actions>
-                <action behavior="Physics" id="0" name="Apply force" sid="398491427259823" type="Paddle">
+                <action behavior="Physics" id="0" name="Apply force" sid="398491427259823" type="LeftPaddle">
                     <param id="0" name="Force X">0</param>
                     <param id="1" name="Force Y">150</param>
                     <param id="2" name="Image point">2</param>
                 </action>
             </actions>
+        </event-block>
+        <event-block sid="283268393831443">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="479321292839850" type="Keyboard">
+                    <param id="0" name="Key">81 (Q)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="974039879628809">
+                    <conditions />
+                    <actions>
+                        <action behavior="Physics" id="3" name="Apply impulse" sid="575087317198136" type="LeftPaddle">
+                            <param id="0" name="Impulse X">0</param>
+                            <param id="1" name="Implulse Y">-150</param>
+                            <param id="2" name="Image point">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="721017388288507">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="487101784449249" type="Keyboard">
+                    <param id="0" name="Key">69 (E)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="840266944528037">
+                    <conditions />
+                    <actions>
+                        <action behavior="Physics" id="3" name="Apply impulse" sid="351588279663990" type="RightPaddle">
+                            <param id="0" name="Impulse X">0</param>
+                            <param id="1" name="Implulse Y">-150</param>
+                            <param id="2" name="Image point">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>
