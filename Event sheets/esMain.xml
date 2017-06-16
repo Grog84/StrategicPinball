@@ -3,6 +3,9 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esMain</name>
     <events>
+        <variable constant="0" name="Cash" sid="584479728835511" static="0" type="number">0</variable>
+        <variable constant="0" name="ballInGame" sid="948187606096225" static="0" type="number">0</variable>
+        <variable constant="0" name="Shaken" sid="232118938800705" static="0" type="number">0</variable>
         <event-block sid="743830243251371">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="938328491798623" type="System" />
@@ -10,6 +13,12 @@
             <actions>
                 <action behavior="Physics" id="12" name="Set world gravity" sid="345048069828200" type="Ball">
                     <param id="0" name="Gravity">6</param>
+                </action>
+                <action behavior="Physics" id="22" name="Create limited revolute joint" sid="306066986157004" type="Door">
+                    <param id="0" name="This image point">1</param>
+                    <param id="1" name="Object">SpringWall</param>
+                    <param id="2" name="Lower angle">-38</param>
+                    <param id="3" name="Upper angle">0</param>
                 </action>
             </actions>
             <sub-events>
@@ -66,6 +75,70 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <event-block sid="758618571508126">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="454821220336511" type="Keyboard">
+                    <param id="0" name="Key">17 (Ctrl)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Sine" id="0" name="Set active" sid="386785702280242" type="ElementsOnTable">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action behavior="Timer" id="0" name="Start timer" sid="581578986892570" type="ElementsOnTable">
+                    <param id="0" name="Duration">ElementsOnTable.Sine.Period * 3</param>
+                    <param id="1" name="Type">0</param>
+                    <param id="2" name="Tag">&quot;Shake&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="318206231265430" type="System">
+                    <param id="0" name="Variable">Shaken</param>
+                    <param id="1" name="Value">ElementsOnTable.Count</param>
+                </action>
+                <action behavior="Physics" id="3" name="Apply impulse" sid="267373175147214" type="Ball">
+                    <param id="0" name="Impulse X">1</param>
+                    <param id="1" name="Implulse Y">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="886662454145445">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="801242816125778" type="System">
+                    <param id="0" name="Variable">Shaken</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="234033875922061">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="637877239832801" type="System">
+                            <param id="0" name="Object">ElementsOnTable</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="683846027593688">
+                            <conditions>
+                                <condition behavior="Timer" id="0" name="On timer" sid="191699751964082" type="ElementsOnTable">
+                                    <param id="0" name="Tag">&quot;Shake&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Sine" id="0" name="Set active" sid="825648290706525" type="ElementsOnTable">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-11" name="Subtract from" sid="955495995857826" type="System">
+                                    <param id="0" name="Variable">Shaken</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
         <event-group description="" sid="408848669544496" title="Paddles">
             <sub-events>
                 <event-block sid="283268393831443">
@@ -81,7 +154,7 @@
                             <actions>
                                 <action behavior="Physics" id="3" name="Apply impulse" sid="575087317198136" type="LeftPaddle">
                                     <param id="0" name="Impulse X">0</param>
-                                    <param id="1" name="Implulse Y">-150</param>
+                                    <param id="1" name="Implulse Y">-50</param>
                                     <param id="2" name="Image point">2</param>
                                 </action>
                             </actions>
@@ -101,7 +174,7 @@
                             <actions>
                                 <action behavior="Physics" id="3" name="Apply impulse" sid="351588279663990" type="RightPaddle">
                                     <param id="0" name="Impulse X">0</param>
-                                    <param id="1" name="Implulse Y">-150</param>
+                                    <param id="1" name="Implulse Y">-50</param>
                                     <param id="2" name="Image point">2</param>
                                 </action>
                             </actions>
@@ -226,118 +299,322 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="406262345859210" title="Spring">
+        <event-group description="" sid="406262345859210" title="LaunchingSystem">
             <sub-events>
-                <event-block sid="934417088490340">
+                <event-group description="" sid="120067991551090" title="Spring">
+                    <sub-events>
+                        <event-block sid="934417088490340">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="874115463075289" type="Keyboard">
+                                    <param id="0" name="Key">16 (Maiusc)</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="268481691797326" type="System">
+                                    <param id="0" name="Variable">ballInGame</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="787042898308033" type="Spring">
+                                    <param id="0" name="Instance variable">isShrinking</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="700407712544729" type="Spring">
+                                    <param id="0" name="Instance variable">isReleasing</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="113878984885595">
+                            <conditions>
+                                <condition id="3" name="On key released" sid="949388996066854" type="Keyboard">
+                                    <param id="0" name="Key">16 (Maiusc)</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="411458639075890" type="System">
+                                    <param id="0" name="Variable">ballInGame</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Physics" id="0" name="Apply force" sid="199315148508177" type="Ball">
+                                    <param id="0" name="Force X">0</param>
+                                    <param id="1" name="Force Y">Spring.maxForce * (1.0 - ((Spring.Height - Spring.minLength)/(Spring.maxLength-Spring.minLength)))</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="185834731032315" type="Spring">
+                                    <param id="0" name="Instance variable">isShrinking</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="921051422439233" type="Spring">
+                                    <param id="0" name="Instance variable">isReleasing</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="432431350208850">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="634740177151775" type="Spring">
+                                    <param id="0" name="Instance variable">isShrinking</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-6" name="Compare height" sid="244045645137150" type="Spring">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Height">self.minLength</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-6" name="Set height" sid="473640766718827" type="Spring">
+                                    <param id="0" name="Height">self.Height - Self.shrinkSpeed * dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="103033746997879">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="357588051188687" type="Spring">
+                                    <param id="0" name="Instance variable">isShrinking</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-6" name="Compare height" sid="995518972986740" type="Spring">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Height">self.minLength</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="100524991335709" type="Spring">
+                                    <param id="0" name="Instance variable">isShrinking</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="593560591028351">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="545898663697357" type="Spring">
+                                    <param id="0" name="Instance variable">isReleasing</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-6" name="Compare height" sid="664164303083758" type="Spring">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Height">Self.maxLength</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-6" name="Set height" sid="363471320042395" type="Spring">
+                                    <param id="0" name="Height">self.Height + Self.releaseSpeed * dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="561092042988328">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="664384952456807" type="Spring">
+                                    <param id="0" name="Instance variable">isReleasing</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-6" name="Compare height" sid="364956096106773" type="Spring">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Height">Self.maxLength</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="106354133574066" type="Spring">
+                                    <param id="0" name="Instance variable">isReleasing</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="154728661869561" title="Door">
+                    <sub-events>
+                        <event-block sid="135164819555583">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="944515086230430" type="Ball">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Y co-ordinate">Door.Y - Door.Height</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="858129322133948" type="System">
+                                    <param id="0" name="Variable">ballInGame</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="395407976525642" type="System">
+                                    <param id="0" name="Variable">ballInGame</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="443693280306681">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="662582337738144" type="System">
+                                    <param id="0" name="Variable">ballInGame</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="891393825675542" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="587425458981543" type="Door">
+                                    <param id="0" name="Instance variable">isClosing</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="527379554467391" type="Door">
+                                    <param id="0" name="Instance variable">isOpening</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="372417817660258">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="155011033264823" type="System">
+                                    <param id="0" name="Variable">ballInGame</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="906355088845773" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="831292651738424" type="Door">
+                                    <param id="0" name="Instance variable">isClosing</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="235773196754083" type="Door">
+                                    <param id="0" name="Instance variable">isOpening</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="231656867437570">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="191513333915448" type="Door">
+                                    <param id="0" name="Instance variable">isClosing</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Physics" id="0" name="Apply force" sid="154438117364715" type="Door">
+                                    <param id="0" name="Force X">100</param>
+                                    <param id="1" name="Force Y">0</param>
+                                    <param id="2" name="Image point">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="112373134842981">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="588599750143276" type="Door">
+                                    <param id="0" name="Instance variable">isOpening</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Physics" id="0" name="Apply force" sid="295477534796119" type="Door">
+                                    <param id="0" name="Force X">-100</param>
+                                    <param id="1" name="Force Y">0</param>
+                                    <param id="2" name="Image point">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="504488856142479" title="ScoringObjects">
+            <sub-events>
+                <event-group description="" sid="737644966923827" title="Bumper">
+                    <sub-events>
+                        <event-block sid="547421644643191">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="591323478804821" type="Ball">
+                                    <param id="0" name="Object">Bumper</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="577652924579802" type="Function">
+                                    <param id="0" name="Name">&quot;BumpBall&quot;</param>
+                                    <param id="1" name="Parameter {n}">Ball.UID{###}Bumper.UID{###}Bumper.BumpPower</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="360190862614943">
+                            <conditions>
+                                <condition id="0" name="On function" sid="170500811470980" type="Function">
+                                    <param id="0" name="Name">&quot;BumpBall&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="657214663874091">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="467280751095667" type="Ball">
+                                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                                        </condition>
+                                        <condition id="-14" name="Pick by unique ID" sid="720526895288134" type="Bumper">
+                                            <param id="0" name="Unique ID">Function.Param(1)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <variable constant="0" name="velocityModulus" sid="521039675809281" static="0" type="number">0</variable>
+                                        <variable constant="0" name="distanceModulus" sid="324263430365816" static="0" type="number">0</variable>
+                                        <variable constant="0" name="bounceVectorX" sid="369058686708781" static="0" type="number">0</variable>
+                                        <variable constant="0" name="bounceVectorY" sid="879947844899686" static="0" type="number">0</variable>
+                                        <variable constant="0" name="bounceAngle" sid="274645941548646" static="0" type="number">0</variable>
+                                        <event-block sid="846040902424011">
+                                            <conditions />
+                                            <actions>
+                                                <action id="-9" name="Set value" sid="662940376407479" type="System">
+                                                    <param id="0" name="Variable">velocityModulus</param>
+                                                    <param id="1" name="Value">sqrt(Ball.Physics.VelocityX*Ball.Physics.VelocityX + Ball.Physics.VelocityY*Ball.Physics.VelocityY)</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="156834438937707" type="System">
+                                                    <param id="0" name="Variable">distanceModulus</param>
+                                                    <param id="1" name="Value">sqrt((Ball.X - Bumper.X)*(Ball.X - Bumper.X) + (Ball.Y - Bumper.Y)*(Ball.Y - Bumper.Y))</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="325890775097879" type="System">
+                                                    <param id="0" name="Variable">bounceVectorX</param>
+                                                    <param id="1" name="Value">Ball.Physics.VelocityX/velocityModulus + (Bumper.X - Ball.X)/distanceModulus</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="246094586602241" type="System">
+                                                    <param id="0" name="Variable">bounceVectorY</param>
+                                                    <param id="1" name="Value">Ball.Physics.VelocityY/velocityModulus + (Bumper.Y - Ball.Y)/distanceModulus</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="484937356249699" type="System">
+                                                    <param id="0" name="Variable">bounceAngle</param>
+                                                    <param id="1" name="Value">angle(0,0,bounceVectorX, -bounceVectorY)</param>
+                                                </action>
+                                                <action id="0" name="Set text" sid="452508471665756" type="Debug">
+                                                    <param id="0" name="Text">bounceAngle</param>
+                                                </action>
+                                                <action behavior="Physics" id="2" name="Apply force at angle" sid="608208224507124" type="Ball">
+                                                    <param id="0" name="Force">Function.Param(2)</param>
+                                                    <param id="1" name="Angle">bounceAngle</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-block sid="820038036813867">
                     <conditions>
-                        <condition id="0" name="On key pressed" sid="874115463075289" type="Keyboard">
-                            <param id="0" name="Key">16 (Maiusc)</param>
+                        <condition id="0" name="On collision with another object" sid="616702282342666" type="Ball">
+                            <param id="0" name="Object">ScoringObjects</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-10" name="Set value" sid="787042898308033" type="Spring">
-                            <param id="0" name="Instance variable">isShrinking</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="-10" name="Set value" sid="700407712544729" type="Spring">
-                            <param id="0" name="Instance variable">isReleasing</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="113878984885595">
-                    <conditions>
-                        <condition id="3" name="On key released" sid="949388996066854" type="Keyboard">
-                            <param id="0" name="Key">16 (Maiusc)</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action behavior="Physics" id="0" name="Apply force" sid="199315148508177" type="Ball">
-                            <param id="0" name="Force X">0</param>
-                            <param id="1" name="Force Y">Spring.maxForce * (1.0 - ((Spring.Height - Spring.minLength)/(Spring.maxLength-Spring.minLength)))</param>
-                            <param id="2" name="Image point">0</param>
-                        </action>
-                        <action id="-10" name="Set value" sid="185834731032315" type="Spring">
-                            <param id="0" name="Instance variable">isShrinking</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                        <action id="-10" name="Set value" sid="921051422439233" type="Spring">
-                            <param id="0" name="Instance variable">isReleasing</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="432431350208850">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="634740177151775" type="Spring">
-                            <param id="0" name="Instance variable">isShrinking</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">1</param>
-                        </condition>
-                        <condition id="-6" name="Compare height" sid="244045645137150" type="Spring">
-                            <param id="0" name="Comparison">5</param>
-                            <param id="1" name="Height">self.minLength</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-6" name="Set height" sid="473640766718827" type="Spring">
-                            <param id="0" name="Height">self.Height - Self.shrinkSpeed * dt</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="103033746997879">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="357588051188687" type="Spring">
-                            <param id="0" name="Instance variable">isShrinking</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">1</param>
-                        </condition>
-                        <condition id="-6" name="Compare height" sid="995518972986740" type="Spring">
-                            <param id="0" name="Comparison">3</param>
-                            <param id="1" name="Height">self.minLength</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-10" name="Set value" sid="100524991335709" type="Spring">
-                            <param id="0" name="Instance variable">isShrinking</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="593560591028351">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="545898663697357" type="Spring">
-                            <param id="0" name="Instance variable">isReleasing</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">1</param>
-                        </condition>
-                        <condition id="-6" name="Compare height" sid="664164303083758" type="Spring">
-                            <param id="0" name="Comparison">3</param>
-                            <param id="1" name="Height">Self.maxLength</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-6" name="Set height" sid="363471320042395" type="Spring">
-                            <param id="0" name="Height">self.Height + Self.releaseSpeed * dt</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="561092042988328">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="664384952456807" type="Spring">
-                            <param id="0" name="Instance variable">isReleasing</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">1</param>
-                        </condition>
-                        <condition id="-6" name="Compare height" sid="364956096106773" type="Spring">
-                            <param id="0" name="Comparison">5</param>
-                            <param id="1" name="Height">Self.maxLength</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-10" name="Set value" sid="106354133574066" type="Spring">
-                            <param id="0" name="Instance variable">isReleasing</param>
-                            <param id="1" name="Value">0</param>
+                        <action id="-10" name="Add to" sid="194569969451506" type="System">
+                            <param id="0" name="Variable">Cash</param>
+                            <param id="1" name="Value">ScoringObjects.Score</param>
                         </action>
                     </actions>
                 </event-block>

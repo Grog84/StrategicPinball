@@ -11,6 +11,7 @@
     <saved-with-version>24400</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
@@ -18,13 +19,15 @@
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
+        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
+        <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
     </used-behaviors>
     <used-effects />
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>1920</width>
+        <width>1440</width>
         <height>1080</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
@@ -51,10 +54,6 @@
             <texture />
         </object-type>
         <object-type name="PinballBkg" sid="173421032682774">
-            <plugin id="TiledBg" />
-            <texture />
-        </object-type>
-        <object-type name="TiledBackground" sid="329671966084632">
             <plugin id="TiledBg" />
             <texture />
         </object-type>
@@ -140,15 +139,15 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="482345569559285" speed="5">
-                    <frame duration="1" hotspotX="0.497326" hotspotY="0.546875" original-source="C:\Users\dbga_55\Pictures\Paddle_BW.png">
-                        <image-point name="Pivot" x="0.160428" y="0.1875" />
-                        <image-point name="Force" x="1.01604" y="0.859375" />
+                    <frame duration="1" hotspotX="0.476923" hotspotY="0.546875" original-source="C:\Users\dbga_55\Pictures\Paddle_BW.png">
+                        <image-point name="Pivot" x="0.153846" y="0.1875" />
+                        <image-point name="Force" x="0.974359" y="0.859375" />
                         <collision-poly>
-                            <point x="0.0513904" y="0.10595" />
-                            <point x="0.231661" y="0.00395976" />
-                            <point x="1" y="0.675942" />
-                            <point x="0.875922" y="1" />
-                            <point x="0.00395721" y="0.45366" />
+                            <point x="0.0153846" y="0.171875" />
+                            <point x="0.191388" y="0.00395976" />
+                            <point x="1" y="0.691567" />
+                            <point x="0.886141" y="1" />
+                            <point x="0.00379486" y="0.45366" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -182,15 +181,15 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="777933723119862" speed="5">
-                    <frame duration="1" hotspotX="0.497326" hotspotY="0.546875" original-source="C:\Users\dbga_55\Pictures\Paddle_BW.png">
-                        <image-point name="Joint" x="0.839572" y="0.1875" />
-                        <image-point name="Force" x="-0.0160428" y="0.859375" />
+                    <frame duration="1" hotspotX="0.476923" hotspotY="0.546875" original-source="C:\Users\dbga_55\Pictures\Paddle_BW.png">
+                        <image-point name="Joint" x="0.805128" y="0.1875" />
+                        <image-point name="Force" x="-0.0153846" y="0.859375" />
                         <collision-poly>
-                            <point x="0.790615" y="0" />
-                            <point x="0.983957" y="0.159247" />
-                            <point x="0.962086" y="0.49208" />
-                            <point x="0.0925671" y="1" />
-                            <point x="0" y="0.671447" />
+                            <point x="0.799205" y="0" />
+                            <point x="0.964102" y="0.151434" />
+                            <point x="0.979026" y="0.46083" />
+                            <point x="0.0887695" y="1" />
+                            <point x="0" y="0.702697" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -205,12 +204,12 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="341720343245427" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\Paddle_Wall.png">
+                    <frame duration="1" hotspotX="0.46875" hotspotY="0.496296" original-source="C:\Users\dbga_55\Pictures\Paddle_Wall.png">
                         <collision-poly>
                             <point x="0" y="0" />
-                            <point x="0.263993" y="0" />
-                            <point x="0.833333" y="0.418182" />
-                            <point x="0.833333" y="1" />
+                            <point x="1" y="0.670371" />
+                            <point x="0.612499" y="0.668518" />
+                            <point x="0.609375" y="1" />
                             <point x="0" y="1" />
                         </collision-poly>
                     </frame>
@@ -219,54 +218,62 @@
         </object-type>
         <object-type name="Bumper" sid="308379212300205">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="BumpPower" sid="769122810815901" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Physics" sid="213386967486320">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
             <animation-folder>
-                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="253030515602617" speed="5">
-                    <frame duration="1" hotspotX="0.500963" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\Bumper50_new.png">
+                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="253030515602617" speed="0">
+                    <frame duration="1" hotspotX="0.542654" hotspotY="0.459716" original-source="C:\Users\dbga_55\Pictures\Bumper50_new.png">
                         <collision-poly>
-                            <point x="0.211946" y="0.214844" />
-                            <point x="0.499037" y="0.125" />
-                            <point x="0.755299" y="0.248047" />
-                            <point x="0.870906" y="0.5" />
-                            <point x="0.788054" y="0.785156" />
-                            <point x="0.499037" y="0.941406" />
-                            <point x="0.177264" y="0.820313" />
-                            <point x="0.0635838" y="0.5" />
+                            <point x="0.187204" y="0.113744" />
+                            <point x="0.540285" y="0.00473934" />
+                            <point x="0.855451" y="0.154029" />
+                            <point x="0.997631" y="0.459716" />
+                            <point x="0.895735" y="0.805687" />
+                            <point x="0.540285" y="0.99526" />
+                            <point x="0.14455" y="0.848342" />
+                            <point x="0.00473932" y="0.459716" />
                         </collision-poly>
                     </frame>
-                    <frame duration="1" hotspotX="0.500963" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\Bumper100_new.png">
+                    <frame duration="1" hotspotX="0.542654" hotspotY="0.459716" original-source="C:\Users\dbga_55\Pictures\Bumper100_new.png">
                         <collision-poly>
-                            <point x="0.211946" y="0.214844" />
-                            <point x="0.499037" y="0.125" />
-                            <point x="0.755299" y="0.248047" />
-                            <point x="0.870906" y="0.5" />
-                            <point x="0.788054" y="0.785156" />
-                            <point x="0.499037" y="0.941406" />
-                            <point x="0.177264" y="0.820313" />
-                            <point x="0.0635838" y="0.5" />
+                            <point x="0.187204" y="0.113744" />
+                            <point x="0.540285" y="0.00473934" />
+                            <point x="0.855451" y="0.154029" />
+                            <point x="0.997631" y="0.459716" />
+                            <point x="0.895735" y="0.805687" />
+                            <point x="0.540285" y="0.99526" />
+                            <point x="0.14455" y="0.848342" />
+                            <point x="0.00473932" y="0.459716" />
                         </collision-poly>
                     </frame>
-                    <frame duration="1" hotspotX="0.500963" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\Bumper200_new.png">
+                    <frame duration="1" hotspotX="0.542654" hotspotY="0.459716" original-source="C:\Users\dbga_55\Pictures\Bumper200_new.png">
                         <collision-poly>
-                            <point x="0.211946" y="0.214844" />
-                            <point x="0.499037" y="0.125" />
-                            <point x="0.755299" y="0.248047" />
-                            <point x="0.870906" y="0.5" />
-                            <point x="0.788054" y="0.785156" />
-                            <point x="0.499037" y="0.941406" />
-                            <point x="0.177264" y="0.820313" />
-                            <point x="0.0635838" y="0.5" />
+                            <point x="0.187204" y="0.113744" />
+                            <point x="0.540285" y="0.00473934" />
+                            <point x="0.855451" y="0.154029" />
+                            <point x="0.997631" y="0.459716" />
+                            <point x="0.895735" y="0.805687" />
+                            <point x="0.540285" y="0.99526" />
+                            <point x="0.14455" y="0.848342" />
+                            <point x="0.00473932" y="0.459716" />
                         </collision-poly>
                     </frame>
-                    <frame duration="1" hotspotX="0.500963" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\Bumper400_new.png">
+                    <frame duration="1" hotspotX="0.542654" hotspotY="0.459716" original-source="C:\Users\dbga_55\Pictures\Bumper400_new.png">
                         <collision-poly>
-                            <point x="0.211946" y="0.214844" />
-                            <point x="0.499037" y="0.125" />
-                            <point x="0.755299" y="0.248047" />
-                            <point x="0.870906" y="0.5" />
-                            <point x="0.788054" y="0.785156" />
-                            <point x="0.499037" y="0.941406" />
-                            <point x="0.177264" y="0.820313" />
-                            <point x="0.0635838" y="0.5" />
+                            <point x="0.187204" y="0.113744" />
+                            <point x="0.540285" y="0.00473934" />
+                            <point x="0.855451" y="0.154029" />
+                            <point x="0.997631" y="0.459716" />
+                            <point x="0.895735" y="0.805687" />
+                            <point x="0.540285" y="0.99526" />
+                            <point x="0.14455" y="0.848342" />
+                            <point x="0.00473932" y="0.459716" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -323,13 +330,45 @@
         </object-type>
         <object-type name="Door" sid="946600810053392">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="isClosing" sid="901458546562960" type="number" />
+                <instance-variable name="isOpening" sid="943156857415609" type="number" />
+                <instance-variable name="angularSpeed" sid="681599098332726" type="number" />
+                <instance-variable name="minAngle" sid="662802600421199" type="number" />
+                <instance-variable name="maxAngle" sid="258458524253261" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Physics" sid="558730633999626">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="200827181977703" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                        <image-point name="Imagepoint 1" x="0.5" y="0.5" />
+                        <image-point name="Imagepoint 1" x="0.5" y="1.02857" />
+                        <image-point name="Imagepoint 2" x="0.5" y="-0.0428571" />
                     </frame>
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type name="SpringWall" sid="917217439493298">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Physics" sid="636782016372794">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="952652308453190" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Function" sid="956866787449933">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="Debug" sid="973246598969865">
+            <plugin id="Text" />
         </object-type>
     </object-folder>
     <families>
@@ -342,6 +381,37 @@
                 <instance-variable name="isCommandPressed" sid="975276984046712" type="number" />
             </instance-variables>
         </family>
+        <family name="ScoringObjects" plugin-id="Sprite" sid="168407926146299">
+            <members>
+                <member>Bumper</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="Score" sid="262902800590716" type="number" />
+            </instance-variables>
+        </family>
+        <family name="ElementsOnTable" plugin-id="Sprite" sid="481602388423468">
+            <members>
+                <member>Border</member>
+                <member>Bumper</member>
+                <member>CurvedWall</member>
+                <member>Door</member>
+                <member>Joint</member>
+                <member>LeftPaddle</member>
+                <member>RightPaddle</member>
+                <member>SideWall</member>
+                <member>Spring</member>
+                <member>SpringWall</member>
+                <member>Wall</member>
+            </members>
+            <behaviors>
+                <behavior-type name="Sine" sid="475041857843903">
+                    <behavior id="Sin" />
+                </behavior-type>
+                <behavior-type name="Timer" sid="984151959162802">
+                    <behavior id="Timer" />
+                </behavior-type>
+            </behaviors>
+        </family>
     </families>
     <layout-folder>
         <layout>Main.xml</layout>
@@ -351,6 +421,7 @@
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="17" />
+        <global-instance type="Function" uid="10" />
     </global-instances>
     <sounds-folder />
     <music-folder />
