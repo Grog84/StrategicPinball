@@ -725,8 +725,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>344</x>
-                        <y>258</y>
+                        <x>382</x>
+                        <y>247</y>
                         <z>0</z>
                         <width>102.189300537</width>
                         <height>102.189300537</height>
@@ -1060,8 +1060,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>489</x>
-                        <y>121</y>
+                        <x>1555</x>
+                        <y>-142</y>
                         <z>0</z>
                         <width>294</width>
                         <height>325</height>
@@ -1116,8 +1116,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>481</x>
-                        <y>256</y>
+                        <x>517</x>
+                        <y>303</y>
                         <z>0</z>
                         <width>102.189300537</width>
                         <height>102.189300537</height>
@@ -1172,8 +1172,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>410</x>
-                        <y>140</y>
+                        <x>603</x>
+                        <y>-142</y>
                         <z>0</z>
                         <width>102.189300537</width>
                         <height>102.189300537</height>
@@ -1184,58 +1184,24 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Bumper" uid="29">
+                <instance type="SideBumper" uid="29">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
-                    <instance-variables>
-                        <Score>40</Score>
-                        <BumpPower>200</BumpPower>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="Sine">
-                            <properties>
-                                <active-on-start>No</active-on-start>
-                                <movement>Horizontal</movement>
-                                <wave>Sine</wave>
-                                <period>0.2</period>
-                                <period-random>0</period-random>
-                                <period-offset>0</period-offset>
-                                <period-offset-random>0</period-offset-random>
-                                <magnitude>5</magnitude>
-                                <magnitude-random>0</magnitude-random>
-                            </properties>
-                        </behavior-instance>
-                        <behavior-instance type="Timer" />
-                        <behavior-instance type="Physics">
-                            <properties>
-                                <immovable>Yes</immovable>
-                                <collision-mask>Use collision polygon</collision-mask>
-                                <prevent-rotation>Yes</prevent-rotation>
-                                <density>1</density>
-                                <friction>0.5</friction>
-                                <elasticity>0</elasticity>
-                                <linear-damping>0</linear-damping>
-                                <angular-damping>0.01</angular-damping>
-                                <bullet>No</bullet>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>202</x>
-                        <y>251</y>
+                        <x>179</x>
+                        <y>760</y>
                         <z>0</z>
-                        <width>102.189300537</width>
-                        <height>102.189300537</height>
+                        <width>140.406417847</width>
+                        <height>221.32598877</height>
                         <depth>0</depth>
-                        <hotspotX>0.542654037</hotspotX>
-                        <hotspotY>0.459715635</hotspotY>
+                        <hotspotX>0.470404983</hotspotX>
+                        <hotspotY>0.573122501</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -1284,14 +1250,58 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>632</x>
-                        <y>253</y>
+                        <x>393</x>
+                        <y>363</y>
                         <z>0</z>
                         <width>102.189300537</width>
                         <height>102.189300537</height>
                         <depth>0</depth>
                         <hotspotX>0.542654037</hotspotX>
                         <hotspotY>0.459715635</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="SideBumper" uid="31">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>613</x>
+                        <y>774</y>
+                        <z>0</z>
+                        <width>-140.406005859</width>
+                        <height>221.326004028</height>
+                        <depth>0</depth>
+                        <hotspotX>0.470404983</hotspotX>
+                        <hotspotY>0.573122501</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="DropTarget" uid="32">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>731</x>
+                        <y>-130</y>
+                        <z>0</z>
+                        <width>41.260150909</width>
+                        <height>51.575187683</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

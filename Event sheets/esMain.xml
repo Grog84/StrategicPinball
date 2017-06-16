@@ -540,6 +540,12 @@
                                     <param id="0" name="Name">&quot;BumpBall&quot;</param>
                                     <param id="1" name="Parameter {n}">Ball.UID{###}Bumper.UID{###}Bumper.BumpPower</param>
                                 </action>
+                                <action id="6" name="Set speed" sid="675216531030234" type="Bumper">
+                                    <param id="0" name="Speed">10</param>
+                                </action>
+                                <action id="3" name="Start" sid="858937733350242" type="Bumper">
+                                    <param id="0" name="From">0</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="360190862614943">
