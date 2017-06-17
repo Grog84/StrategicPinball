@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esMain</name>
     <events>
+        <variable constant="0" name="BallLossPoints" sid="449588326139012" static="0" type="number">300</variable>
         <variable constant="0" name="Cash" sid="584479728835511" static="0" type="number">0</variable>
         <variable constant="0" name="ballInGame" sid="948187606096225" static="0" type="number">0</variable>
         <variable constant="0" name="Shaken" sid="232118938800705" static="0" type="number">0</variable>
@@ -527,6 +528,170 @@
         </event-group>
         <event-group description="" sid="504488856142479" title="ScoringObjects">
             <sub-events>
+                <event-group description="" sid="856143193919922" title="SpinningDoor">
+                    <sub-events>
+                        <event-block sid="789911826346462">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="695969861276237" type="Ball">
+                                    <param id="0" name="Object">SpinningDoor</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="701228840224278" type="SpinningDoor">
+                                    <param id="0" name="Instance variable">IsSpinning</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="152919782183703" type="SpinningDoor">
+                                    <param id="0" name="Instance variable">IsSpinning</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="674318941186698" type="SpinningDoor">
+                                    <param id="0" name="Speed">20</param>
+                                </action>
+                                <action behavior="Timer2" id="0" name="Start timer" sid="657087441515814" type="SpinningDoor">
+                                    <param id="0" name="Duration">sqrt(Ball.Physics.VelocityX*Ball.Physics.VelocityX + Ball.Physics.VelocityY*Ball.Physics.VelocityY)*Self.spinTimerFactor</param>
+                                    <param id="1" name="Type">0</param>
+                                    <param id="2" name="Tag">&quot;spin&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="709447131980145">
+                            <conditions>
+                                <condition behavior="Timer2" id="0" name="On timer" sid="240176809093536" type="SpinningDoor">
+                                    <param id="0" name="Tag">&quot;spin&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="288714788961338" type="SpinningDoor">
+                                    <param id="0" name="Instance variable">IsSpinning</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="241724522736852" type="SpinningDoor">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="808022361435265" title="DropTarget">
+                    <sub-events>
+                        <event-block sid="461940890178482">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="769529931070232" type="Ball">
+                                    <param id="0" name="Object">DropTarget</param>
+                                </condition>
+                                <condition id="3" name="Compare frame" sid="872567644105407" type="DropTarget">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="563043029540630" type="DropTarget">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                                <action behavior="Timer" id="0" name="Start timer" sid="169779871372535" type="DropTarget">
+                                    <param id="0" name="Duration">self.ComeBackTimer</param>
+                                    <param id="1" name="Type">0</param>
+                                    <param id="2" name="Tag">&quot;downTimer&quot;</param>
+                                </action>
+                                <action behavior="Physics" id="27" name="Set enabled" sid="340493810405000" type="DropTarget">
+                                    <param id="0" name="Mode">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="820248582916587">
+                            <conditions>
+                                <condition behavior="Timer" id="0" name="On timer" sid="460431297920302" type="DropTarget">
+                                    <param id="0" name="Tag">&quot;downTimer&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="590862958828141" type="DropTarget">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action behavior="Physics" id="27" name="Set enabled" sid="499586699691471" type="DropTarget">
+                                    <param id="0" name="Mode">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="562717360532890" title="Kickers">
+                    <sub-events>
+                        <event-block sid="721435983735551">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="774212212094752" type="Ball">
+                                    <param id="0" name="Object">SideBouncingPart</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="521544221295383" type="Function">
+                                    <param id="0" name="Name">&quot;BumpBallKickers&quot;</param>
+                                    <param id="1" name="Parameter {n}">Ball.UID{###}SideBouncingPart.UID{###}SideBouncingPart.BumpPower</param>
+                                </action>
+                                <action id="0" name="Set text" sid="657615575030030" type="Debug">
+                                    <param id="0" name="Text">&quot;sideCollision&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="446046679910932">
+                            <conditions>
+                                <condition id="0" name="On function" sid="929533795073144" type="Function">
+                                    <param id="0" name="Name">&quot;BumpBallKickers&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="462083808909896">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="514586850318093" type="Ball">
+                                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                                        </condition>
+                                        <condition id="-14" name="Pick by unique ID" sid="491730847351938" type="SideBouncingPart">
+                                            <param id="0" name="Unique ID">Function.Param(1)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="176493844611007">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="572234824574682" type="SideBouncingPart">
+                                                    <param id="0" name="Instance variable">side</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;Left&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Physics" id="2" name="Apply force at angle" sid="696080517349518" type="Ball">
+                                                    <param id="0" name="Force">Function.Param(2)</param>
+                                                    <param id="1" name="Angle">-65</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="607341538869498">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="304758070467798" type="SideBouncingPart">
+                                                    <param id="0" name="Instance variable">side</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;Right&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Physics" id="2" name="Apply force at angle" sid="150819395763263" type="Ball">
+                                                    <param id="0" name="Force">Function.Param(2)</param>
+                                                    <param id="1" name="Angle">-155</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
                 <event-group description="" sid="737644966923827" title="Bumper">
                     <sub-events>
                         <event-block sid="547421644643191">
@@ -595,9 +760,6 @@
                                                     <param id="0" name="Variable">bounceAngle</param>
                                                     <param id="1" name="Value">angle(0,0,bounceVectorX, -bounceVectorY)</param>
                                                 </action>
-                                                <action id="0" name="Set text" sid="452508471665756" type="Debug">
-                                                    <param id="0" name="Text">bounceAngle</param>
-                                                </action>
                                                 <action behavior="Physics" id="2" name="Apply force at angle" sid="608208224507124" type="Ball">
                                                     <param id="0" name="Force">Function.Param(2)</param>
                                                     <param id="1" name="Angle">bounceAngle</param>
@@ -622,9 +784,63 @@
                             <param id="0" name="Variable">Cash</param>
                             <param id="1" name="Value">ScoringObjects.Score</param>
                         </action>
+                        <action id="0" name="Call function" sid="358987643365730" type="Function">
+                            <param id="0" name="Name">&quot;UpdateScore&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
                     </actions>
+                </event-block>
+                <event-block sid="604642216510155">
+                    <conditions>
+                        <condition id="0" name="On function" sid="944085206389908" type="Function">
+                            <param id="0" name="Name">&quot;UpdateScore&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="531307650185842">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="597479419041861" type="HudText">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="708760000074605" type="HudText">
+                                    <param id="0" name="Text">Cash</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
+        <event-block sid="121744315072305">
+            <conditions>
+                <condition id="-4" name="Is outside layout" sid="145227397067181" type="Ball" />
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="551693563625749" type="System">
+                    <param id="0" name="Variable">Cash</param>
+                    <param id="1" name="Value">BallLossPoints</param>
+                </action>
+                <action id="0" name="Call function" sid="798687300316844" type="Function">
+                    <param id="0" name="Name">&quot;UpdateScore&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Destroy" sid="638079680562107" type="Ball" />
+                <action id="-3" name="Create object" sid="125101043056285" type="System">
+                    <param id="0" name="Object to create">Ball</param>
+                    <param id="1" name="Layer">&quot;Ball&quot;</param>
+                    <param id="2" name="X">771</param>
+                    <param id="3" name="Y">888</param>
+                </action>
+                <action id="-9" name="Set value" sid="575127428925310" type="System">
+                    <param id="0" name="Variable">ballInGame</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>
