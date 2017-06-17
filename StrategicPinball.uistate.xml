@@ -25,7 +25,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <family expanded="0" name="ElementsOnTable" />
     </families-expanded>
     <folders-expanded>
-        <folder expanded="0" path="object-folder/" />
+        <folder expanded="1" path="object-folder/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="0" path="event-folder/" />
         <folder expanded="0" path="file-folder/" />
@@ -51,6 +51,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/BottomPart/" />
         <folder expanded="1" path="animation-folder/Arrow/" />
         <folder expanded="1" path="animation-folder/SpinningDoor/" />
-        <folder expanded="1" path="animation-folder/Sprite/" />
+        <folder expanded="1" path="animation-folder/RolloverSwitch/" />
+        <folder expanded="1" path="animation-folder/RightTopPaddle/" />
     </folders-expanded>
 </c2uistate>

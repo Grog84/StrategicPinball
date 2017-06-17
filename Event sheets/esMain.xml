@@ -57,6 +57,23 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="349584042626944">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="180397975510908" type="Joint">
+                            <param id="0" name="Instance variable">Side</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;TopRight&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Physics" id="22" name="Create limited revolute joint" sid="296543057406147" type="RightTopPaddle">
+                            <param id="0" name="This image point">1</param>
+                            <param id="1" name="Object">Joint</param>
+                            <param id="2" name="Lower angle">-60</param>
+                            <param id="3" name="Upper angle">0</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="916455738431161">
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="508802884573374" type="Joint">
@@ -201,6 +218,11 @@
                                     <param id="1" name="Implulse Y">-50</param>
                                     <param id="2" name="Image point">2</param>
                                 </action>
+                                <action behavior="Physics" id="3" name="Apply impulse" sid="952957831950468" type="RightTopPaddle">
+                                    <param id="0" name="Impulse X">0</param>
+                                    <param id="1" name="Implulse Y">-50</param>
+                                    <param id="2" name="Image point">2</param>
+                                </action>
                             </actions>
                         </event-block>
                     </sub-events>
@@ -287,6 +309,11 @@
                             <param id="1" name="Force Y">150</param>
                             <param id="2" name="Image point">2</param>
                         </action>
+                        <action behavior="Physics" id="0" name="Apply force" sid="435958552619263" type="RightTopPaddle">
+                            <param id="0" name="Force X">0</param>
+                            <param id="1" name="Force Y">150</param>
+                            <param id="2" name="Image point">2</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="227599208462632">
@@ -315,6 +342,11 @@
                     </conditions>
                     <actions>
                         <action behavior="Physics" id="0" name="Apply force" sid="936223971519679" type="RightPaddle">
+                            <param id="0" name="Force X">0</param>
+                            <param id="1" name="Force Y">-150</param>
+                            <param id="2" name="Image point">2</param>
+                        </action>
+                        <action behavior="Physics" id="0" name="Apply force" sid="592359819433084" type="RightTopPaddle">
                             <param id="0" name="Force X">0</param>
                             <param id="1" name="Force Y">-150</param>
                             <param id="2" name="Image point">2</param>
