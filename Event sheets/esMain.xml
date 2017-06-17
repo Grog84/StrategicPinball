@@ -74,6 +74,29 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="664071950749281">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="966716545673541" type="System">
+                            <param id="0" name="Object">SideBouncingPart</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="868611204112119">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="621914670799345" type="SideBouncingPart">
+                                    <param id="0" name="Object">SideBumper</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="572360410788951" type="SideBouncingPart">
+                                    <param id="0" name="Instance variable">bumperSpriteUID</param>
+                                    <param id="1" name="Value">SideBumper.UID</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
             </sub-events>
         </event-block>
         <event-block sid="758618571508126">
@@ -634,6 +657,32 @@
                                     <param id="0" name="Text">&quot;sideCollision&quot;</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="861275795190692">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="217393278529289" type="SideBumper">
+                                            <param id="0" name="Unique ID">SideBouncingPart.bumperSpriteUID</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Physics" id="27" name="Set enabled" sid="281941719929360" type="SideBumper">
+                                            <param id="0" name="Mode">0</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="338035196432165" type="SideBumper">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="184953957071488" type="System">
+                                            <param id="0" name="Seconds">0.3</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="471469641618416" type="SideBumper">
+                                            <param id="0" name="Frame number">0</param>
+                                        </action>
+                                        <action behavior="Physics" id="27" name="Set enabled" sid="632359193966993" type="SideBumper">
+                                            <param id="0" name="Mode">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <event-block sid="446046679910932">
                             <conditions>
