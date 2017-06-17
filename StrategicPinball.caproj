@@ -842,6 +842,25 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="MagnaSave" sid="970448884889963">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="201633751902310" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Pictures\magnaSave.png">
+                        <collision-poly>
+                            <point x="0.188976" y="0.192" />
+                            <point x="0.498688" y="0.0613333" />
+                            <point x="0.811024" y="0.192" />
+                            <point x="0.939633" y="0.498667" />
+                            <point x="0.811024" y="0.808" />
+                            <point x="0.498688" y="0.938667" />
+                            <point x="0.188976" y="0.808" />
+                            <point x="0.0629921" y="0.498667" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Paddles" plugin-id="Sprite" sid="647063370935462">
