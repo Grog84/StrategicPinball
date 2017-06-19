@@ -4,7 +4,7 @@
 It is entirely optional and the project will load without it.  If you are placing the project under source control,
 you probably do not want to add any .uistate.xml files to the repository.-->
     <show-addaction-links>1</show-addaction-links>
-    <scroll-pos>1700</scroll-pos>
+    <scroll-pos>400</scroll-pos>
     <conditions-column>540</conditions-column>
     <actions-namecolumn>80</actions-namecolumn>
     <condition-namecolumns>
@@ -33,22 +33,21 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <event collapsed="1" sid="406262345859210" />
         <event collapsed="1" sid="120067991551090" />
         <event collapsed="1" sid="154728661869561" />
-        <event collapsed="1" sid="504488856142479" />
-        <event collapsed="1" sid="856143193919922" />
         <event collapsed="1" sid="808022361435265" />
         <event collapsed="1" sid="562717360532890" />
         <event collapsed="1" sid="737644966923827" />
+        <event collapsed="1" sid="812158406399724" />
         <event collapsed="1" sid="529752405157598" />
         <event collapsed="1" sid="704237439674983" />
         <event collapsed="1" sid="649406733429764" />
         <event collapsed="1" sid="911196639099361" />
-        <event collapsed="1" sid="252197390495412" />
         <event collapsed="1" sid="961147273851735" />
         <event collapsed="1" sid="367058859495767" />
         <event collapsed="1" sid="340743094377558" />
         <event collapsed="1" sid="906084741305313" />
         <event collapsed="1" sid="285925013403934" />
         <event collapsed="1" sid="468142361469771" />
+        <event collapsed="1" sid="557482289325591" />
         <event collapsed="1" sid="418931431726357" />
         <event collapsed="1" sid="175729420587172" />
         <event collapsed="1" sid="583296478941325" />
@@ -58,6 +57,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <event collapsed="1" sid="428649418271915" />
         <event collapsed="1" sid="130657693066149" />
         <event collapsed="1" sid="629032706709105" />
+        <event collapsed="1" sid="719269366278510" />
         <event collapsed="1" sid="418637574457079" />
         <event collapsed="1" sid="784562858158112" />
         <event collapsed="1" sid="190876508616587" />

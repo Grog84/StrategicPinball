@@ -3,14 +3,15 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esMain</name>
     <events>
+        <variable constant="0" name="areLettersOnField" sid="870005584758931" static="0" type="number">0</variable>
         <variable constant="0" name="CanSelectOtherPuP" sid="104493998818555" static="0" type="number">1</variable>
         <variable constant="0" name="LastClickedPowerUpArea" sid="937924764339684" static="0" type="number">0</variable>
         <variable constant="0" name="LastClickedPowerUpType" sid="565862839127798" static="0" type="text"></variable>
-        <variable constant="0" name="gameTimer" sid="707520278374114" static="0" type="number">600</variable>
+        <variable constant="0" name="gameTimer" sid="707520278374114" static="0" type="number">1200</variable>
         <variable constant="0" name="isPaused" sid="263510902526751" static="0" type="number">0</variable>
         <variable constant="0" name="isBowieActive" sid="899711938972924" static="0" type="number">0</variable>
         <variable constant="0" name="BallLossPoints" sid="449588326139012" static="0" type="number">300</variable>
-        <variable constant="0" name="Cash" sid="584479728835511" static="0" type="number">4000000</variable>
+        <variable constant="0" name="Cash" sid="584479728835511" static="0" type="number">400</variable>
         <variable constant="0" name="ballInGame" sid="948187606096225" static="0" type="number">0</variable>
         <variable constant="0" name="Shaken" sid="232118938800705" static="0" type="number">0</variable>
         <event-block sid="743830243251371">
@@ -659,10 +660,30 @@
                                 <action id="6" name="Set speed" sid="674318941186698" type="SpinningDoor">
                                     <param id="0" name="Speed">20</param>
                                 </action>
+                                <action id="-10" name="Add to" sid="432858786515877" type="System">
+                                    <param id="0" name="Variable">Cash</param>
+                                    <param id="1" name="Value">SpinningDoor.Score*SpinningDoor.combo</param>
+                                </action>
+                                <action id="0" name="Call function" sid="591576442391845" type="Function">
+                                    <param id="0" name="Name">&quot;UpdateScore&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
                                 <action behavior="Timer2" id="0" name="Start timer" sid="657087441515814" type="SpinningDoor">
                                     <param id="0" name="Duration">sqrt(Ball.Physics.VelocityX*Ball.Physics.VelocityX + Ball.Physics.VelocityY*Ball.Physics.VelocityY)*Self.spinTimerFactor</param>
                                     <param id="1" name="Type">0</param>
                                     <param id="2" name="Tag">&quot;spin&quot;</param>
+                                </action>
+                                <action behavior="Timer2" id="1" name="Stop timer" sid="236667518275932" type="SpinningDoor">
+                                    <param id="0" name="Tag">&quot;waitingForMoreSpin&quot;</param>
+                                </action>
+                                <action behavior="Timer2" id="0" name="Start timer" sid="177493419109004" type="SpinningDoor">
+                                    <param id="0" name="Duration">30</param>
+                                    <param id="1" name="Type">0</param>
+                                    <param id="2" name="Tag">&quot;waitingForMoreSpin&quot;</param>
+                                </action>
+                                <action id="-11" name="Add to" sid="183489107378491" type="SpinningDoor">
+                                    <param id="0" name="Instance variable">combo</param>
+                                    <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -679,6 +700,19 @@
                                 </action>
                                 <action id="6" name="Set speed" sid="241724522736852" type="SpinningDoor">
                                     <param id="0" name="Speed">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="898494038526608">
+                            <conditions>
+                                <condition behavior="Timer2" id="0" name="On timer" sid="514479866303184" type="SpinningDoor">
+                                    <param id="0" name="Tag">&quot;waitingForMoreSpin&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="454537197203088" type="SpinningDoor">
+                                    <param id="0" name="Instance variable">combo</param>
+                                    <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -734,6 +768,9 @@
                                 <condition id="0" name="On collision with another object" sid="774212212094752" type="Ball">
                                     <param id="0" name="Object">SideBouncingPart</param>
                                 </condition>
+                                <condition id="1" name="Is overlapping another object" sid="386509273434800" type="SideBouncingPart">
+                                    <param id="0" name="Object">SideBumper</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="0" name="Call function" sid="521544221295383" type="Function">
@@ -742,6 +779,14 @@
                                 </action>
                                 <action id="0" name="Set text" sid="657615575030030" type="Debug">
                                     <param id="0" name="Text">&quot;sideCollision&quot;</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="325955661133984" type="System">
+                                    <param id="0" name="Variable">Cash</param>
+                                    <param id="1" name="Value">50</param>
+                                </action>
+                                <action id="0" name="Call function" sid="430520092199145" type="Function">
+                                    <param id="0" name="Name">&quot;UpdateScore&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
                                 </action>
                             </actions>
                             <sub-events>
@@ -1301,6 +1346,11 @@
                                     <param id="0" name="Instance variable">hasBeenTriggered</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="421046826895420" type="System">
+                                    <param id="0" name="Variable">areLettersOnField</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -2447,6 +2497,43 @@
                                         </action>
                                     </actions>
                                 </event-block>
+                                <event-block sid="841915203881463">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="695892965427319" type="PowerUpsArea">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;TopWall&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="375899315214197" type="PowerUpsArea">
+                                            <param id="0" name="Object">SelectionBkg</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="980354636449694" type="SelectionBkg">
+                                            <param id="0" name="Object">ArrowUp</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="262177854210411" type="ArrowUp">
+                                            <param id="0" name="Frame number">9</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="988120741756065" type="ArrowUp">
+                                            <param id="0" name="Object">Price</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="547189829425290" type="ArrowUp">
+                                            <param id="0" name="Instance variable">textUID</param>
+                                            <param id="1" name="Value">Price.UID</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="442616235640147" type="Function">
+                                            <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                            <param id="1" name="Parameter {n}">Price.UID{###}150{###}-1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
                             </sub-events>
                         </event-block>
                         <event-block sid="990110757255356">
@@ -3081,9 +3168,66 @@
                                                                     <param id="0" name="X">PowerUpsArea.X</param>
                                                                     <param id="1" name="Y">PowerUpsArea.Y</param>
                                                                 </action>
+                                                                <action behavior="Physics" id="27" name="Set enabled" sid="455189875248804" type="RightTopPaddle">
+                                                                    <param id="0" name="Mode">1</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="422283951978099">
+                                                            <conditions>
+                                                                <condition id="-7" name="Compare instance variable" sid="531198633969563" type="Joint">
+                                                                    <param id="0" name="Instance variable">Side</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">&quot;TopRight&quot;</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action behavior="Physics" id="27" name="Set enabled" sid="636738260557345" type="Joint">
+                                                                    <param id="0" name="Mode">1</param>
+                                                                </action>
+                                                                <action id="-3" name="Set position" sid="794952596551839" type="Joint">
+                                                                    <param id="0" name="X">709</param>
+                                                                    <param id="1" name="Y">549</param>
+                                                                </action>
+                                                                <action behavior="Physics" id="22" name="Create limited revolute joint" sid="924982423041240" type="RightTopPaddle">
+                                                                    <param id="0" name="This image point">1</param>
+                                                                    <param id="1" name="Object">Joint</param>
+                                                                    <param id="2" name="Lower angle">-60</param>
+                                                                    <param id="3" name="Upper angle">0</param>
+                                                                </action>
                                                             </actions>
                                                         </event-block>
                                                     </sub-events>
+                                                </event-block>
+                                                <event-block sid="424618454189718">
+                                                    <conditions>
+                                                        <condition id="3" name="Compare frame" sid="679612418463393" type="ArrowUp">
+                                                            <param id="0" name="Comparison">0</param>
+                                                            <param id="1" name="Number">9</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-3" name="Set position" sid="169508738578590" type="S">
+                                                            <param id="0" name="X">self.xPos</param>
+                                                            <param id="1" name="Y">self.yPos</param>
+                                                        </action>
+                                                        <action id="-3" name="Set position" sid="691016861660264" type="T">
+                                                            <param id="0" name="X">self.xPos</param>
+                                                            <param id="1" name="Y">self.yPos</param>
+                                                        </action>
+                                                        <action id="-3" name="Set position" sid="802107375159981" type="A">
+                                                            <param id="0" name="X">self.xPos</param>
+                                                            <param id="1" name="Y">self.yPos</param>
+                                                        </action>
+                                                        <action id="-3" name="Set position" sid="684213847591503" type="R">
+                                                            <param id="0" name="X">self.xPos</param>
+                                                            <param id="1" name="Y">self.yPos</param>
+                                                        </action>
+                                                        <action id="-9" name="Set value" sid="776404777678453" type="System">
+                                                            <param id="0" name="Variable">areLettersOnField</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
                                                 </event-block>
                                                 <event-block sid="740732463882720">
                                                     <conditions>

@@ -1122,8 +1122,8 @@
                         <x>1656</x>
                         <y>513</y>
                         <z>0</z>
-                        <width>102.189300537</width>
-                        <height>102.189300537</height>
+                        <width>84.75415802</width>
+                        <height>84.75415802</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -2507,7 +2507,7 @@
                                 <linear-damping>1</linear-damping>
                                 <angular-damping>1</angular-damping>
                                 <bullet>No</bullet>
-                                <initial-state>Enabled</initial-state>
+                                <initial-state>Disabled</initial-state>
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
@@ -2562,7 +2562,7 @@
                                 <linear-damping>0</linear-damping>
                                 <angular-damping>0.01</angular-damping>
                                 <bullet>No</bullet>
-                                <initial-state>Enabled</initial-state>
+                                <initial-state>Disabled</initial-state>
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
@@ -3096,8 +3096,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>459</x>
-                        <y>368</y>
+                        <x>470</x>
+                        <y>358</y>
                         <z>0</z>
                         <width>104.980949402</width>
                         <height>104.980949402</height>
@@ -3123,8 +3123,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>566</x>
-                        <y>287</y>
+                        <x>584</x>
+                        <y>295</y>
                         <z>0</z>
                         <width>104.980949402</width>
                         <height>104.980949402</height>
@@ -3150,8 +3150,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>434</x>
-                        <y>257</y>
+                        <x>445</x>
+                        <y>243</y>
                         <z>0</z>
                         <width>104.980949402</width>
                         <height>104.980949402</height>
@@ -3643,9 +3643,10 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <Score>10</Score>
+                        <Score>200</Score>
                         <IsSpinning>0</IsSpinning>
                         <spinTimerFactor>0.001</spinTimerFactor>
+                        <combo>1</combo>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Sine2">
@@ -3722,7 +3723,7 @@
                         <x>1029</x>
                         <y>824</y>
                         <z>0</z>
-                        <width>326</width>
+                        <width>346</width>
                         <height>131</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>

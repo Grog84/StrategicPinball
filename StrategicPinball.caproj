@@ -906,6 +906,7 @@
             <instance-variables>
                 <instance-variable name="IsSpinning" sid="383675263845189" type="number" />
                 <instance-variable name="spinTimerFactor" sid="891867767278096" type="number" />
+                <instance-variable name="combo" sid="545631300130706" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Timer2" sid="470041952337938">
@@ -1601,7 +1602,7 @@
                 <instance-variable name="textUID" sid="362455064245414" type="number" />
             </instance-variables>
             <animation-folder>
-                <animation framecount="11" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="526750797772708" speed="0">
+                <animation framecount="12" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="526750797772708" speed="0">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\greenArrow.png">
                         <image-point name="TextSpawn" x="0.5" y="1.16667" />
                     </frame>
@@ -1629,10 +1630,11 @@
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                         <image-point name="TextSpawn" x="0.5" y="1.16667" />
                     </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                         <image-point name="TextSpawn" x="0.5" y="1.16667" />
                     </frame>
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
         </object-type>
