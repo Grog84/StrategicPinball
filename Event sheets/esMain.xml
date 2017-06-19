@@ -3,11 +3,14 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esMain</name>
     <events>
+        <variable constant="0" name="CanSelectOtherPuP" sid="104493998818555" static="0" type="number">1</variable>
+        <variable constant="0" name="LastClickedPowerUpArea" sid="937924764339684" static="0" type="number">0</variable>
+        <variable constant="0" name="LastClickedPowerUpType" sid="565862839127798" static="0" type="text"></variable>
         <variable constant="0" name="gameTimer" sid="707520278374114" static="0" type="number">600</variable>
         <variable constant="0" name="isPaused" sid="263510902526751" static="0" type="number">0</variable>
         <variable constant="0" name="isBowieActive" sid="899711938972924" static="0" type="number">0</variable>
         <variable constant="0" name="BallLossPoints" sid="449588326139012" static="0" type="number">300</variable>
-        <variable constant="0" name="Cash" sid="584479728835511" static="0" type="number">300</variable>
+        <variable constant="0" name="Cash" sid="584479728835511" static="0" type="number">4000000</variable>
         <variable constant="0" name="ballInGame" sid="948187606096225" static="0" type="number">0</variable>
         <variable constant="0" name="Shaken" sid="232118938800705" static="0" type="number">0</variable>
         <event-block sid="743830243251371">
@@ -120,6 +123,24 @@
                             </actions>
                         </event-block>
                     </sub-events>
+                </event-block>
+                <event-block sid="646610016942025">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="958648614027441" type="System">
+                            <param id="0" name="Variable">isPaused</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-13" name="Set time scale" sid="757540874562647" type="System">
+                            <param id="0" name="Time scale">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="818349411690711" type="PowerUpsArea">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="255882347512786" type="PlayPause">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
         </event-block>
@@ -1080,6 +1101,11 @@
                         <action id="-15" name="Set visible" sid="133449377074599" type="ChargeEffect">
                             <param id="0" name="Visibility">1</param>
                         </action>
+                        <action behavior="Timer3" id="0" name="Start timer" sid="213797748791921" type="MagnaSave">
+                            <param id="0" name="Duration">self.activationTime</param>
+                            <param id="1" name="Type">0</param>
+                            <param id="2" name="Tag">&quot;working&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="846132533451588">
@@ -1094,6 +1120,19 @@
                     <actions>
                         <action id="-15" name="Set visible" sid="956006331593367" type="ChargeEffect">
                             <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="236301562245741">
+                    <conditions>
+                        <condition behavior="Timer3" id="0" name="On timer" sid="354995274143817" type="MagnaSave">
+                            <param id="0" name="Tag">&quot;working&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="430823455134577" type="MagnaSave">
+                            <param id="0" name="Instance variable">isActive</param>
+                            <param id="1" name="Value">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1252,6 +1291,11 @@
                                     <param id="0" name="Instance variable">Position</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">&quot;Top&quot;</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="737192084120706" type="System">
+                                    <param id="0" name="Variable">isBowieActive</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
                                 </condition>
                                 <condition id="-7" name="Compare instance variable" sid="110787238915761" type="RolloverSwitch">
                                     <param id="0" name="Instance variable">hasBeenTriggered</param>
@@ -1562,7 +1606,1531 @@
         </event-group>
         <event-group description="" sid="714423500412454" title="Manager">
             <sub-events>
-                <event-group description="" sid="780640739119744" title="PowerUpsPlacement" />
+                <event-group description="" sid="780640739119744" title="PowerUpsPlacement">
+                    <sub-events>
+                        <event-block sid="285925013403934">
+                            <conditions>
+                                <condition id="0" name="On function" sid="458027986188973" type="Function">
+                                    <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="468142361469771">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="128833450318022" type="Price">
+                                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-1" name="Set X" sid="186121947837257" type="Price">
+                                            <param id="0" name="X">self.X - 40</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="494189142507754" type="Price">
+                                            <param id="0" name="Text">str(Function.Param(2) * Function.Param(1))</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="538113666770155">
+                                            <conditions>
+                                                <condition id="1" name="Compare parameter" sid="801543808892488" type="Function">
+                                                    <param id="0" name="Index">2</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="7" name="Set CSS style" sid="144995742230460" type="Price">
+                                                    <param id="0" name="Property name">&quot;color&quot;</param>
+                                                    <param id="1" name="Value">&quot;green&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="453668236843625">
+                                            <conditions>
+                                                <condition id="1" name="Compare parameter" sid="379770674611494" type="Function">
+                                                    <param id="0" name="Index">2</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">-1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="7" name="Set CSS style" sid="721611735488791" type="Price">
+                                                    <param id="0" name="Property name">&quot;color&quot;</param>
+                                                    <param id="1" name="Value">&quot;red&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="557482289325591">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="369899023581435" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">PowerUpsArea</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="596545676453762" type="PowerUpsArea">
+                                    <param id="0" name="Instance variable">HasBeenClicked</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="696012879467134" type="System">
+                                    <param id="0" name="Variable">CanSelectOtherPuP</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="514810831422973" type="PowerUpsArea">
+                                    <param id="0" name="Object">SideBumper</param>
+                                </condition>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="891979298675687" type="PowerUpsArea">
+                                    <param id="0" name="Object">RightTopPaddle</param>
+                                </condition>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="829863913380101" type="PowerUpsArea">
+                                    <param id="0" name="Object">SpinningDoor</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="210019786998465" type="System">
+                                    <param id="0" name="Variable">LastClickedPowerUpArea</param>
+                                    <param id="1" name="Value">PowerUpsArea.UID</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="799340223704078" type="System">
+                                    <param id="0" name="Variable">LastClickedPowerUpType</param>
+                                    <param id="1" name="Value">PowerUpsArea.Type</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="703831160158620" type="PowerUpsArea">
+                                    <param id="0" name="Instance variable">HasBeenClicked</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="312871581109369" type="System">
+                                    <param id="0" name="Variable">CanSelectOtherPuP</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="418931431726357">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="245692918531465" type="PowerUpsArea">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Bumper&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="774426449360770">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="464599114905689" type="PowerUpsArea">
+                                                    <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="683592552520966" type="PowerUpsArea">
+                                                    <param id="0" name="Object">SelectionBkg</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="392941201045043" type="SelectionBkg">
+                                                    <param id="0" name="Object">ArrowUp</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="616563655369109" type="ArrowUp">
+                                                    <param id="0" name="Frame number">2</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="937980413932371" type="ArrowUp">
+                                                    <param id="0" name="Object">Price</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="650550745752856" type="ArrowUp">
+                                                    <param id="0" name="Instance variable">textUID</param>
+                                                    <param id="1" name="Value">Price.UID</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="181547757764420" type="Function">
+                                                    <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Price.UID{###}200{###}-1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="866474731744006">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="981249052259681" type="System" />
+                                                <condition id="-7" name="Compare instance variable" sid="309340552560950" type="PowerUpsArea">
+                                                    <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="187568174010427" type="PowerUpsArea">
+                                                    <param id="0" name="Object">SelectionBkg</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="445521171886506" type="SelectionBkg">
+                                                    <param id="0" name="Object">ArrowUp</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">2</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="451646514739873" type="ArrowUp">
+                                                    <param id="0" name="Frame number">0</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="111639336485411" type="ArrowUp">
+                                                    <param id="0" name="Object">Price</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="867479506672273" type="ArrowUp">
+                                                    <param id="0" name="Instance variable">textUID</param>
+                                                    <param id="1" name="Value">Price.UID</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="432886502706346" type="Function">
+                                                    <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Price.UID{###}400{###}-1</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="997447478497462" type="SelectionBkg">
+                                                    <param id="0" name="Object">ArrowUp</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">3</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="327608658474596" type="ArrowUp">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="510470826754185" type="ArrowUp">
+                                                    <param id="0" name="Object">Price</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="646443699668002" type="ArrowUp">
+                                                    <param id="0" name="Instance variable">textUID</param>
+                                                    <param id="1" name="Value">Price.UID</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="902890869467385" type="Function">
+                                                    <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Price.UID{###}100{###}1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="555452553774857">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="502119516756708" type="System" />
+                                                <condition id="-7" name="Compare instance variable" sid="184924816904167" type="PowerUpsArea">
+                                                    <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="325095567392018" type="PowerUpsArea">
+                                                    <param id="0" name="Object">SelectionBkg</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="730797457435710" type="SelectionBkg">
+                                                    <param id="0" name="Object">ArrowUp</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">2</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="550081573086313" type="ArrowUp">
+                                                    <param id="0" name="Frame number">0</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="809859676036733" type="ArrowUp">
+                                                    <param id="0" name="Object">Price</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="625363381213922" type="ArrowUp">
+                                                    <param id="0" name="Instance variable">textUID</param>
+                                                    <param id="1" name="Value">Price.UID</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="224250406365422" type="Function">
+                                                    <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Price.UID{###}800{###}-1</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="907680422509448" type="SelectionBkg">
+                                                    <param id="0" name="Object">ArrowUp</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">3</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="591858388043876" type="ArrowUp">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="638701566706536" type="ArrowUp">
+                                                    <param id="0" name="Object">Price</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="171858812197671" type="ArrowUp">
+                                                    <param id="0" name="Instance variable">textUID</param>
+                                                    <param id="1" name="Value">Price.UID</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="107023354016016" type="Function">
+                                                    <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Price.UID{###}200{###}1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="991474592514660">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="416764732884635" type="System" />
+                                                <condition id="-7" name="Compare instance variable" sid="466493195033557" type="PowerUpsArea">
+                                                    <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">3</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="218154295235750" type="PowerUpsArea">
+                                                    <param id="0" name="Object">SelectionBkg</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="842390451328567" type="SelectionBkg">
+                                                    <param id="0" name="Object">ArrowUp</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">2</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="811916605428695" type="ArrowUp">
+                                                    <param id="0" name="Frame number">0</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="736485081268399" type="ArrowUp">
+                                                    <param id="0" name="Object">Price</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="485597701495874" type="ArrowUp">
+                                                    <param id="0" name="Instance variable">textUID</param>
+                                                    <param id="1" name="Value">Price.UID</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="652664237001051" type="Function">
+                                                    <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Price.UID{###}1600{###}-1</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="758323685158229" type="SelectionBkg">
+                                                    <param id="0" name="Object">ArrowUp</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">3</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="599823881169012" type="ArrowUp">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="207400392295355" type="ArrowUp">
+                                                    <param id="0" name="Object">Price</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="204197389139389" type="ArrowUp">
+                                                    <param id="0" name="Instance variable">textUID</param>
+                                                    <param id="1" name="Value">Price.UID</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="355655065744732" type="Function">
+                                                    <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Price.UID{###}400{###}1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="605216235627067">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="518906747807070" type="System" />
+                                                <condition id="-7" name="Compare instance variable" sid="788024050339499" type="PowerUpsArea">
+                                                    <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">4</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="957248557753547" type="PowerUpsArea">
+                                                    <param id="0" name="Object">SelectionBkg</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="277209471298666" type="SelectionBkg">
+                                                    <param id="0" name="Object">ArrowUp</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">3</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="949427344310084" type="ArrowUp">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="301114241080845" type="ArrowUp">
+                                                    <param id="0" name="Object">Price</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="125236836769359" type="ArrowUp">
+                                                    <param id="0" name="Instance variable">textUID</param>
+                                                    <param id="1" name="Value">Price.UID</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="349502460578126" type="Function">
+                                                    <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Price.UID{###}800{###}1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="175729420587172">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="335932413608590" type="PowerUpsArea">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;DropTarget&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="954980693137940">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="257676693327418" type="PowerUpsArea">
+                                                    <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="462974184163084" type="PowerUpsArea">
+                                                    <param id="0" name="Object">SelectionBkg</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="189274775894317" type="SelectionBkg">
+                                                    <param id="0" name="Object">ArrowUp</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="251253152184832" type="ArrowUp">
+                                                    <param id="0" name="Frame number">3</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="903607908098741" type="ArrowUp">
+                                                    <param id="0" name="Object">Price</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="249823552931505" type="ArrowUp">
+                                                    <param id="0" name="Instance variable">textUID</param>
+                                                    <param id="1" name="Value">Price.UID</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="584145314584395" type="Function">
+                                                    <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Price.UID{###}80{###}-1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="145776137551515">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="378196169986923" type="System" />
+                                                <condition id="-7" name="Compare instance variable" sid="242063223229056" type="PowerUpsArea">
+                                                    <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="379373694303156" type="PowerUpsArea">
+                                                    <param id="0" name="Object">SelectionBkg</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="398724003423613" type="SelectionBkg">
+                                                    <param id="0" name="Object">ArrowUp</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">2</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="724448239951529" type="ArrowUp">
+                                                    <param id="0" name="Frame number">0</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="311134097245759" type="ArrowUp">
+                                                    <param id="0" name="Object">Price</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="629017515659033" type="ArrowUp">
+                                                    <param id="0" name="Instance variable">textUID</param>
+                                                    <param id="1" name="Value">Price.UID</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="273888700789343" type="Function">
+                                                    <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Price.UID{###}160{###}-1</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="209781861092114" type="SelectionBkg">
+                                                    <param id="0" name="Object">ArrowUp</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">3</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="230074661556206" type="ArrowUp">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="328193832951935" type="ArrowUp">
+                                                    <param id="0" name="Object">Price</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="411291113128208" type="ArrowUp">
+                                                    <param id="0" name="Instance variable">textUID</param>
+                                                    <param id="1" name="Value">Price.UID</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="517428655415453" type="Function">
+                                                    <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Price.UID{###}40{###}1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="102366088607556">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="979938421633297" type="System" />
+                                                <condition id="-7" name="Compare instance variable" sid="354547404127404" type="PowerUpsArea">
+                                                    <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="385905399194916" type="PowerUpsArea">
+                                                    <param id="0" name="Object">SelectionBkg</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="428445258848500" type="SelectionBkg">
+                                                    <param id="0" name="Object">ArrowUp</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">2</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="406990844283620" type="ArrowUp">
+                                                    <param id="0" name="Frame number">0</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="378560188069780" type="ArrowUp">
+                                                    <param id="0" name="Object">Price</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="561788215252431" type="ArrowUp">
+                                                    <param id="0" name="Instance variable">textUID</param>
+                                                    <param id="1" name="Value">Price.UID</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="598480612239871" type="Function">
+                                                    <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Price.UID{###}320{###}-1</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="908372555569199" type="SelectionBkg">
+                                                    <param id="0" name="Object">ArrowUp</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">3</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="879800052100979" type="ArrowUp">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="872007233093439" type="ArrowUp">
+                                                    <param id="0" name="Object">Price</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="408266656240436" type="ArrowUp">
+                                                    <param id="0" name="Instance variable">textUID</param>
+                                                    <param id="1" name="Value">Price.UID</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="746709176503840" type="Function">
+                                                    <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Price.UID{###}80{###}1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="552075227055043">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="443809150732936" type="System" />
+                                                <condition id="-7" name="Compare instance variable" sid="290615285303603" type="PowerUpsArea">
+                                                    <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">3</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="544247094423620" type="PowerUpsArea">
+                                                    <param id="0" name="Object">SelectionBkg</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="186477962136230" type="SelectionBkg">
+                                                    <param id="0" name="Object">ArrowUp</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">3</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="183893097506471" type="ArrowUp">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="990468357844233" type="ArrowUp">
+                                                    <param id="0" name="Object">Price</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="600281129120604" type="ArrowUp">
+                                                    <param id="0" name="Instance variable">textUID</param>
+                                                    <param id="1" name="Value">Price.UID</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="763334177490684" type="Function">
+                                                    <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Price.UID{###}80{###}1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="560023331824323">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="358246423380783" type="PowerUpsArea">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;RevolvingDoor&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="628771381235433" type="PowerUpsArea">
+                                            <param id="0" name="Object">SelectionBkg</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="389623596993490" type="SelectionBkg">
+                                            <param id="0" name="Object">ArrowUp</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="397658711362322" type="ArrowUp">
+                                            <param id="0" name="Frame number">7</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="832267605461933" type="ArrowUp">
+                                            <param id="0" name="Object">Price</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="521888678266261" type="ArrowUp">
+                                            <param id="0" name="Instance variable">textUID</param>
+                                            <param id="1" name="Value">Price.UID</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="537384072805252" type="Function">
+                                            <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                            <param id="1" name="Parameter {n}">Price.UID{###}250{###}-1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="583296478941325">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="306289854240429" type="PowerUpsArea">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;MagnaSave&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="619237588274446">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="971346421930737" type="PowerUpsArea">
+                                                    <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="444183263933066" type="PowerUpsArea">
+                                                    <param id="0" name="Object">SelectionBkg</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="576680605482750" type="SelectionBkg">
+                                                    <param id="0" name="Object">ArrowUp</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="269334799857177" type="ArrowUp">
+                                                    <param id="0" name="Frame number">5</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="695065253975052" type="ArrowUp">
+                                                    <param id="0" name="Object">Price</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="234068341338901" type="ArrowUp">
+                                                    <param id="0" name="Instance variable">textUID</param>
+                                                    <param id="1" name="Value">Price.UID</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="576078606064541" type="Function">
+                                                    <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Price.UID{###}400{###}-1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="325444445955087">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="399230400745518" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="185465802258606" type="PowerUpsArea">
+                                                    <param id="0" name="Object">SelectionBkg</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="660062689505892" type="SelectionBkg">
+                                                    <param id="0" name="Object">ArrowUp</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="602039293651959" type="ArrowUp">
+                                                    <param id="0" name="Frame number">10</param>
+                                                </action>
+                                                <action id="0" name="Spawn another object" sid="801418769802434" type="ArrowUp">
+                                                    <param id="0" name="Object">Price</param>
+                                                    <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                                    <param id="2" name="Image point">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="120937003584293" type="ArrowUp">
+                                                    <param id="0" name="Instance variable">textUID</param>
+                                                    <param id="1" name="Value">Price.UID</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="657138952034731" type="Function">
+                                                    <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Price.UID{###}200{###}-1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="331104635858252">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="927721233089679" type="PowerUpsArea">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;ExtraPaddle&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="584005712501580" type="PowerUpsArea">
+                                            <param id="0" name="Object">SelectionBkg</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="617249508029119" type="SelectionBkg">
+                                            <param id="0" name="Object">ArrowUp</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="126008595567643" type="ArrowUp">
+                                            <param id="0" name="Frame number">8</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="300240501826692" type="ArrowUp">
+                                            <param id="0" name="Object">Price</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="603406862873832" type="ArrowUp">
+                                            <param id="0" name="Instance variable">textUID</param>
+                                            <param id="1" name="Value">Price.UID</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="253151585857832" type="Function">
+                                            <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                            <param id="1" name="Parameter {n}">Price.UID{###}250{###}-1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="249216045650064">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="753787107465623" type="PowerUpsArea">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;LKicker&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="263957858288575" type="PowerUpsArea">
+                                            <param id="0" name="Object">SelectionBkg</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="322165505374959" type="SelectionBkg">
+                                            <param id="0" name="Object">ArrowUp</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="259980927878879" type="ArrowUp">
+                                            <param id="0" name="Frame number">4</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="926298141465460" type="ArrowUp">
+                                            <param id="0" name="Object">Price</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="714019987465150" type="ArrowUp">
+                                            <param id="0" name="Instance variable">textUID</param>
+                                            <param id="1" name="Value">Price.UID</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="806250637143712" type="Function">
+                                            <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                            <param id="1" name="Parameter {n}">Price.UID{###}250{###}-1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="300130373375795">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="561354795004031" type="PowerUpsArea">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;RKicker&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="906519173455307" type="PowerUpsArea">
+                                            <param id="0" name="Object">SelectionBkg</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="782776725203713" type="SelectionBkg">
+                                            <param id="0" name="Object">ArrowUp</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="340725578311673" type="ArrowUp">
+                                            <param id="0" name="Frame number">4</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="286308648086406" type="ArrowUp">
+                                            <param id="0" name="Object">Price</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="504114666451750" type="ArrowUp">
+                                            <param id="0" name="Instance variable">textUID</param>
+                                            <param id="1" name="Value">Price.UID</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="939827864879394" type="Function">
+                                            <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                            <param id="1" name="Parameter {n}">Price.UID{###}250{###}-1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="547230843291200">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="800768848891239" type="PowerUpsArea">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;SideDoor&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="898116559626456" type="PowerUpsArea">
+                                            <param id="0" name="Object">SelectionBkg</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="887167089864243" type="SelectionBkg">
+                                            <param id="0" name="Object">ArrowUp</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="616303830353609" type="ArrowUp">
+                                            <param id="0" name="Frame number">6</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="139450178583597" type="ArrowUp">
+                                            <param id="0" name="Object">Price</param>
+                                            <param id="1" name="Layer">&quot;PowerUps&quot;</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="582127143658432" type="ArrowUp">
+                                            <param id="0" name="Instance variable">textUID</param>
+                                            <param id="1" name="Value">Price.UID</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="671776899644936" type="Function">
+                                            <param id="0" name="Name">&quot;SetPrice&quot;</param>
+                                            <param id="1" name="Parameter {n}">Price.UID{###}150{###}-1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="990110757255356">
+                            <conditions>
+                                <condition id="7" inverted="1" name="Cursor is over object" sid="930521304241370" type="Mouse">
+                                    <param id="0" name="Object">SelectionBkg</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="936690577859132" type="SelectionBkg" />
+                                <action id="-9" name="Destroy" sid="848739208851751" type="ArrowUp" />
+                                <action id="-9" name="Destroy" sid="815262147116023" type="Price" />
+                                <action id="-9" name="Set value" sid="782970999972480" type="System">
+                                    <param id="0" name="Variable">LastClickedPowerUpArea</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="126189180344562" type="System">
+                                    <param id="0" name="Variable">CanSelectOtherPuP</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="964042810558352" type="PowerUpsArea">
+                                    <param id="0" name="Instance variable">HasBeenClicked</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="111837672285325">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="444409170523205" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">ArrowUp</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="543004041994341">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="981749979606966" type="Price">
+                                            <param id="0" name="Unique ID">ArrowUp.textUID</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="253272900557153" type="Debug">
+                                            <param id="0" name="Text">int(Price.Text)</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="972651179454570">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="918226426898082" type="System">
+                                                    <param id="0" name="Variable">Cash</param>
+                                                    <param id="1" name="Comparison">5</param>
+                                                    <param id="2" name="Value">-1*int(Price.Text)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="129994918262444">
+                                                    <conditions>
+                                                        <condition id="3" name="Compare frame" sid="941154753057402" type="ArrowUp">
+                                                            <param id="0" name="Comparison">0</param>
+                                                            <param id="1" name="Number">0</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="906650376302431">
+                                                            <conditions>
+                                                                <condition id="-14" name="Compare variable" sid="221671419505754" type="System">
+                                                                    <param id="0" name="Variable">LastClickedPowerUpType</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">&quot;Bumper&quot;</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions />
+                                                            <sub-events>
+                                                                <event-block sid="827623942954563">
+                                                                    <conditions>
+                                                                        <condition id="-14" name="Pick by unique ID" sid="153996414884772" type="PowerUpsArea">
+                                                                            <param id="0" name="Unique ID">LastClickedPowerUpArea</param>
+                                                                        </condition>
+                                                                    </conditions>
+                                                                    <actions />
+                                                                    <sub-events>
+                                                                        <event-block sid="905429757113331">
+                                                                            <conditions>
+                                                                                <condition id="1" name="Is overlapping another object" sid="719394172406797" type="Bumper">
+                                                                                    <param id="0" name="Object">PowerUpsArea</param>
+                                                                                </condition>
+                                                                            </conditions>
+                                                                            <actions />
+                                                                            <sub-events>
+                                                                                <event-block sid="842559695549934">
+                                                                                    <conditions>
+                                                                                        <condition id="2" name="Is playing" sid="462232337513324" type="Bumper">
+                                                                                            <param id="0" name="Animation">&quot;50Pts&quot;</param>
+                                                                                        </condition>
+                                                                                    </conditions>
+                                                                                    <actions>
+                                                                                        <action id="4" name="Set animation" sid="661387711060661" type="Bumper">
+                                                                                            <param id="0" name="Animation">&quot;100Pts&quot;</param>
+                                                                                            <param id="1" name="From">1</param>
+                                                                                        </action>
+                                                                                    </actions>
+                                                                                </event-block>
+                                                                                <event-block sid="506672836854688">
+                                                                                    <conditions>
+                                                                                        <condition id="-22" name="Else" sid="641877436768639" type="System" />
+                                                                                        <condition id="2" name="Is playing" sid="721105216774777" type="Bumper">
+                                                                                            <param id="0" name="Animation">&quot;100Pts&quot;</param>
+                                                                                        </condition>
+                                                                                    </conditions>
+                                                                                    <actions>
+                                                                                        <action id="4" name="Set animation" sid="938014224355326" type="Bumper">
+                                                                                            <param id="0" name="Animation">&quot;200Pts&quot;</param>
+                                                                                            <param id="1" name="From">1</param>
+                                                                                        </action>
+                                                                                    </actions>
+                                                                                </event-block>
+                                                                                <event-block sid="182148909373092">
+                                                                                    <conditions>
+                                                                                        <condition id="-22" name="Else" sid="531077413733015" type="System" />
+                                                                                        <condition id="2" name="Is playing" sid="183657326125594" type="Bumper">
+                                                                                            <param id="0" name="Animation">&quot;200Pts&quot;</param>
+                                                                                        </condition>
+                                                                                    </conditions>
+                                                                                    <actions>
+                                                                                        <action id="4" name="Set animation" sid="427414094105417" type="Bumper">
+                                                                                            <param id="0" name="Animation">&quot;400Pts&quot;</param>
+                                                                                            <param id="1" name="From">1</param>
+                                                                                        </action>
+                                                                                    </actions>
+                                                                                </event-block>
+                                                                                <event-block sid="368151480015030">
+                                                                                    <conditions>
+                                                                                        <condition id="-22" name="Else" sid="181842583629643" type="System" />
+                                                                                        <condition id="2" name="Is playing" sid="279697502718844" type="Bumper">
+                                                                                            <param id="0" name="Animation">&quot;Bowie50Pts&quot;</param>
+                                                                                        </condition>
+                                                                                    </conditions>
+                                                                                    <actions>
+                                                                                        <action id="4" name="Set animation" sid="313979262985392" type="Bumper">
+                                                                                            <param id="0" name="Animation">&quot;Bowie100Pts&quot;</param>
+                                                                                            <param id="1" name="From">1</param>
+                                                                                        </action>
+                                                                                    </actions>
+                                                                                </event-block>
+                                                                                <event-block sid="835045133550069">
+                                                                                    <conditions>
+                                                                                        <condition id="-22" name="Else" sid="502057717328165" type="System" />
+                                                                                        <condition id="2" name="Is playing" sid="708775958223910" type="Bumper">
+                                                                                            <param id="0" name="Animation">&quot;Bowie100Pts&quot;</param>
+                                                                                        </condition>
+                                                                                    </conditions>
+                                                                                    <actions>
+                                                                                        <action id="4" name="Set animation" sid="364756942211841" type="Bumper">
+                                                                                            <param id="0" name="Animation">&quot;Bowie200Pts&quot;</param>
+                                                                                            <param id="1" name="From">1</param>
+                                                                                        </action>
+                                                                                    </actions>
+                                                                                </event-block>
+                                                                                <event-block sid="785221846041528">
+                                                                                    <conditions>
+                                                                                        <condition id="-22" name="Else" sid="569964518273624" type="System" />
+                                                                                        <condition id="2" name="Is playing" sid="828424438499949" type="Bumper">
+                                                                                            <param id="0" name="Animation">&quot;Bowie200Pts&quot;</param>
+                                                                                        </condition>
+                                                                                    </conditions>
+                                                                                    <actions>
+                                                                                        <action id="4" name="Set animation" sid="997384524289463" type="Bumper">
+                                                                                            <param id="0" name="Animation">&quot;Bowie400Pts&quot;</param>
+                                                                                            <param id="1" name="From">1</param>
+                                                                                        </action>
+                                                                                    </actions>
+                                                                                </event-block>
+                                                                            </sub-events>
+                                                                        </event-block>
+                                                                        <event-block sid="452585712315613">
+                                                                            <conditions />
+                                                                            <actions>
+                                                                                <action id="-11" name="Add to" sid="730780796222276" type="PowerUpsArea">
+                                                                                    <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                                                    <param id="1" name="Value">1</param>
+                                                                                </action>
+                                                                                <action id="-10" name="Set value" sid="253703902154050" type="PowerUpsArea">
+                                                                                    <param id="0" name="Instance variable">HasBeenClicked</param>
+                                                                                    <param id="1" name="Value">0</param>
+                                                                                </action>
+                                                                            </actions>
+                                                                        </event-block>
+                                                                    </sub-events>
+                                                                </event-block>
+                                                            </sub-events>
+                                                        </event-block>
+                                                        <event-block sid="382526756405574">
+                                                            <conditions>
+                                                                <condition id="-14" name="Compare variable" sid="433398787498134" type="System">
+                                                                    <param id="0" name="Variable">LastClickedPowerUpType</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">&quot;DropTarget&quot;</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions />
+                                                            <sub-events>
+                                                                <event-block sid="520971272787018">
+                                                                    <conditions>
+                                                                        <condition id="-14" name="Pick by unique ID" sid="946580956020200" type="PowerUpsArea">
+                                                                            <param id="0" name="Unique ID">LastClickedPowerUpArea</param>
+                                                                        </condition>
+                                                                    </conditions>
+                                                                    <actions />
+                                                                    <sub-events>
+                                                                        <event-block sid="769407445501675">
+                                                                            <conditions>
+                                                                                <condition id="1" name="Is overlapping another object" sid="973848876580889" type="DropTarget">
+                                                                                    <param id="0" name="Object">PowerUpsArea</param>
+                                                                                </condition>
+                                                                            </conditions>
+                                                                            <actions />
+                                                                            <sub-events>
+                                                                                <event-block sid="482190096456390">
+                                                                                    <conditions>
+                                                                                        <condition id="2" name="Is playing" sid="678253256892665" type="DropTarget">
+                                                                                            <param id="0" name="Animation">&quot;20Pts&quot;</param>
+                                                                                        </condition>
+                                                                                    </conditions>
+                                                                                    <actions>
+                                                                                        <action id="4" name="Set animation" sid="148443184844362" type="DropTarget">
+                                                                                            <param id="0" name="Animation">&quot;40Pts&quot;</param>
+                                                                                            <param id="1" name="From">1</param>
+                                                                                        </action>
+                                                                                    </actions>
+                                                                                </event-block>
+                                                                                <event-block sid="396581638268453">
+                                                                                    <conditions>
+                                                                                        <condition id="-22" name="Else" sid="219811998157102" type="System" />
+                                                                                        <condition id="2" name="Is playing" sid="523953485370754" type="DropTarget">
+                                                                                            <param id="0" name="Animation">&quot;40Pts&quot;</param>
+                                                                                        </condition>
+                                                                                    </conditions>
+                                                                                    <actions>
+                                                                                        <action id="4" name="Set animation" sid="436346042719187" type="DropTarget">
+                                                                                            <param id="0" name="Animation">&quot;80Pts&quot;</param>
+                                                                                            <param id="1" name="From">1</param>
+                                                                                        </action>
+                                                                                    </actions>
+                                                                                </event-block>
+                                                                            </sub-events>
+                                                                        </event-block>
+                                                                        <event-block sid="188691561348395">
+                                                                            <conditions />
+                                                                            <actions>
+                                                                                <action id="-11" name="Add to" sid="220204875219581" type="PowerUpsArea">
+                                                                                    <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                                                    <param id="1" name="Value">1</param>
+                                                                                </action>
+                                                                                <action id="-10" name="Set value" sid="227949956089626" type="PowerUpsArea">
+                                                                                    <param id="0" name="Instance variable">HasBeenClicked</param>
+                                                                                    <param id="1" name="Value">0</param>
+                                                                                </action>
+                                                                            </actions>
+                                                                        </event-block>
+                                                                    </sub-events>
+                                                                </event-block>
+                                                            </sub-events>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <event-block sid="555546204699049">
+                                                    <conditions>
+                                                        <condition id="3" name="Compare frame" sid="867406200628141" type="ArrowUp">
+                                                            <param id="0" name="Comparison">0</param>
+                                                            <param id="1" name="Number">1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="964924126052442">
+                                                            <conditions>
+                                                                <condition id="-14" name="Compare variable" sid="717010330023618" type="System">
+                                                                    <param id="0" name="Variable">LastClickedPowerUpType</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">&quot;Bumper&quot;</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions />
+                                                            <sub-events>
+                                                                <event-block sid="450874727402382">
+                                                                    <conditions>
+                                                                        <condition id="-14" name="Pick by unique ID" sid="420488684068540" type="PowerUpsArea">
+                                                                            <param id="0" name="Unique ID">LastClickedPowerUpArea</param>
+                                                                        </condition>
+                                                                    </conditions>
+                                                                    <actions />
+                                                                    <sub-events>
+                                                                        <event-block sid="579860428762301">
+                                                                            <conditions>
+                                                                                <condition id="1" name="Is overlapping another object" sid="495508539738398" type="Bumper">
+                                                                                    <param id="0" name="Object">PowerUpsArea</param>
+                                                                                </condition>
+                                                                            </conditions>
+                                                                            <actions>
+                                                                                <action id="-10" name="Set value" sid="923180293482144" type="PowerUpsArea">
+                                                                                    <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                                                    <param id="1" name="Value">0</param>
+                                                                                </action>
+                                                                                <action id="-10" name="Set value" sid="507631645094726" type="PowerUpsArea">
+                                                                                    <param id="0" name="Instance variable">HasBeenClicked</param>
+                                                                                    <param id="1" name="Value">0</param>
+                                                                                </action>
+                                                                                <action id="-9" name="Destroy" sid="425436515740474" type="Bumper" />
+                                                                            </actions>
+                                                                        </event-block>
+                                                                    </sub-events>
+                                                                </event-block>
+                                                            </sub-events>
+                                                        </event-block>
+                                                        <event-block sid="741987897906927">
+                                                            <conditions>
+                                                                <condition id="-14" name="Compare variable" sid="549151036635149" type="System">
+                                                                    <param id="0" name="Variable">LastClickedPowerUpType</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">&quot;DropTarget&quot;</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions />
+                                                            <sub-events>
+                                                                <event-block sid="612149389413270">
+                                                                    <conditions>
+                                                                        <condition id="-14" name="Pick by unique ID" sid="847795867357531" type="PowerUpsArea">
+                                                                            <param id="0" name="Unique ID">LastClickedPowerUpArea</param>
+                                                                        </condition>
+                                                                    </conditions>
+                                                                    <actions />
+                                                                    <sub-events>
+                                                                        <event-block sid="404583253256756">
+                                                                            <conditions>
+                                                                                <condition id="1" name="Is overlapping another object" sid="543101259325397" type="DropTarget">
+                                                                                    <param id="0" name="Object">PowerUpsArea</param>
+                                                                                </condition>
+                                                                            </conditions>
+                                                                            <actions>
+                                                                                <action id="-10" name="Set value" sid="612455586480280" type="PowerUpsArea">
+                                                                                    <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                                                    <param id="1" name="Value">0</param>
+                                                                                </action>
+                                                                                <action id="-10" name="Set value" sid="560370710162708" type="PowerUpsArea">
+                                                                                    <param id="0" name="Instance variable">HasBeenClicked</param>
+                                                                                    <param id="1" name="Value">0</param>
+                                                                                </action>
+                                                                                <action id="-9" name="Destroy" sid="465955811690263" type="DropTarget" />
+                                                                            </actions>
+                                                                        </event-block>
+                                                                    </sub-events>
+                                                                </event-block>
+                                                            </sub-events>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <event-block sid="428649418271915">
+                                                    <conditions>
+                                                        <condition id="3" name="Compare frame" sid="468195620641520" type="ArrowUp">
+                                                            <param id="0" name="Comparison">0</param>
+                                                            <param id="1" name="Number">2</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="538150945930176">
+                                                            <conditions>
+                                                                <condition id="-14" name="Pick by unique ID" sid="162865033413064" type="PowerUpsArea">
+                                                                    <param id="0" name="Unique ID">LastClickedPowerUpArea</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Spawn another object" sid="627915824278465" type="PowerUpsArea">
+                                                                    <param id="0" name="Object">Bumper</param>
+                                                                    <param id="1" name="Layer">&quot;Main&quot;</param>
+                                                                    <param id="2" name="Image point">0</param>
+                                                                </action>
+                                                            </actions>
+                                                            <sub-events>
+                                                                <event-block sid="615021362414521">
+                                                                    <conditions>
+                                                                        <condition id="-14" name="Compare variable" sid="222673540728753" type="System">
+                                                                            <param id="0" name="Variable">isBowieActive</param>
+                                                                            <param id="1" name="Comparison">0</param>
+                                                                            <param id="2" name="Value">0</param>
+                                                                        </condition>
+                                                                    </conditions>
+                                                                    <actions>
+                                                                        <action id="4" name="Set animation" sid="942351448908355" type="Bumper">
+                                                                            <param id="0" name="Animation">&quot;50Pts&quot;</param>
+                                                                            <param id="1" name="From">1</param>
+                                                                        </action>
+                                                                    </actions>
+                                                                </event-block>
+                                                                <event-block sid="103493660269163">
+                                                                    <conditions>
+                                                                        <condition id="-22" name="Else" sid="661281414970125" type="System" />
+                                                                    </conditions>
+                                                                    <actions>
+                                                                        <action id="4" name="Set animation" sid="352957343649141" type="Bumper">
+                                                                            <param id="0" name="Animation">&quot;Bowie50Pts&quot;</param>
+                                                                            <param id="1" name="From">1</param>
+                                                                        </action>
+                                                                    </actions>
+                                                                </event-block>
+                                                                <event-block sid="397896072751276">
+                                                                    <conditions />
+                                                                    <actions>
+                                                                        <action id="-11" name="Add to" sid="274529017511378" type="PowerUpsArea">
+                                                                            <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                                            <param id="1" name="Value">1</param>
+                                                                        </action>
+                                                                        <action id="-10" name="Set value" sid="456991326101896" type="PowerUpsArea">
+                                                                            <param id="0" name="Instance variable">HasBeenClicked</param>
+                                                                            <param id="1" name="Value">0</param>
+                                                                        </action>
+                                                                    </actions>
+                                                                </event-block>
+                                                            </sub-events>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <event-block sid="130657693066149">
+                                                    <conditions>
+                                                        <condition id="3" name="Compare frame" sid="472258072756127" type="ArrowUp">
+                                                            <param id="0" name="Comparison">0</param>
+                                                            <param id="1" name="Number">3</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="378020437261616">
+                                                            <conditions>
+                                                                <condition id="-14" name="Pick by unique ID" sid="684389799480761" type="PowerUpsArea">
+                                                                    <param id="0" name="Unique ID">LastClickedPowerUpArea</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Spawn another object" sid="931604806111870" type="PowerUpsArea">
+                                                                    <param id="0" name="Object">DropTarget</param>
+                                                                    <param id="1" name="Layer">&quot;Main&quot;</param>
+                                                                    <param id="2" name="Image point">0</param>
+                                                                </action>
+                                                                <action id="-7" name="Set size" sid="582475551454313" type="DropTarget">
+                                                                    <param id="0" name="Width">-41.26</param>
+                                                                    <param id="1" name="Height">51.575</param>
+                                                                </action>
+                                                                <action id="-11" name="Add to" sid="794894506312543" type="PowerUpsArea">
+                                                                    <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                                    <param id="1" name="Value">1</param>
+                                                                </action>
+                                                                <action id="-10" name="Set value" sid="515518520519748" type="PowerUpsArea">
+                                                                    <param id="0" name="Instance variable">HasBeenClicked</param>
+                                                                    <param id="1" name="Value">0</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <event-block sid="629032706709105">
+                                                    <conditions>
+                                                        <condition id="3" name="Compare frame" sid="478568126304978" type="ArrowUp">
+                                                            <param id="0" name="Comparison">0</param>
+                                                            <param id="1" name="Number">4</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="106243560121819">
+                                                            <conditions>
+                                                                <condition id="-14" name="Compare variable" sid="717346498001830" type="System">
+                                                                    <param id="0" name="Variable">LastClickedPowerUpType</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">&quot;RKicker&quot;</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions />
+                                                            <sub-events>
+                                                                <event-block sid="287878124451349">
+                                                                    <conditions>
+                                                                        <condition id="-7" name="Compare instance variable" sid="637247953564820" type="SideBumper">
+                                                                            <param id="0" name="Instance variable">Side</param>
+                                                                            <param id="1" name="Comparison">0</param>
+                                                                            <param id="2" name="Value">&quot;Right&quot;</param>
+                                                                        </condition>
+                                                                        <condition id="-14" name="Pick by unique ID" sid="282164085952206" type="PowerUpsArea">
+                                                                            <param id="0" name="Unique ID">LastClickedPowerUpArea</param>
+                                                                        </condition>
+                                                                    </conditions>
+                                                                    <actions>
+                                                                        <action id="-3" name="Set position" sid="905488045949079" type="SideBumper">
+                                                                            <param id="0" name="X">PowerUpsArea.X</param>
+                                                                            <param id="1" name="Y">PowerUpsArea.Y</param>
+                                                                        </action>
+                                                                    </actions>
+                                                                </event-block>
+                                                            </sub-events>
+                                                        </event-block>
+                                                        <event-block sid="746709010426004">
+                                                            <conditions>
+                                                                <condition id="-14" name="Compare variable" sid="847552205774208" type="System">
+                                                                    <param id="0" name="Variable">LastClickedPowerUpType</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">&quot;LKicker&quot;</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions />
+                                                            <sub-events>
+                                                                <event-block sid="481066937220361">
+                                                                    <conditions>
+                                                                        <condition id="-7" name="Compare instance variable" sid="454448466489196" type="SideBumper">
+                                                                            <param id="0" name="Instance variable">Side</param>
+                                                                            <param id="1" name="Comparison">0</param>
+                                                                            <param id="2" name="Value">&quot;Left&quot;</param>
+                                                                        </condition>
+                                                                        <condition id="-14" name="Pick by unique ID" sid="757916206725992" type="PowerUpsArea">
+                                                                            <param id="0" name="Unique ID">LastClickedPowerUpArea</param>
+                                                                        </condition>
+                                                                    </conditions>
+                                                                    <actions>
+                                                                        <action id="-3" name="Set position" sid="314269625178035" type="SideBumper">
+                                                                            <param id="0" name="X">PowerUpsArea.X</param>
+                                                                            <param id="1" name="Y">PowerUpsArea.Y</param>
+                                                                        </action>
+                                                                    </actions>
+                                                                </event-block>
+                                                            </sub-events>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <event-block sid="719269366278510">
+                                                    <conditions>
+                                                        <condition id="3" name="Compare frame" sid="170154607949695" type="ArrowUp">
+                                                            <param id="0" name="Comparison">0</param>
+                                                            <param id="1" name="Number">5</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="678768957957707">
+                                                            <conditions>
+                                                                <condition id="-14" name="Pick by unique ID" sid="771204479644499" type="PowerUpsArea">
+                                                                    <param id="0" name="Unique ID">LastClickedPowerUpArea</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-3" name="Set position" sid="313437454228041" type="MagnaSave">
+                                                                    <param id="0" name="X">PowerUpsArea.X</param>
+                                                                    <param id="1" name="Y">PowerUpsArea.Y</param>
+                                                                </action>
+                                                                <action id="-3" name="Set position" sid="402632690228335" type="ChargeEffect">
+                                                                    <param id="0" name="X">PowerUpsArea.X</param>
+                                                                    <param id="1" name="Y">PowerUpsArea.Y</param>
+                                                                </action>
+                                                                <action id="-10" name="Set value" sid="407041428383836" type="MagnaSave">
+                                                                    <param id="0" name="Instance variable">isActive</param>
+                                                                    <param id="1" name="Value">1</param>
+                                                                </action>
+                                                                <action id="-11" name="Add to" sid="486037365384985" type="PowerUpsArea">
+                                                                    <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                                    <param id="1" name="Value">1</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <event-block sid="237673170062506">
+                                                    <conditions>
+                                                        <condition id="3" name="Compare frame" sid="658068679200524" type="ArrowUp">
+                                                            <param id="0" name="Comparison">0</param>
+                                                            <param id="1" name="Number">6</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="5" name="Set frame" sid="429675608508932" type="SideDoor">
+                                                            <param id="0" name="Frame number">0</param>
+                                                        </action>
+                                                        <action behavior="Physics" id="27" name="Set enabled" sid="881917047120766" type="SideDoor">
+                                                            <param id="0" name="Mode">1</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="702132724179703" type="SideDoor">
+                                                            <param id="0" name="Instance variable">isOpen</param>
+                                                            <param id="1" name="Value">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="418637574457079">
+                                                    <conditions>
+                                                        <condition id="3" name="Compare frame" sid="644180498090310" type="ArrowUp">
+                                                            <param id="0" name="Comparison">0</param>
+                                                            <param id="1" name="Number">7</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="869241582843182">
+                                                            <conditions>
+                                                                <condition id="-14" name="Pick by unique ID" sid="399248451557261" type="PowerUpsArea">
+                                                                    <param id="0" name="Unique ID">LastClickedPowerUpArea</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-3" name="Set position" sid="545307359143150" type="SpinningDoor">
+                                                                    <param id="0" name="X">PowerUpsArea.X</param>
+                                                                    <param id="1" name="Y">PowerUpsArea.Y</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <event-block sid="968295255681618">
+                                                    <conditions>
+                                                        <condition id="3" name="Compare frame" sid="839828464529645" type="ArrowUp">
+                                                            <param id="0" name="Comparison">0</param>
+                                                            <param id="1" name="Number">8</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="313333659568317">
+                                                            <conditions>
+                                                                <condition id="-14" name="Pick by unique ID" sid="411021754198801" type="PowerUpsArea">
+                                                                    <param id="0" name="Unique ID">LastClickedPowerUpArea</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-3" name="Set position" sid="708440182724314" type="RightTopPaddle">
+                                                                    <param id="0" name="X">PowerUpsArea.X</param>
+                                                                    <param id="1" name="Y">PowerUpsArea.Y</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <event-block sid="740732463882720">
+                                                    <conditions>
+                                                        <condition id="3" name="Compare frame" sid="200531858004272" type="ArrowUp">
+                                                            <param id="0" name="Comparison">0</param>
+                                                            <param id="1" name="Number">10</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Set value" sid="330461091520964" type="MagnaSave">
+                                                            <param id="0" name="Instance variable">isActive</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="780992270353358">
+                                                    <conditions />
+                                                    <actions>
+                                                        <action id="-9" name="Destroy" sid="605299355171131" type="SelectionBkg" />
+                                                        <action id="-9" name="Destroy" sid="301475168432818" type="ArrowUp" />
+                                                        <action id="-9" name="Destroy" sid="246747762617469" type="Price" />
+                                                        <action id="-9" name="Set value" sid="931540346901307" type="System">
+                                                            <param id="0" name="Variable">LastClickedPowerUpArea</param>
+                                                            <param id="1" name="Value">0</param>
+                                                        </action>
+                                                        <action id="-9" name="Set value" sid="621997699520536" type="System">
+                                                            <param id="0" name="Variable">CanSelectOtherPuP</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                        <action id="-10" name="Add to" sid="624860428335410" type="System">
+                                                            <param id="0" name="Variable">Cash</param>
+                                                            <param id="1" name="Value">int(Price.Text)</param>
+                                                        </action>
+                                                        <action id="0" name="Call function" sid="723116210626104" type="Function">
+                                                            <param id="0" name="Name">&quot;UpdateScore&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
                 <event-block sid="784562858158112">
                     <conditions>
                         <condition id="0" name="On key pressed" sid="706717934467182" type="Keyboard">
