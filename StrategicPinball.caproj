@@ -22,6 +22,7 @@
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
+        <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
     </used-behaviors>
@@ -176,7 +177,9 @@
                     </frame>
                 </animation>
                 <animation framecount="1" loop="0" name="Bowie" pingpong="0" repeatcount="1" repeatto="0" sid="601626610278860" speed="5">
-                    <frame duration="1" hotspotX="0.502564" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\PaddleBowie.png">
+                    <frame duration="1" hotspotX="0.476923" hotspotY="0.546875" original-source="C:\Users\dbga_55\Pictures\PaddleBowie.png">
+                        <image-point name="Pivot" x="0.153846" y="0.1875" />
+                        <image-point name="Force" x="0.974359" y="0.859375" />
                         <collision-poly>
                             <point x="0.0153846" y="0.171875" />
                             <point x="0.191388" y="0.00395976" />
@@ -1592,6 +1595,7 @@
                         <image-point name="Top" x="0.5" y="0" />
                         <image-point name="Left" x="0" y="0.5" />
                         <image-point name="Right" x="1" y="0.5" />
+                        <image-point name="Bot" x="0.5" y="1" />
                     </frame>
                 </animation>
             </animation-folder>
@@ -1630,8 +1634,12 @@
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                         <image-point name="TextSpawn" x="0.5" y="1.16667" />
                     </frame>
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TextSpawn" x="0.5" y="1.16667" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TextSpawn" x="0.5" y="1.16667" />
+                    </frame>
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                         <image-point name="TextSpawn" x="0.5" y="1.16667" />
                     </frame>
@@ -1796,6 +1804,148 @@
         <object-type name="Price" sid="883034689656407">
             <plugin id="TextBox" />
         </object-type>
+        <object-type name="Title" sid="593734020069178">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="202267340077184" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501044" original-source="C:\Users\PU\Pictures\PinballManager.png">
+                        <collision-poly>
+                            <point x="0.1775" y="0.356784" />
+                            <point x="0.5" y="0.140704" />
+                            <point x="0.89875" y="0.203518" />
+                            <point x="0.89875" y="0.5" />
+                            <point x="0.81375" y="0.625628" />
+                            <point x="0.5" y="0.834171" />
+                            <point x="0.1075" y="0.78392" />
+                            <point x="0.085" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Wing1" sid="392313988718572">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="297619363589570" speed="5">
+                    <frame duration="1" hotspotX="0.812261" hotspotY="0.351648" original-source="C:\Users\PU\Pictures\PinballManager.png">
+                        <collision-poly>
+                            <point x="0.219157" y="0.0985331" />
+                            <point x="0.812261" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0.349817" />
+                            <point x="1" y="0.570241" />
+                            <point x="0.812261" y="0.936146" />
+                            <point x="0.0904215" y="0.847977" />
+                            <point x="0.0490421" y="0.349817" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Wing2" sid="307880602397654">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="437001020217180" speed="5">
+                    <frame duration="1" hotspotX="0.17357" hotspotY="0.705224" original-source="C:\Users\PU\Pictures\PinballManager.png">
+                        <collision-poly>
+                            <point x="0" y="0.447386" />
+                            <point x="0.17357" y="0.0611836" />
+                            <point x="0.9286" y="0.173452" />
+                            <point x="0.9286" y="0.703358" />
+                            <point x="0.767653" y="0.927895" />
+                            <point x="0.17357" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0.703358" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="BallTitle" sid="865470606035902">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Rotate" sid="376768831043532">
+                    <behavior id="Rotate" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="588492341642178" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Pictures\chrome-ball.png">
+                        <collision-poly>
+                            <point x="0.17" y="0.17" />
+                            <point x="0.5" y="0.035" />
+                            <point x="0.82875" y="0.17125" />
+                            <point x="0.9675" y="0.5" />
+                            <point x="0.8325" y="0.8325" />
+                            <point x="0.5" y="0.9725" />
+                            <point x="0.16625" y="0.83375" />
+                            <point x="0.03" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PlayButton" sid="176171391315246">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="870279189824377" speed="0">
+                    <frame duration="1" hotspotX="0.502183" hotspotY="0.5" original-source="C:\Users\PU\Pictures\play.png">
+                        <collision-poly>
+                            <point x="0.0786026" y="0.161017" />
+                            <point x="0.908297" y="0.161017" />
+                            <point x="0.908297" y="0.737288" />
+                            <point x="0.0786026" y="0.737288" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.502183" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.0786026" y="0.161017" />
+                            <point x="0.908297" y="0.161017" />
+                            <point x="0.908297" y="0.737288" />
+                            <point x="0.0786026" y="0.737288" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="blackPinball" sid="536160901305337">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="737032604095659" speed="5">
+                    <frame duration="1" hotspotX="0.47648" hotspotY="0.5" original-source="C:\Users\PU\Pictures\BlackPinball.png">
+                        <collision-poly>
+                            <point x="0.449165" y="0.339545" />
+                            <point x="0.474962" y="0.336439" />
+                            <point x="0.983308" y="0.0113872" />
+                            <point x="0.937784" y="0.5" />
+                            <point x="0.477997" y="0.643892" />
+                            <point x="0.474962" y="0.643892" />
+                            <point x="0.277693" y="0.777433" />
+                            <point x="0.00758725" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="redPinball" sid="479460656116049">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="866732816775485" speed="5">
+                    <frame duration="1" hotspotX="0.507576" hotspotY="0.5" original-source="C:\Users\PU\Pictures\redPinball.png">
+                        <collision-poly>
+                            <point x="0.0166667" y="0.0113872" />
+                            <point x="0.506061" y="0.0372671" />
+                            <point x="0.522727" y="0.335404" />
+                            <point x="0.992424" y="0.5" />
+                            <point x="0.719697" y="0.799172" />
+                            <point x="0.506061" y="0.640787" />
+                            <point x="0.521212" y="0.643892" />
+                            <point x="0.0621212" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Paddles" plugin-id="Sprite" sid="647063370935462">
@@ -1861,16 +2011,21 @@
     </families>
     <layout-folder>
         <layout>Main.xml</layout>
+        <layout>Menu.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>esMain.xml</event-sheet>
+        <event-sheet>esMenu.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="17" />
         <global-instance type="Function" uid="10" />
         <global-instance type="Mouse" uid="63" />
     </global-instances>
-    <sounds-folder />
+    <sounds-folder>
+        <file name="manWhoSoldSolo.m4a" />
+        <file name="manWhoSoldSolo.ogg" />
+    </sounds-folder>
     <music-folder />
     <files-folder>
         <file-folder name="Icons">

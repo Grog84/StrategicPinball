@@ -11,7 +11,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </configurations>
     <open-tabs>
         <layout order="0">Main</layout>
-        <event-sheet active="1" order="1">esMain</event-sheet>
+        <layout order="2">Menu</layout>
+        <event-sheet order="1">esMain</event-sheet>
+        <event-sheet active="1" order="3">esMenu</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -27,7 +29,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     <folders-expanded>
         <folder expanded="0" path="object-folder/" />
         <folder expanded="1" path="layout-folder/" />
-        <folder expanded="0" path="event-folder/" />
+        <folder expanded="1" path="event-folder/" />
         <folder expanded="0" path="file-folder/" />
         <folder expanded="1" path="sound-folder/" />
         <folder expanded="1" path="music-folder/" />
@@ -76,5 +78,12 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/PlayPause/" />
         <folder expanded="1" path="animation-folder/Mouth/" />
         <folder expanded="1" path="animation-folder/PowerUpsArea/" />
+        <folder expanded="1" path="animation-folder/Title/" />
+        <folder expanded="1" path="animation-folder/Wing1/" />
+        <folder expanded="1" path="animation-folder/Wing2/" />
+        <folder expanded="1" path="animation-folder/BallTitle/" />
+        <folder expanded="1" path="animation-folder/PlayButton/" />
+        <folder expanded="1" path="animation-folder/blackPinball/" />
+        <folder expanded="1" path="animation-folder/redPinball/" />
     </folders-expanded>
 </c2uistate>

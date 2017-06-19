@@ -11,7 +11,7 @@
         <variable constant="0" name="isPaused" sid="263510902526751" static="0" type="number">0</variable>
         <variable constant="0" name="isBowieActive" sid="899711938972924" static="0" type="number">0</variable>
         <variable constant="0" name="BallLossPoints" sid="449588326139012" static="0" type="number">300</variable>
-        <variable constant="0" name="Cash" sid="584479728835511" static="0" type="number">400</variable>
+        <variable constant="0" name="Cash" sid="584479728835511" static="0" type="number">4000000000</variable>
         <variable constant="0" name="ballInGame" sid="948187606096225" static="0" type="number">0</variable>
         <variable constant="0" name="Shaken" sid="232118938800705" static="0" type="number">0</variable>
         <event-block sid="743830243251371">
@@ -2514,7 +2514,7 @@
                                         <action id="0" name="Spawn another object" sid="980354636449694" type="SelectionBkg">
                                             <param id="0" name="Object">ArrowUp</param>
                                             <param id="1" name="Layer">&quot;PowerUps&quot;</param>
-                                            <param id="2" name="Image point">1</param>
+                                            <param id="2" name="Image point">4</param>
                                         </action>
                                         <action id="5" name="Set frame" sid="262177854210411" type="ArrowUp">
                                             <param id="0" name="Frame number">9</param>
@@ -3306,6 +3306,27 @@
                                     <param id="0" name="Frame number">1</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="521629269101760">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="769129431030246" type="System">
+                                            <param id="0" name="Variable">isBowieActive</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="199200460451885" type="PowerUpsArea">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;TopWall&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="943517864816388" type="PowerUpsArea">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <event-block sid="385745533330531">
                             <conditions>
