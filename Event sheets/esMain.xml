@@ -7,7 +7,7 @@
         <variable constant="0" name="isPaused" sid="263510902526751" static="0" type="number">0</variable>
         <variable constant="0" name="isBowieActive" sid="899711938972924" static="0" type="number">0</variable>
         <variable constant="0" name="BallLossPoints" sid="449588326139012" static="0" type="number">300</variable>
-        <variable constant="0" name="Cash" sid="584479728835511" static="0" type="number">0</variable>
+        <variable constant="0" name="Cash" sid="584479728835511" static="0" type="number">300</variable>
         <variable constant="0" name="ballInGame" sid="948187606096225" static="0" type="number">0</variable>
         <variable constant="0" name="Shaken" sid="232118938800705" static="0" type="number">0</variable>
         <event-block sid="743830243251371">
@@ -23,6 +23,10 @@
                     <param id="1" name="Object">SpringWall</param>
                     <param id="2" name="Lower angle">-38</param>
                     <param id="3" name="Upper angle">0</param>
+                </action>
+                <action id="0" name="Call function" sid="861758511323963" type="Function">
+                    <param id="0" name="Name">&quot;UpdateScore&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
                 </action>
             </actions>
             <sub-events>
@@ -1166,7 +1170,16 @@
                         </event-block>
                         <event-block sid="587725126682341">
                             <conditions>
-                                <condition id="4" name="On finished" sid="756827583982267" type="BowieHead">
+                                <condition id="-7" name="Compare instance variable" sid="655555601827191" type="BowieHead">
+                                    <param id="0" name="Instance variable">isOpen</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="3" name="Compare frame" sid="300410003556894" type="BowieHead">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">0</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="518364320997875" type="BowieHead">
                                     <param id="0" name="Animation">&quot;Closing&quot;</param>
                                 </condition>
                             </conditions>
@@ -1549,6 +1562,7 @@
         </event-group>
         <event-group description="" sid="714423500412454" title="Manager">
             <sub-events>
+                <event-group description="" sid="780640739119744" title="PowerUpsPlacement" />
                 <event-block sid="784562858158112">
                     <conditions>
                         <condition id="0" name="On key pressed" sid="706717934467182" type="Keyboard">
@@ -1573,6 +1587,9 @@
                                 <action id="-13" name="Set time scale" sid="943786459906918" type="System">
                                     <param id="0" name="Time scale">0</param>
                                 </action>
+                                <action id="-15" name="Set visible" sid="393802374460219" type="PowerUpsArea">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
                                 <action id="5" name="Set frame" sid="301311054107336" type="PlayPause">
                                     <param id="0" name="Frame number">1</param>
                                 </action>
@@ -1589,6 +1606,9 @@
                                 </action>
                                 <action id="-13" name="Set time scale" sid="900650724437403" type="System">
                                     <param id="0" name="Time scale">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="922998847839801" type="PowerUpsArea">
+                                    <param id="0" name="Visibility">0</param>
                                 </action>
                                 <action id="5" name="Set frame" sid="935209614689138" type="PlayPause">
                                     <param id="0" name="Frame number">0</param>
@@ -1631,16 +1651,18 @@
                             <param id="0" name="Variable">Cash</param>
                             <param id="1" name="Value">0</param>
                         </action>
+                        <action id="0" name="Call function" sid="475696500919146" type="Function">
+                            <param id="0" name="Name">&quot;UpdateScore&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="637341698341442">
                     <conditions>
-                        <condition id="0" name="On click" sid="288214279853160" type="Mouse">
+                        <condition id="6" name="On object clicked" sid="288214279853160" type="Mouse">
                             <param id="0" name="Mouse button">0</param>
                             <param id="1" name="Click type">0</param>
-                        </condition>
-                        <condition id="7" name="Cursor is over object" sid="873226315318342" type="Mouse">
-                            <param id="0" name="Object">BowieButton</param>
+                            <param id="2" name="Object clicked">BowieButton</param>
                         </condition>
                         <condition id="-14" name="Compare variable" sid="477675997376251" type="System">
                             <param id="0" name="Variable">isPaused</param>
@@ -1674,6 +1696,71 @@
                             <param id="0" name="Animation">&quot;Bowie&quot;</param>
                             <param id="1" name="From">1</param>
                         </action>
+                        <action id="4" name="Set animation" sid="515488641017313" type="SideBumper">
+                            <param id="0" name="Animation">&quot;Bowie&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="976503195276747" type="SpinningDoor">
+                            <param id="0" name="Animation">&quot;Bowie&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="172358317112358" type="TableBkg">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="720237058181382" type="SideWall">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">3</param>
+                            <param id="2" name="Value">255</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="917414718783910" type="SideWall">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">4</param>
+                            <param id="2" name="Value">36</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="526894190613124" type="SideWall">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">5</param>
+                            <param id="2" name="Value">25</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="668998151057052" type="SpringWall">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">3</param>
+                            <param id="2" name="Value">66</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="943485450010411" type="SpringWall">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">4</param>
+                            <param id="2" name="Value">113</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="220300655225045" type="SpringWall">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">5</param>
+                            <param id="2" name="Value">255</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="410169295652155" type="Wall">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">3</param>
+                            <param id="2" name="Value">255</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="878923641231004" type="Wall">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">4</param>
+                            <param id="2" name="Value">255</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="551099053270018" type="Wall">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">5</param>
+                            <param id="2" name="Value">255</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="868139156766755" type="Arrow">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="320130441391287" type="System">
+                            <param id="0" name="Object to create">BowieHead</param>
+                            <param id="1" name="Layer">&quot;Main&quot;</param>
+                            <param id="2" name="X">190</param>
+                            <param id="3" name="Y">186</param>
+                        </action>
                     </actions>
                     <sub-events>
                         <event-block sid="947569615906877">
@@ -1690,7 +1777,12 @@
                                             <param id="0" name="Animation">&quot;50Pts&quot;</param>
                                         </condition>
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="133489356763287" type="Bumper">
+                                            <param id="0" name="Animation">&quot;Bowie50Pts&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                                 <event-block sid="278786365234682">
                                     <conditions>
@@ -1698,7 +1790,12 @@
                                             <param id="0" name="Animation">&quot;100Pts&quot;</param>
                                         </condition>
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="814913157898420" type="Bumper">
+                                            <param id="0" name="Animation">&quot;Bowie100Pts&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                                 <event-block sid="599277299507432">
                                     <conditions>
@@ -1706,7 +1803,12 @@
                                             <param id="0" name="Animation">&quot;200Pts&quot;</param>
                                         </condition>
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="756403623276747" type="Bumper">
+                                            <param id="0" name="Animation">&quot;Bowie200Pts&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                                 <event-block sid="980678214786197">
                                     <conditions>
@@ -1714,7 +1816,12 @@
                                             <param id="0" name="Animation">&quot;400Pts&quot;</param>
                                         </condition>
                                     </conditions>
-                                    <actions />
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="736500960340866" type="Bumper">
+                                            <param id="0" name="Animation">&quot;Bowie400Pts&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                             </sub-events>
                         </event-block>
