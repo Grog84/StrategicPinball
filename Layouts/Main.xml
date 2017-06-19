@@ -96,7 +96,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -109,7 +109,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -148,7 +148,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -161,7 +161,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -200,7 +200,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -213,7 +213,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -252,7 +252,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -265,7 +265,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -313,7 +313,7 @@
                         <isReleasing>0</isReleasing>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -326,7 +326,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>No</immovable>
@@ -365,7 +365,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -378,7 +378,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -417,7 +417,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -430,7 +430,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -469,7 +469,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -482,7 +482,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -524,7 +524,7 @@
                         <isCommandPressed>0</isCommandPressed>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -537,7 +537,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>No</immovable>
@@ -579,7 +579,7 @@
                         <Side>Left</Side>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -592,7 +592,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -634,7 +634,7 @@
                         <isCommandPressed>0</isCommandPressed>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -647,7 +647,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>No</immovable>
@@ -689,7 +689,7 @@
                         <Side>Right</Side>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -702,7 +702,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -745,7 +745,7 @@
                         <BumpPower>200</BumpPower>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -758,7 +758,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -800,7 +800,7 @@
                         <Side>Spring</Side>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -813,7 +813,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -852,20 +852,6 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
-                            <properties>
-                                <active-on-start>No</active-on-start>
-                                <movement>Horizontal</movement>
-                                <wave>Sine</wave>
-                                <period>0.2</period>
-                                <period-random>0</period-random>
-                                <period-offset>0</period-offset>
-                                <period-offset-random>0</period-offset-random>
-                                <magnitude>5</magnitude>
-                                <magnitude-random>0</magnitude-random>
-                            </properties>
-                        </behavior-instance>
-                        <behavior-instance type="Timer" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -904,20 +890,6 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
-                            <properties>
-                                <active-on-start>No</active-on-start>
-                                <movement>Horizontal</movement>
-                                <wave>Sine</wave>
-                                <period>0.2</period>
-                                <period-random>0</period-random>
-                                <period-offset>0</period-offset>
-                                <period-offset-random>0</period-offset-random>
-                                <magnitude>5</magnitude>
-                                <magnitude-random>0</magnitude-random>
-                            </properties>
-                        </behavior-instance>
-                        <behavior-instance type="Timer" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -963,7 +935,7 @@
                         <maxAngle>0</maxAngle>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -976,7 +948,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>No</immovable>
@@ -1015,7 +987,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1028,7 +1000,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -1098,7 +1070,7 @@
                         <BumpPower>200</BumpPower>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1111,7 +1083,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -1154,7 +1126,7 @@
                         <BumpPower>200</BumpPower>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1167,7 +1139,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -1206,7 +1178,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1219,7 +1191,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -1262,7 +1234,7 @@
                         <BumpPower>200</BumpPower>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1275,7 +1247,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -1314,7 +1286,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1327,7 +1299,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -1370,7 +1342,7 @@
                         <ComeBackTimer>3</ComeBackTimer>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1383,7 +1355,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -1423,7 +1395,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1436,7 +1408,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -1475,7 +1447,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1488,7 +1460,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -1527,7 +1499,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1540,7 +1512,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -1579,7 +1551,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1592,7 +1564,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -1631,7 +1603,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1644,7 +1616,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -1683,7 +1655,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1696,7 +1668,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -1741,7 +1713,7 @@
                         <bumperSpriteUID>0</bumperSpriteUID>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1754,7 +1726,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -1785,7 +1757,7 @@
                         <bumperSpriteUID>0</bumperSpriteUID>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1798,7 +1770,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -1827,7 +1799,7 @@
                         <ComeBackTimer>3</ComeBackTimer>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1840,7 +1812,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -1884,7 +1856,7 @@
                         <ComeBackTimer>3</ComeBackTimer>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1897,7 +1869,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -1937,7 +1909,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -1950,7 +1922,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -1989,7 +1961,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -2002,7 +1974,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -2041,7 +2013,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -2054,7 +2026,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -2079,7 +2051,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -2092,7 +2064,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -2117,7 +2089,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -2130,7 +2102,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -2155,7 +2127,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -2168,7 +2140,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -2206,6 +2178,25 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <Position>Top</Position>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Sine2">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <movement>Horizontal</movement>
+                                <wave>Sine</wave>
+                                <period>0.2</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>5</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Timer3" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -2228,6 +2219,25 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <Position>Top</Position>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Sine2">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <movement>Horizontal</movement>
+                                <wave>Sine</wave>
+                                <period>0.2</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>5</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Timer3" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -2250,6 +2260,25 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <Position>Top</Position>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Sine2">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <movement>Horizontal</movement>
+                                <wave>Sine</wave>
+                                <period>0.2</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>5</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Timer3" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -2272,6 +2301,25 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <Position>Top</Position>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Sine2">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <movement>Horizontal</movement>
+                                <wave>Sine</wave>
+                                <period>0.2</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>5</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Timer3" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -2295,6 +2343,20 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
+                        <behavior-instance type="Sine2">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <movement>Horizontal</movement>
+                                <wave>Sine</wave>
+                                <period>0.2</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>5</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>No</immovable>
@@ -2336,7 +2398,7 @@
                         <Side>TopRight</Side>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -2349,7 +2411,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -2388,7 +2450,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -2401,7 +2463,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Physics">
                             <properties>
                                 <immovable>Yes</immovable>
@@ -2439,6 +2501,25 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <Position>Side</Position>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Sine2">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <movement>Horizontal</movement>
+                                <wave>Sine</wave>
+                                <period>0.2</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>5</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Timer3" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -2461,11 +2542,150 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <isActive>0</isActive>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Sine2">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <movement>Horizontal</movement>
+                                <wave>Sine</wave>
+                                <period>0.2</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>5</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Timer3" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>401</x>
                         <y>838</y>
+                        <z>0</z>
+                        <width>100</width>
+                        <height>100</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="SideDoor" uid="61">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <isOpen>0</isOpen>
+                        <switchPressed>0</switchPressed>
+                        <hasToBeOpened>0</hasToBeOpened>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Sine2">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <movement>Horizontal</movement>
+                                <wave>Sine</wave>
+                                <period>0.2</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>5</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Timer3" />
+                        <behavior-instance type="Physics">
+                            <properties>
+                                <immovable>Yes</immovable>
+                                <collision-mask>Use collision polygon</collision-mask>
+                                <prevent-rotation>Yes</prevent-rotation>
+                                <density>1</density>
+                                <friction>0</friction>
+                                <elasticity>0</elasticity>
+                                <linear-damping>0</linear-damping>
+                                <angular-damping>0.01</angular-damping>
+                                <bullet>No</bullet>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>71</x>
+                        <y>824.33605957</y>
+                        <z>0</z>
+                        <width>60</width>
+                        <height>15</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.533333361</hotspotY>
+                        <angle>0.52359879</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="ChargeEffect" uid="62">
+                    <properties>
+                        <initial-visibility>Invisible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Sine2">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <movement>Horizontal</movement>
+                                <wave>Sine</wave>
+                                <period>0.2</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>5</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Timer3" />
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>Yes</active-on-start>
+                                <movement>Size</movement>
+                                <wave>Sine</wave>
+                                <period>1</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>10</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="BlurHorizontal">
+                            <parameters>
+                                <intensity>1</intensity>
+                            </parameters>
+                        </effect-instance>
+                        <effect-instance type="BlurVertical">
+                            <parameters>
+                                <intensity>1</intensity>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>403.548431396</x>
+                        <y>836.92175293</y>
                         <z>0</z>
                         <width>100</width>
                         <height>100</height>
@@ -2680,7 +2900,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -2693,7 +2913,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -2723,7 +2943,7 @@
                         <spinTimerFactor>0.001</spinTimerFactor>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="Sine">
+                        <behavior-instance type="Sine2">
                             <properties>
                                 <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
@@ -2736,7 +2956,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Timer" />
+                        <behavior-instance type="Timer3" />
                         <behavior-instance type="Timer2" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>

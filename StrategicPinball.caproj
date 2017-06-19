@@ -22,7 +22,10 @@
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
     </used-behaviors>
-    <used-effects />
+    <used-effects>
+        <effect author="Scirra" id="blurhorizontal">Blur Horizontal</effect>
+        <effect author="Scirra" id="blurvertical">Blur Vertical</effect>
+    </used-effects>
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
@@ -784,6 +787,9 @@
         </object-type>
         <object-type name="RolloverSwitch" sid="318142848732027">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Position" sid="923754323354946" type="string" />
+            </instance-variables>
             <animation-folder>
                 <animation framecount="3" loop="0" name="Default" pingpong="1" repeatcount="1" repeatto="0" sid="300212705219420" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.514286" original-source="C:\Users\PU\Pictures\rolloverSwitch.png">
@@ -844,6 +850,9 @@
         </object-type>
         <object-type name="MagnaSave" sid="970448884889963">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="isActive" sid="729304913330713" type="number" />
+            </instance-variables>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="201633751902310" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Pictures\magnaSave.png">
@@ -858,6 +867,46 @@
                             <point x="0.0629921" y="0.498667" />
                         </collision-poly>
                     </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SideDoor" sid="337590653524698">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="isOpen" sid="196298321311376" type="number" />
+                <instance-variable name="switchPressed" sid="453387046574864" type="number" />
+                <instance-variable name="hasToBeOpened" sid="898540111774889" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Physics" sid="522586041087147">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="689850009326440" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.533333" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.533333" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ChargeEffect" sid="592319332434749">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Sine" sid="596524020093374">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+            <effects>
+                <effect-type name="BlurHorizontal">
+                    <effect id="blurhorizontal" />
+                </effect-type>
+                <effect-type name="BlurVertical">
+                    <effect id="blurvertical" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="548482877969141" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -889,14 +938,18 @@
                 <member>Border</member>
                 <member>BottomPart</member>
                 <member>Bumper</member>
-                <member>CurvedWall</member>
+                <member>ChargeEffect</member>
                 <member>Door</member>
                 <member>DropTarget</member>
                 <member>Joint</member>
                 <member>LeftPaddle</member>
+                <member>MagnaSave</member>
                 <member>RightPaddle</member>
+                <member>RightTopPaddle</member>
+                <member>RolloverSwitch</member>
                 <member>SideBouncingPart</member>
                 <member>SideBumper</member>
+                <member>SideDoor</member>
                 <member>SideWall</member>
                 <member>SpinningDoor</member>
                 <member>Spring</member>
@@ -905,10 +958,10 @@
                 <member>Wall</member>
             </members>
             <behaviors>
-                <behavior-type name="Sine" sid="475041857843903">
+                <behavior-type name="Sine2" sid="475041857843903">
                     <behavior id="Sin" />
                 </behavior-type>
-                <behavior-type name="Timer" sid="984151959162802">
+                <behavior-type name="Timer3" sid="984151959162802">
                     <behavior id="Timer" />
                 </behavior-type>
             </behaviors>

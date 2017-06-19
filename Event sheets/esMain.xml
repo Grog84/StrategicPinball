@@ -123,11 +123,11 @@
                 </condition>
             </conditions>
             <actions>
-                <action behavior="Sine" id="0" name="Set active" sid="386785702280242" type="ElementsOnTable">
+                <action behavior="Sine2" id="0" name="Set active" sid="386785702280242" type="ElementsOnTable">
                     <param id="0" name="State">1</param>
                 </action>
-                <action behavior="Timer" id="0" name="Start timer" sid="581578986892570" type="ElementsOnTable">
-                    <param id="0" name="Duration">ElementsOnTable.Sine.Period * 3</param>
+                <action behavior="Timer3" id="0" name="Start timer" sid="581578986892570" type="ElementsOnTable">
+                    <param id="0" name="Duration">ElementsOnTable.Sine2.Period * 3</param>
                     <param id="1" name="Type">0</param>
                     <param id="2" name="Tag">&quot;Shake&quot;</param>
                 </action>
@@ -162,12 +162,12 @@
                     <sub-events>
                         <event-block sid="683846027593688">
                             <conditions>
-                                <condition behavior="Timer" id="0" name="On timer" sid="191699751964082" type="ElementsOnTable">
+                                <condition behavior="Timer3" id="0" name="On timer" sid="191699751964082" type="ElementsOnTable">
                                     <param id="0" name="Tag">&quot;Shake&quot;</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action behavior="Sine" id="0" name="Set active" sid="825648290706525" type="ElementsOnTable">
+                                <action behavior="Sine2" id="0" name="Set active" sid="825648290706525" type="ElementsOnTable">
                                     <param id="0" name="State">0</param>
                                 </action>
                                 <action id="-11" name="Subtract from" sid="955495995857826" type="System">
@@ -645,7 +645,7 @@
                                 <action id="5" name="Set frame" sid="563043029540630" type="DropTarget">
                                     <param id="0" name="Frame number">1</param>
                                 </action>
-                                <action behavior="Timer" id="0" name="Start timer" sid="169779871372535" type="DropTarget">
+                                <action behavior="Timer3" id="0" name="Start timer" sid="169779871372535" type="DropTarget">
                                     <param id="0" name="Duration">self.ComeBackTimer</param>
                                     <param id="1" name="Type">0</param>
                                     <param id="2" name="Tag">&quot;downTimer&quot;</param>
@@ -657,7 +657,7 @@
                         </event-block>
                         <event-block sid="820248582916587">
                             <conditions>
-                                <condition behavior="Timer" id="0" name="On timer" sid="460431297920302" type="DropTarget">
+                                <condition behavior="Timer3" id="0" name="On timer" sid="460431297920302" type="DropTarget">
                                     <param id="0" name="Tag">&quot;downTimer&quot;</param>
                                 </condition>
                             </conditions>
@@ -894,6 +894,142 @@
                             </actions>
                         </event-block>
                     </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="812158406399724" title="SideDoor">
+            <sub-events>
+                <event-block sid="544404168971808">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="699541427926983" type="Ball">
+                            <param id="0" name="Object">RolloverSwitch</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="445818605865458" type="RolloverSwitch">
+                            <param id="0" name="Instance variable">Position</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Side&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="491449298722942" type="SideDoor">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="669269893115478" type="SideDoor">
+                            <param id="0" name="Instance variable">switchPressed</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="940919916464844">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="535727403868509" type="SideDoor">
+                            <param id="0" name="Object">Ball</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="924795969419131" type="SideDoor">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="595438625738803" type="SideDoor">
+                            <param id="0" name="Instance variable">switchPressed</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="344707548555541" type="SideDoor">
+                            <param id="0" name="Instance variable">hasToBeOpened</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="347413674818038">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="908706786045960" type="SideDoor">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="843729058557859" type="SideDoor">
+                            <param id="0" name="Instance variable">hasToBeOpened</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="9" inverted="1" name="Is overlapping at offset" sid="431319933509653" type="SideDoor">
+                            <param id="0" name="Object">Ball</param>
+                            <param id="1" name="Offset X">0</param>
+                            <param id="2" name="Offset Y">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="507216743421460" type="SideDoor">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action behavior="Physics" id="27" name="Set enabled" sid="824947541254920" type="SideDoor">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="340386042723168" type="SideDoor">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="258776665768262" type="SideDoor">
+                            <param id="0" name="Instance variable">hasToBeOpened</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="665981941512516" type="SideDoor">
+                            <param id="0" name="Instance variable">switchPressed</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="529752405157598" title="MagnaSave">
+            <sub-events>
+                <event-block sid="729204609247594">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="665808795072049" type="Ball">
+                            <param id="0" name="Object">MagnaSave</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="443115167774146" type="MagnaSave">
+                            <param id="0" name="Instance variable">isActive</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="376335409814398">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="696279139138566" type="MagnaSave">
+                            <param id="0" name="Instance variable">isActive</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="468659880682147" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="133449377074599" type="ChargeEffect">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="846132533451588">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="181807114327683" type="MagnaSave">
+                            <param id="0" name="Instance variable">isActive</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="261440610061564" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="956006331593367" type="ChargeEffect">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
         </event-group>
