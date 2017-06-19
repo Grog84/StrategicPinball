@@ -49,10 +49,12 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="PinballBkg" uid="1">
+                <instance type="Sprite" uid="66">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
-                        <hotspot>Top-left</hotspot>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>1</initial-frame>
+                        <collisions>Enabled</collisions>
                     </properties>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -65,6 +67,94 @@
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Sprite2" uid="1">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-150</x>
+                        <y>554</y>
+                        <z>0</z>
+                        <width>30</width>
+                        <height>30</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Sprite3" uid="67">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-148</x>
+                        <y>598</y>
+                        <z>0</z>
+                        <width>30</width>
+                        <height>30</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Sprite4" uid="68">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-150</x>
+                        <y>645</y>
+                        <z>0</z>
+                        <width>30</width>
+                        <height>30</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Sprite5" uid="69">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-154</x>
+                        <y>695</y>
+                        <z>0</z>
+                        <width>30</width>
+                        <height>30</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -125,6 +215,19 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>0</b-replace>
+                                <b-source>0</b-source>
+                                <g-replace>0</g-replace>
+                                <g-source>0</g-source>
+                                <r-replace>0</r-replace>
+                                <r-source>0</r-source>
+                                <tolerance>0.01</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -177,6 +280,19 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>0</b-replace>
+                                <b-source>255</b-source>
+                                <g-replace>0</g-replace>
+                                <g-source>255</g-source>
+                                <r-replace>0</r-replace>
+                                <r-source>255</r-source>
+                                <tolerance>0.01</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -229,6 +345,19 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>0</b-replace>
+                                <b-source>255</b-source>
+                                <g-replace>0</g-replace>
+                                <g-source>255</g-source>
+                                <r-replace>0</r-replace>
+                                <r-source>255</r-source>
+                                <tolerance>0.01</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -281,6 +410,19 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>0</b-replace>
+                                <b-source>255</b-source>
+                                <g-replace>0</g-replace>
+                                <g-source>255</g-source>
+                                <r-replace>0</r-replace>
+                                <r-source>255</r-source>
+                                <tolerance>0.01</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -736,7 +878,7 @@
                 <instance type="Bumper" uid="20">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
+                        <initial-animation>Bowie50Pts</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
@@ -1016,14 +1158,27 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>0</b-replace>
+                                <b-source>255</b-source>
+                                <g-replace>0</g-replace>
+                                <g-source>255</g-source>
+                                <r-replace>0</r-replace>
+                                <r-source>255</r-source>
+                                <tolerance>0.01</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>740</x>
-                        <y>721.5</y>
+                        <y>726.5</y>
                         <z>0</z>
                         <width>10</width>
-                        <height>405</height>
+                        <height>415</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -1046,8 +1201,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1587</x>
-                        <y>-166</y>
+                        <x>274</x>
+                        <y>457</y>
                         <z>0</z>
                         <width>294</width>
                         <height>325</height>
@@ -1424,6 +1579,19 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>0</b-replace>
+                                <b-source>255</b-source>
+                                <g-replace>0</g-replace>
+                                <g-source>255</g-source>
+                                <r-replace>0</r-replace>
+                                <r-source>255</r-source>
+                                <tolerance>0.01</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -1938,6 +2106,19 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>0</b-replace>
+                                <b-source>255</b-source>
+                                <g-replace>0</g-replace>
+                                <g-source>255</g-source>
+                                <r-replace>0</r-replace>
+                                <r-source>255</r-source>
+                                <tolerance>0.01</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -1990,6 +2171,19 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>0</b-replace>
+                                <b-source>255</b-source>
+                                <g-replace>0</g-replace>
+                                <g-source>255</g-source>
+                                <r-replace>0</r-replace>
+                                <r-source>255</r-source>
+                                <tolerance>0.01</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -2156,6 +2350,19 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>0</b-replace>
+                                <b-source>255</b-source>
+                                <g-replace>0</g-replace>
+                                <g-source>255</g-source>
+                                <r-replace>0</r-replace>
+                                <r-source>255</r-source>
+                                <tolerance>0.01</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -2479,6 +2686,19 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>0</b-replace>
+                                <b-source>255</b-source>
+                                <g-replace>0</g-replace>
+                                <g-source>255</g-source>
+                                <r-replace>0</r-replace>
+                                <r-source>255</r-source>
+                                <tolerance>0.01</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -2544,6 +2764,7 @@
                     </properties>
                     <instance-variables>
                         <isActive>0</isActive>
+                        <forceVal>2.5</forceVal>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Sine2">
@@ -2618,6 +2839,19 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>0</b-replace>
+                                <b-source>255</b-source>
+                                <g-replace>0</g-replace>
+                                <g-source>255</g-source>
+                                <r-replace>0</r-replace>
+                                <r-source>255</r-source>
+                                <tolerance>0.01</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -2696,6 +2930,31 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
+                <instance type="BowieHead" uid="64">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <isOpen>0</isOpen>
+                    </instance-variables>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>190</x>
+                        <y>186</y>
+                        <z>0</z>
+                        <width>200</width>
+                        <height>281</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.501779377</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
             </instances>
             <effects />
         </layer>
@@ -2722,6 +2981,9 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <dragBall>0</dragBall>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Physics">
                             <properties>
@@ -2971,6 +3233,28 @@
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
                         <angle>-0.558126628</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="BowieButton" uid="65">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>935</x>
+                        <y>777</y>
+                        <z>0</z>
+                        <width>103.579177856</width>
+                        <height>200.291229248</height>
+                        <depth>0</depth>
+                        <hotspotX>0.502762437</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>

@@ -823,7 +823,7 @@
                                             <actions>
                                                 <action id="-9" name="Set value" sid="662940376407479" type="System">
                                                     <param id="0" name="Variable">velocityModulus</param>
-                                                    <param id="1" name="Value">sqrt(Ball.Physics.VelocityX*Ball.Physics.VelocityX + Ball.Physics.VelocityY*Ball.Physics.VelocityY)</param>
+                                                    <param id="1" name="Value">Function.Call(&quot;getVelocityModulus&quot;, Ball.UID)</param>
                                                 </action>
                                                 <action id="-9" name="Set value" sid="156834438937707" type="System">
                                                     <param id="0" name="Variable">distanceModulus</param>
@@ -1000,6 +1000,38 @@
                         </condition>
                     </conditions>
                     <actions />
+                    <sub-events>
+                        <event-block sid="305547042976855">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="365749471867274" type="Ball">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="X co-ordinate">MagnaSave.X</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Physics" id="0" name="Apply force" sid="228797095877820" type="Ball">
+                                    <param id="0" name="Force X">-MagnaSave.forceVal</param>
+                                    <param id="1" name="Force Y">0</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="422922385223561">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="810351202671918" type="Ball">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="X co-ordinate">MagnaSave.X</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Physics" id="0" name="Apply force" sid="493861613930459" type="Ball">
+                                    <param id="0" name="Force X">MagnaSave.forceVal</param>
+                                    <param id="1" name="Force Y">0</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="376335409814398">
                     <conditions>
@@ -1059,5 +1091,81 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="607600823808395">
+            <conditions>
+                <condition id="0" name="On function" sid="469870237067220" type="Function">
+                    <param id="0" name="Name">&quot;getVelocityModulus&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="velocityModulus" sid="637046328959310" static="0" type="number">0</variable>
+                <event-block sid="386133013199511">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="603515721421058" type="Ball">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="881551204778399" type="System">
+                            <param id="0" name="Variable">velocityModulus</param>
+                            <param id="1" name="Value">sqrt(Ball.Physics.VelocityX*Ball.Physics.VelocityX + Ball.Physics.VelocityY*Ball.Physics.VelocityY)</param>
+                        </action>
+                        <action id="1" name="Set return value" sid="390440583802039" type="Function">
+                            <param id="0" name="Value">velocityModulus</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="" sid="946770891436321" title="DeBug">
+            <sub-events>
+                <event-block sid="332151412756841">
+                    <conditions>
+                        <condition id="6" name="On object clicked" sid="448834436440491" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                            <param id="2" name="Object clicked">Ball</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="146622678243293" type="Ball">
+                            <param id="0" name="Instance variable">dragBall</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="641140856570444">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="875679122213890" type="Ball">
+                            <param id="0" name="Instance variable">dragBall</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="826639696467681" type="Ball">
+                            <param id="0" name="X">Mouse.X</param>
+                            <param id="1" name="Y">Mouse.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="846468123236291">
+                    <conditions>
+                        <condition id="6" name="On object clicked" sid="415993817893394" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">1</param>
+                            <param id="2" name="Object clicked">Ball</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="809425911015087" type="Ball">
+                            <param id="0" name="Instance variable">dragBall</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
     </events>
 </c2eventsheet>
