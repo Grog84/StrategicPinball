@@ -1175,6 +1175,9 @@
                                     <param id="0" name="Animation">&quot;Opening&quot;</param>
                                     <param id="1" name="From">1</param>
                                 </action>
+                                <action id="5" name="Set frame" sid="433610235690391" type="BowieHead">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
                                 <action id="6" name="Set speed" sid="422239640920345" type="BowieHead">
                                     <param id="0" name="Speed">0</param>
                                 </action>
@@ -1629,6 +1632,93 @@
                             <param id="1" name="Value">0</param>
                         </action>
                     </actions>
+                </event-block>
+                <event-block sid="637341698341442">
+                    <conditions>
+                        <condition id="0" name="On click" sid="288214279853160" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                        </condition>
+                        <condition id="7" name="Cursor is over object" sid="873226315318342" type="Mouse">
+                            <param id="0" name="Object">BowieButton</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="477675997376251" type="System">
+                            <param id="0" name="Variable">isPaused</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="215171249480673" type="System">
+                            <param id="0" name="Variable">isBowieActive</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="654289615491566" type="Function">
+                            <param id="0" name="Name">&quot;SwitchToBowieTable&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="190876508616587">
+                    <conditions>
+                        <condition id="0" name="On function" sid="551787667213490" type="Function">
+                            <param id="0" name="Name">&quot;SwitchToBowieTable&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="501043510735410" type="LeftPaddle">
+                            <param id="0" name="Animation">&quot;Bowie&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="664358747592924" type="RightPaddle">
+                            <param id="0" name="Animation">&quot;Bowie&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="947569615906877">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="696178162040014" type="System">
+                                    <param id="0" name="Object">Bumper</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="622491962140569">
+                                    <conditions>
+                                        <condition id="2" name="Is playing" sid="248207511878348" type="Bumper">
+                                            <param id="0" name="Animation">&quot;50Pts&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                                <event-block sid="278786365234682">
+                                    <conditions>
+                                        <condition id="2" name="Is playing" sid="602331839370247" type="Bumper">
+                                            <param id="0" name="Animation">&quot;100Pts&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                                <event-block sid="599277299507432">
+                                    <conditions>
+                                        <condition id="2" name="Is playing" sid="152667386359823" type="Bumper">
+                                            <param id="0" name="Animation">&quot;200Pts&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                                <event-block sid="980678214786197">
+                                    <conditions>
+                                        <condition id="2" name="Is playing" sid="120655952151460" type="Bumper">
+                                            <param id="0" name="Animation">&quot;400Pts&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
