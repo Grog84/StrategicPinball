@@ -580,6 +580,9 @@
         </object-type>
         <object-type name="SideBumper" sid="815256690425403">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Side" sid="354786116531851" type="string" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Physics" sid="844338953795703">
                     <behavior id="Physics" />
@@ -1040,6 +1043,8 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="Position" sid="923754323354946" type="string" />
+                <instance-variable name="Letter" sid="346567869924024" type="string" />
+                <instance-variable name="hasBeenTriggered" sid="486779164802105" type="number" />
             </instance-variables>
             <animation-folder>
                 <animation framecount="3" loop="0" name="Default" pingpong="1" repeatcount="1" repeatto="0" sid="300212705219420" speed="5">
@@ -1180,32 +1185,34 @@
                     <frame duration="1" hotspotX="0.5" hotspotY="0.501779" original-source="C:\Users\dbga_55\Pictures\bowie1.png">
                         <collision-poly>
                             <point x="0.868409" y="0.520342" />
-                            <point x="0.759546" y="0.860994" />
-                            <point x="0.283977" y="0.86561" />
+                            <point x="0.829545" y="0.87167" />
+                            <point x="0.198977" y="0.869169" />
                             <point x="0.228523" y="0.513225" />
                         </collision-poly>
                     </frame>
                     <frame duration="1" hotspotX="0.5" hotspotY="0.501779" original-source="C:\Users\dbga_55\Pictures\bowie2.png">
                         <collision-poly>
                             <point x="0.868409" y="0.520342" />
-                            <point x="0.759546" y="0.860994" />
-                            <point x="0.283977" y="0.86561" />
+                            <point x="0.829545" y="0.87167" />
+                            <point x="0.198977" y="0.869169" />
                             <point x="0.228523" y="0.513225" />
                         </collision-poly>
                     </frame>
                     <frame duration="1" hotspotX="0.5" hotspotY="0.501779" original-source="C:\Users\dbga_55\Pictures\bowie3.png">
                         <collision-poly>
                             <point x="0.868409" y="0.520342" />
-                            <point x="0.759546" y="0.860994" />
-                            <point x="0.283977" y="0.86561" />
+                            <point x="0.829545" y="0.87167" />
+                            <point x="0.198977" y="0.869169" />
                             <point x="0.228523" y="0.513225" />
                         </collision-poly>
                     </frame>
                     <frame duration="1" hotspotX="0.5" hotspotY="0.501779" original-source="C:\Users\dbga_55\Pictures\bowie4.png">
                         <collision-poly>
                             <point x="0.868409" y="0.520342" />
-                            <point x="0.759546" y="0.860994" />
-                            <point x="0.283977" y="0.86561" />
+                            <point x="0.829545" y="0.87167" />
+                            <point x="0.759404" y="0.74738" />
+                            <point x="0.279261" y="0.747644" />
+                            <point x="0.198977" y="0.869169" />
                             <point x="0.228523" y="0.513225" />
                         </collision-poly>
                     </frame>
@@ -1231,8 +1238,11 @@
         </object-type>
         <object-type name="A" sid="270376625946624">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="isOn" sid="138833543128234" type="number" />
+            </instance-variables>
             <animation-folder>
-                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="562001923942030" speed="5">
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="562001923942030" speed="0">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\A_off.png">
                         <collision-poly>
                             <point x="0.133333" y="0.133333" />
@@ -1262,8 +1272,11 @@
         </object-type>
         <object-type name="R" sid="130234181155914">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="isOn" sid="726474909155343" type="number" />
+            </instance-variables>
             <animation-folder>
-                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="990748648023249" speed="5">
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="990748648023249" speed="0">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\R_off.png">
                         <collision-poly>
                             <point x="0.133333" y="0.133333" />
@@ -1293,8 +1306,11 @@
         </object-type>
         <object-type name="S" sid="832071430785859">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="isOn" sid="554926109811895" type="number" />
+            </instance-variables>
             <animation-folder>
-                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="534292650215087" speed="5">
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="534292650215087" speed="0">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\S_off.png">
                         <collision-poly>
                             <point x="0.133333" y="0.133333" />
@@ -1324,8 +1340,11 @@
         </object-type>
         <object-type name="T" sid="144808321024228">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="isOn" sid="754010036793615" type="number" />
+            </instance-variables>
             <animation-folder>
-                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="541630325931453" speed="5">
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="541630325931453" speed="0">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\T_off.png">
                         <collision-poly>
                             <point x="0.133333" y="0.133333" />
@@ -1357,15 +1376,45 @@
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="234956224537218" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\SelectionBase.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\SelectionBase.png">
+                        <image-point name="Top" x="0.5" y="0" />
+                        <image-point name="Left" x="0" y="0.5" />
+                        <image-point name="Right" x="1" y="0.5" />
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
         <object-type name="ArrowUp" sid="954359470621949">
             <plugin id="Sprite" />
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="526750797772708" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\greenArrow.png" />
+                <animation framecount="9" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="526750797772708" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\greenArrow.png">
+                        <image-point name="TextSpawn" x="0.5" y="1.33333" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TextSpawn" x="0.5" y="1.33333" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TextSpawn" x="0.5" y="1.33333" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TextSpawn" x="0.5" y="1.33333" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TextSpawn" x="0.5" y="1.33333" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TextSpawn" x="0.5" y="1.33333" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TextSpawn" x="0.5" y="1.33333" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TextSpawn" x="0.5" y="1.33333" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TextSpawn" x="0.5" y="1.33333" />
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
@@ -1446,6 +1495,55 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="IconRevolving" sid="478423886453868">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="797698079459126" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\revolvingDoors.png">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0.496774" />
+                            <point x="0.897436" y="0.922581" />
+                            <point x="0.495726" y="0.980645" />
+                            <point x="0.102564" y="0.922581" />
+                            <point x="0" y="0.496774" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PlayPause" sid="123700837879879">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="197569396982378" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\play.png">
+                        <collision-poly>
+                            <point x="0.146667" y="0.146667" />
+                            <point x="0.497778" y="0" />
+                            <point x="0.853333" y="0.146667" />
+                            <point x="1" y="0.497778" />
+                            <point x="0.853333" y="0.853333" />
+                            <point x="0.497778" y="1" />
+                            <point x="0.146667" y="0.853333" />
+                            <point x="0" y="0.497778" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\pause.png">
+                        <collision-poly>
+                            <point x="0.148438" y="0.148438" />
+                            <point x="0.5" y="0" />
+                            <point x="0.851563" y="0.148438" />
+                            <point x="1" y="0.5" />
+                            <point x="0.851563" y="0.851563" />
+                            <point x="0.5" y="1" />
+                            <point x="0.148438" y="0.851563" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Paddles" plugin-id="Sprite" sid="647063370935462">
@@ -1470,9 +1568,11 @@
         </family>
         <family name="ElementsOnTable" plugin-id="Sprite" sid="481602388423468">
             <members>
+                <member>A</member>
                 <member>Arrow</member>
                 <member>Border</member>
                 <member>BottomPart</member>
+                <member>BowieHead</member>
                 <member>Bumper</member>
                 <member>ChargeEffect</member>
                 <member>Door</member>
@@ -1480,9 +1580,11 @@
                 <member>Joint</member>
                 <member>LeftPaddle</member>
                 <member>MagnaSave</member>
+                <member>R</member>
                 <member>RightPaddle</member>
                 <member>RightTopPaddle</member>
                 <member>RolloverSwitch</member>
+                <member>S</member>
                 <member>SideBouncingPart</member>
                 <member>SideBumper</member>
                 <member>SideDoor</member>
@@ -1490,6 +1592,8 @@
                 <member>SpinningDoor</member>
                 <member>Spring</member>
                 <member>SpringWall</member>
+                <member>T</member>
+                <member>TableBkg</member>
                 <member>TopWall</member>
                 <member>Wall</member>
             </members>

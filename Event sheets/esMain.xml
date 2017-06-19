@@ -3,6 +3,9 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esMain</name>
     <events>
+        <variable constant="0" name="gameTimer" sid="707520278374114" static="0" type="number">600</variable>
+        <variable constant="0" name="isPaused" sid="263510902526751" static="0" type="number">0</variable>
+        <variable constant="0" name="isBowieActive" sid="899711938972924" static="0" type="number">0</variable>
         <variable constant="0" name="BallLossPoints" sid="449588326139012" static="0" type="number">300</variable>
         <variable constant="0" name="Cash" sid="584479728835511" static="0" type="number">0</variable>
         <variable constant="0" name="ballInGame" sid="948187606096225" static="0" type="number">0</variable>
@@ -141,6 +144,33 @@
                     <param id="2" name="Image point">0</param>
                 </action>
             </actions>
+        </event-block>
+        <event-block sid="607600823808395">
+            <conditions>
+                <condition id="0" name="On function" sid="469870237067220" type="Function">
+                    <param id="0" name="Name">&quot;getVelocityModulus&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="velocityModulus" sid="637046328959310" static="0" type="number">0</variable>
+                <event-block sid="386133013199511">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="603515721421058" type="Ball">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="881551204778399" type="System">
+                            <param id="0" name="Variable">velocityModulus</param>
+                            <param id="1" name="Value">sqrt(Ball.Physics.VelocityX*Ball.Physics.VelocityX + Ball.Physics.VelocityY*Ball.Physics.VelocityY)</param>
+                        </action>
+                        <action id="1" name="Set return value" sid="390440583802039" type="Function">
+                            <param id="0" name="Value">velocityModulus</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="886662454145445">
             <conditions>
@@ -1065,6 +1095,436 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-group description="" sid="704237439674983" title="BowieHead">
+            <sub-events>
+                <event-group description="" sid="649406733429764" title="Head">
+                    <sub-events>
+                        <event-block sid="170675089134347">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="902050483134291" type="BowieHead">
+                                    <param id="0" name="Instance variable">isOpen</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="3" name="Compare frame" sid="843950343210668" type="BowieHead">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Set speed" sid="958436563172355" type="BowieHead">
+                                    <param id="0" name="Speed">5</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="911196639099361" title="Leds">
+                    <sub-events>
+                        <event-block sid="252197390495412">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="647296548561841" type="Ball">
+                                    <param id="0" name="Object">RolloverSwitch</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="381863931419416" type="RolloverSwitch">
+                                    <param id="0" name="Instance variable">Position</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Top&quot;</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="110787238915761" type="RolloverSwitch">
+                                    <param id="0" name="Instance variable">hasBeenTriggered</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="308613886607778" type="RolloverSwitch">
+                                    <param id="0" name="Instance variable">hasBeenTriggered</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="961147273851735">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="267789445701923" type="RolloverSwitch">
+                                            <param id="0" name="Instance variable">Letter</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;S&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="994087004778834">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="905033269731443" type="S">
+                                                    <param id="0" name="Instance variable">isOn</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="215600912716356" type="S">
+                                                    <param id="0" name="Instance variable">isOn</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="496665278166213" type="S">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="278534806011602">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="427744298574028" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="832939174966006" type="S">
+                                                    <param id="0" name="Instance variable">isOn</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="573028770676600" type="S">
+                                                    <param id="0" name="Frame number">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="367058859495767">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="891113135838267" type="RolloverSwitch">
+                                            <param id="0" name="Instance variable">Letter</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;T&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="616855258569232">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="702597203945462" type="T">
+                                                    <param id="0" name="Instance variable">isOn</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="840235264623426" type="T">
+                                                    <param id="0" name="Instance variable">isOn</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="481279587510494" type="T">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="805973697763546">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="996178151559341" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="303907751651532" type="T">
+                                                    <param id="0" name="Instance variable">isOn</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="565175490659102" type="T">
+                                                    <param id="0" name="Frame number">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="340743094377558">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="139932807284682" type="RolloverSwitch">
+                                            <param id="0" name="Instance variable">Letter</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;A&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="945459255560235">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="456012600426466" type="A">
+                                                    <param id="0" name="Instance variable">isOn</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="608478389150693" type="A">
+                                                    <param id="0" name="Instance variable">isOn</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="520331505998252" type="A">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="740232582624118">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="352144041314079" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="569252618083454" type="A">
+                                                    <param id="0" name="Instance variable">isOn</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="546597496944585" type="A">
+                                                    <param id="0" name="Frame number">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="906084741305313">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="255709571180211" type="RolloverSwitch">
+                                            <param id="0" name="Instance variable">Letter</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;R&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="654529660301770">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="426992831196466" type="R">
+                                                    <param id="0" name="Instance variable">isOn</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="455015912181362" type="R">
+                                                    <param id="0" name="Instance variable">isOn</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="354769103555108" type="R">
+                                                    <param id="0" name="Frame number">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="638368692626165">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="602366067511492" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="828987970379293" type="R">
+                                                    <param id="0" name="Instance variable">isOn</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="238286427260453" type="R">
+                                                    <param id="0" name="Frame number">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="507467909215728">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="372509375333128" type="S">
+                                    <param id="0" name="Instance variable">isOn</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="904963443444995" type="T">
+                                    <param id="0" name="Instance variable">isOn</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="802898222766877" type="A">
+                                    <param id="0" name="Instance variable">isOn</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="664996492774085" type="R">
+                                    <param id="0" name="Instance variable">isOn</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="809216491866631" type="BowieHead">
+                                    <param id="0" name="Instance variable">isOpen</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="516048383448012" type="S">
+                                    <param id="0" name="Speed">10</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="107985466128587" type="T">
+                                    <param id="0" name="Speed">10</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="121914671102772" type="A">
+                                    <param id="0" name="Speed">10</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="435856930492389" type="R">
+                                    <param id="0" name="Speed">10</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="590914153997379" type="System">
+                                    <param id="0" name="Seconds">2</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="503261640646912" type="S">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="378972006421639" type="T">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="402094984136583" type="A">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="352152059629693" type="R">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="870538318329884" type="S">
+                                    <param id="0" name="Instance variable">isOn</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="630634143307895" type="S">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="184201232401027" type="T">
+                                    <param id="0" name="Instance variable">isOn</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="852033965689650" type="T">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="989074001680614" type="A">
+                                    <param id="0" name="Instance variable">isOn</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="460025151140585" type="A">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="874784213216888" type="R">
+                                    <param id="0" name="Instance variable">isOn</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="146069339049781" type="R">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="981247625236553" type="System">
+                                    <param id="0" name="Variable">Cash</param>
+                                    <param id="1" name="Value">1000</param>
+                                </action>
+                                <action id="0" name="Call function" sid="251540769348038" type="Function">
+                                    <param id="0" name="Name">&quot;UpdateScore&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="311253937932935">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="423418936708231" type="RolloverSwitch">
+                                    <param id="0" name="Instance variable">hasBeenTriggered</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="820107927316811" type="RolloverSwitch">
+                                    <param id="0" name="Object">Ball</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="802944132868459" type="RolloverSwitch">
+                                    <param id="0" name="Instance variable">hasBeenTriggered</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="714423500412454" title="Manager">
+            <sub-events>
+                <event-block sid="784562858158112">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="706717934467182" type="Keyboard">
+                            <param id="0" name="Key">32 (Barra Spaziatrice)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="594778278717995">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="225264264942952" type="System">
+                                    <param id="0" name="Variable">isPaused</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="900959376507036" type="System">
+                                    <param id="0" name="Variable">isPaused</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-13" name="Set time scale" sid="943786459906918" type="System">
+                                    <param id="0" name="Time scale">0</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="301311054107336" type="PlayPause">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="385745533330531">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="240592345212661" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="616741706952995" type="System">
+                                    <param id="0" name="Variable">isPaused</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-13" name="Set time scale" sid="900650724437403" type="System">
+                                    <param id="0" name="Time scale">1</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="935209614689138" type="PlayPause">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="367719243307273">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="414660116934395" type="System">
+                            <param id="0" name="Interval (seconds)">1.0</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="871698988666765" type="HudText">
+                            <param id="0" name="Instance variable">ID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="301776229572192" type="System">
+                            <param id="0" name="Variable">gameTimer</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="645467720592122" type="HudText">
+                            <param id="0" name="Text">zeropad(int(gameTimer/60%60),2)&amp;&quot;:&quot;&amp;zeropad(int(gameTimer%60),2)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="870152144883969">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="918927308189495" type="System">
+                            <param id="0" name="Variable">Cash</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="794670404204930" type="System">
+                            <param id="0" name="Variable">Cash</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-block sid="121744315072305">
             <conditions>
                 <condition id="-4" name="Is outside layout" sid="145227397067181" type="Ball" />
@@ -1090,33 +1550,6 @@
                     <param id="1" name="Value">0</param>
                 </action>
             </actions>
-        </event-block>
-        <event-block sid="607600823808395">
-            <conditions>
-                <condition id="0" name="On function" sid="469870237067220" type="Function">
-                    <param id="0" name="Name">&quot;getVelocityModulus&quot;</param>
-                </condition>
-            </conditions>
-            <actions />
-            <sub-events>
-                <variable constant="0" name="velocityModulus" sid="637046328959310" static="0" type="number">0</variable>
-                <event-block sid="386133013199511">
-                    <conditions>
-                        <condition id="-14" name="Pick by unique ID" sid="603515721421058" type="Ball">
-                            <param id="0" name="Unique ID">Function.Param(0)</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Set value" sid="881551204778399" type="System">
-                            <param id="0" name="Variable">velocityModulus</param>
-                            <param id="1" name="Value">sqrt(Ball.Physics.VelocityX*Ball.Physics.VelocityX + Ball.Physics.VelocityY*Ball.Physics.VelocityY)</param>
-                        </action>
-                        <action id="1" name="Set return value" sid="390440583802039" type="Function">
-                            <param id="0" name="Value">velocityModulus</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
         </event-block>
         <event-group description="" sid="946770891436321" title="DeBug">
             <sub-events>
