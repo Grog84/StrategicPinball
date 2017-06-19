@@ -1220,7 +1220,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Sprite" sid="397646261667972">
+        <object-type name="TableBkg" sid="397646261667972">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="389157669762171" speed="0">
@@ -1229,7 +1229,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Sprite2" sid="270376625946624">
+        <object-type name="A" sid="270376625946624">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="562001923942030" speed="5">
@@ -1260,7 +1260,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Sprite3" sid="130234181155914">
+        <object-type name="R" sid="130234181155914">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="990748648023249" speed="5">
@@ -1291,7 +1291,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Sprite4" sid="832071430785859">
+        <object-type name="S" sid="832071430785859">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="534292650215087" speed="5">
@@ -1322,7 +1322,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Sprite5" sid="144808321024228">
+        <object-type name="T" sid="144808321024228">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="541630325931453" speed="5">
@@ -1348,6 +1348,99 @@
                             <point x="0.5" y="1" />
                             <point x="0.133333" y="0.866667" />
                             <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SelectionBkg" sid="528616207402307">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="234956224537218" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\SelectionBase.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ArrowUp" sid="954359470621949">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="526750797772708" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\greenArrow.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="IconBumper" sid="421228015655763">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="563984951507669" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="IconExplosion" sid="635235649246648">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="591363004111554" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\explosion.png">
+                        <collision-poly>
+                            <point x="0.293333" y="0.315978" />
+                            <point x="0.5" y="0.143627" />
+                            <point x="0.708333" y="0.314183" />
+                            <point x="0.831667" y="0.499102" />
+                            <point x="0.943333" y="0.938959" />
+                            <point x="0.5" y="0.888689" />
+                            <point x="0.198333" y="0.786355" />
+                            <point x="0.195" y="0.499102" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="IconMagna" sid="696634972014844">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="849604106195639" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="IconKicker" sid="725168085435298">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="977289346106518" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="IconBull" sid="345142607908478">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="475243165378005" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="IconHead" sid="291028910818694">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="782208973717975" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="IconDoor" sid="304771475517290">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="648291368121519" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Pictures\doorClose.png">
+                        <collision-poly>
+                            <point x="0.155844" y="0.0923077" />
+                            <point x="0.844156" y="0.0923077" />
+                            <point x="0.857143" y="0.5" />
+                            <point x="0.545455" y="0.730769" />
+                            <point x="0.493506" y="0.930769" />
+                            <point x="0.311688" y="0.815385" />
+                            <point x="0.142857" y="0.5" />
                         </collision-poly>
                     </frame>
                 </animation>

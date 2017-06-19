@@ -58,10 +58,19 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/ChargeEffect/" />
         <folder expanded="1" path="animation-folder/BowieHead/" />
         <folder expanded="1" path="animation-folder/BowieButton/" />
-        <folder expanded="1" path="animation-folder/Sprite/" />
-        <folder expanded="1" path="animation-folder/Sprite2/" />
-        <folder expanded="1" path="animation-folder/Sprite3/" />
-        <folder expanded="1" path="animation-folder/Sprite4/" />
-        <folder expanded="1" path="animation-folder/Sprite5/" />
+        <folder expanded="1" path="animation-folder/TableBkg/" />
+        <folder expanded="1" path="animation-folder/A/" />
+        <folder expanded="1" path="animation-folder/R/" />
+        <folder expanded="1" path="animation-folder/S/" />
+        <folder expanded="1" path="animation-folder/T/" />
+        <folder expanded="1" path="animation-folder/SelectionBkg/" />
+        <folder expanded="1" path="animation-folder/ArrowUp/" />
+        <folder expanded="1" path="animation-folder/IconBumper/" />
+        <folder expanded="1" path="animation-folder/IconExplosion/" />
+        <folder expanded="1" path="animation-folder/IconMagna/" />
+        <folder expanded="1" path="animation-folder/IconKicker/" />
+        <folder expanded="1" path="animation-folder/IconBull/" />
+        <folder expanded="1" path="animation-folder/IconHead/" />
+        <folder expanded="1" path="animation-folder/IconDoor/" />
     </folders-expanded>
 </c2uistate>
