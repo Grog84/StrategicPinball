@@ -14,6 +14,7 @@
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
@@ -1181,7 +1182,7 @@
                 <instance-variable name="isOpen" sid="194971870872118" type="number" />
             </instance-variables>
             <animation-folder>
-                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="206900147671736" speed="0">
+                <animation framecount="4" loop="0" name="Opening" pingpong="0" repeatcount="1" repeatto="0" sid="206900147671736" speed="0">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.501779" original-source="C:\Users\dbga_55\Pictures\bowie1.png">
                         <collision-poly>
                             <point x="0.868409" y="0.520342" />
@@ -1207,11 +1208,49 @@
                         </collision-poly>
                     </frame>
                     <frame duration="1" hotspotX="0.5" hotspotY="0.501779" original-source="C:\Users\dbga_55\Pictures\bowie4.png">
+                        <image-point name="Mouth" x="0.53" y="0.797153" />
                         <collision-poly>
                             <point x="0.868409" y="0.520342" />
                             <point x="0.829545" y="0.87167" />
                             <point x="0.759404" y="0.74738" />
                             <point x="0.279261" y="0.747644" />
+                            <point x="0.198977" y="0.869169" />
+                            <point x="0.228523" y="0.513225" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="4" loop="0" name="Closing" pingpong="0" repeatcount="1" repeatto="0" sid="195465732806176" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501779">
+                        <image-point name="Mouth" x="0.53" y="0.797153" />
+                        <collision-poly>
+                            <point x="0.868409" y="0.520342" />
+                            <point x="0.829545" y="0.87167" />
+                            <point x="0.759404" y="0.74738" />
+                            <point x="0.279261" y="0.747644" />
+                            <point x="0.198977" y="0.869169" />
+                            <point x="0.228523" y="0.513225" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501779">
+                        <collision-poly>
+                            <point x="0.868409" y="0.520342" />
+                            <point x="0.829545" y="0.87167" />
+                            <point x="0.198977" y="0.869169" />
+                            <point x="0.228523" y="0.513225" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501779">
+                        <collision-poly>
+                            <point x="0.868409" y="0.520342" />
+                            <point x="0.829545" y="0.87167" />
+                            <point x="0.198977" y="0.869169" />
+                            <point x="0.228523" y="0.513225" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501779">
+                        <collision-poly>
+                            <point x="0.868409" y="0.520342" />
+                            <point x="0.829545" y="0.87167" />
                             <point x="0.198977" y="0.869169" />
                             <point x="0.228523" y="0.513225" />
                         </collision-poly>
@@ -1543,6 +1582,22 @@
                     </frame>
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type name="Mouth" sid="104357486361824">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="736192640192201" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PinkParticles" sid="260500984421964">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
+        <object-type name="BlueParticles" sid="506145958020845">
+            <plugin id="Particles" />
+            <texture />
         </object-type>
     </object-folder>
     <families>

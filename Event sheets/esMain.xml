@@ -1110,10 +1110,116 @@
                                     <param id="0" name="Comparison">0</param>
                                     <param id="1" name="Number">0</param>
                                 </condition>
+                                <condition id="2" name="Is playing" sid="511795572639880" type="BowieHead">
+                                    <param id="0" name="Animation">&quot;Opening&quot;</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="6" name="Set speed" sid="958436563172355" type="BowieHead">
                                     <param id="0" name="Speed">5</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="733049158864849">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="279871163248858" type="BowieHead">
+                                    <param id="0" name="Instance variable">isOpen</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="3" name="Compare frame" sid="731404877363081" type="BowieHead">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">3</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="682693440696543" type="BowieHead">
+                                    <param id="0" name="Animation">&quot;Opening&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="979656117982399" type="BowieHead">
+                                    <param id="0" name="Animation">&quot;Closing&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="452425128894117" type="BowieHead">
+                                    <param id="0" name="Speed">5</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="646362632598022">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="982462435417205" type="BowieHead">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">3</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="234784828966631" type="BowieHead">
+                                    <param id="0" name="Animation">&quot;Opening&quot;</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="490018653118844" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="300845457387165" type="BowieHead">
+                                    <param id="0" name="Object">Mouth</param>
+                                    <param id="1" name="Layer">&quot;Main&quot;</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="587725126682341">
+                            <conditions>
+                                <condition id="4" name="On finished" sid="756827583982267" type="BowieHead">
+                                    <param id="0" name="Animation">&quot;Closing&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="950021792101872" type="BowieHead">
+                                    <param id="0" name="Animation">&quot;Opening&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="422239640920345" type="BowieHead">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="401823998125245">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="523529017995171" type="Ball">
+                                    <param id="0" name="Object">Mouth</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="910996722860446" type="Mouth" />
+                                <action id="-16" name="Set opacity" sid="458170284722253" type="BlueParticles">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="911336088329888" type="PinkParticles">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="268679719448164" type="Ball" />
+                                <action id="-10" name="Add to" sid="531723081483407" type="System">
+                                    <param id="0" name="Variable">Cash</param>
+                                    <param id="1" name="Value">10000</param>
+                                </action>
+                                <action id="0" name="Call function" sid="102149813005849" type="Function">
+                                    <param id="0" name="Name">&quot;UpdateScore&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-16" name="Wait" sid="405527829152797" type="System">
+                                    <param id="0" name="Seconds">3</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="785745253181157" type="BlueParticles">
+                                    <param id="0" name="Opacity">0</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="853473400548725" type="PinkParticles">
+                                    <param id="0" name="Opacity">0</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="540045794146935" type="BowieHead">
+                                    <param id="0" name="Object">Ball</param>
+                                    <param id="1" name="Layer">&quot;Ball&quot;</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="822513317686843" type="BowieHead">
+                                    <param id="0" name="Instance variable">isOpen</param>
+                                    <param id="1" name="Value">0</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -1344,6 +1450,7 @@
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">1</param>
                                 </condition>
+                                <condition id="-4" name="Trigger once while true" sid="419107222457465" type="System" />
                             </conditions>
                             <actions>
                                 <action id="-10" name="Set value" sid="809216491866631" type="BowieHead">
