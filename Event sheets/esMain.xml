@@ -953,6 +953,12 @@
                                                     <param id="1" name="Angle">bounceAngle</param>
                                                     <param id="2" name="Image point">0</param>
                                                 </action>
+                                                <action id="0" name="Play" sid="275495157215096" type="Audio">
+                                                    <param id="0" name="Audio file">264594__cdrk__reception-bell</param>
+                                                    <param id="2" name="Loop">0</param>
+                                                    <param id="3" name="Volume">-10</param>
+                                                    <param id="1" name="Tag (optional)">&quot;bell&quot;</param>
+                                                </action>
                                             </actions>
                                         </event-block>
                                     </sub-events>
