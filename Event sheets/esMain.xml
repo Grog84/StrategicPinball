@@ -7,11 +7,11 @@
         <variable constant="0" name="CanSelectOtherPuP" sid="104493998818555" static="0" type="number">1</variable>
         <variable constant="0" name="LastClickedPowerUpArea" sid="937924764339684" static="0" type="number">0</variable>
         <variable constant="0" name="LastClickedPowerUpType" sid="565862839127798" static="0" type="text"></variable>
-        <variable constant="0" name="gameTimer" sid="707520278374114" static="0" type="number">1200</variable>
+        <variable constant="0" name="gameTimer" sid="707520278374114" static="0" type="number">600</variable>
         <variable constant="0" name="isPaused" sid="263510902526751" static="0" type="number">0</variable>
         <variable constant="0" name="isBowieActive" sid="899711938972924" static="0" type="number">0</variable>
         <variable constant="0" name="BallLossPoints" sid="449588326139012" static="0" type="number">300</variable>
-        <variable constant="0" name="Cash" sid="584479728835511" static="0" type="number">4000000000</variable>
+        <variable constant="0" name="Cash" sid="584479728835511" static="0" type="number">40000000</variable>
         <variable constant="0" name="ballInGame" sid="948187606096225" static="0" type="number">0</variable>
         <variable constant="0" name="Shaken" sid="232118938800705" static="0" type="number">0</variable>
         <event-block sid="743830243251371">
@@ -32,6 +32,7 @@
                     <param id="0" name="Name">&quot;UpdateScore&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
+                <action id="-45" name="Reset persisted objects" sid="677783179901570" type="System" />
             </actions>
             <sub-events>
                 <event-block sid="334835437406140">
@@ -461,6 +462,12 @@
                                 <action id="-10" name="Set value" sid="921051422439233" type="Spring">
                                     <param id="0" name="Instance variable">isReleasing</param>
                                     <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Play" sid="262983798418406" type="Audio">
+                                    <param id="0" name="Audio file">ball launch</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-10</param>
+                                    <param id="1" name="Tag (optional)">&quot;ballLaunch&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -2504,6 +2511,11 @@
                                             <param id="1" name="Comparison">0</param>
                                             <param id="2" name="Value">&quot;TopWall&quot;</param>
                                         </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="314947453690709" type="PowerUpsArea">
+                                            <param id="0" name="Instance variable">PowerUpLevel</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
                                     </conditions>
                                     <actions>
                                         <action id="0" name="Spawn another object" sid="375899315214197" type="PowerUpsArea">
@@ -3227,6 +3239,10 @@
                                                             <param id="0" name="Variable">areLettersOnField</param>
                                                             <param id="1" name="Value">1</param>
                                                         </action>
+                                                        <action id="-10" name="Set value" sid="458468251396101" type="PowerUpsArea">
+                                                            <param id="0" name="Instance variable">PowerUpLevel</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
                                                     </actions>
                                                 </event-block>
                                                 <event-block sid="740732463882720">
@@ -3360,6 +3376,11 @@
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">1</param>
                         </condition>
+                        <condition id="-14" name="Compare variable" sid="673422065726520" type="System">
+                            <param id="0" name="Variable">isPaused</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="-11" name="Subtract from" sid="301776229572192" type="System">
@@ -3390,6 +3411,95 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="675836818613795">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="717190482544020" type="System">
+                            <param id="0" name="Variable">gameTimer</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">10</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="430635278885489" type="HudText">
+                            <param id="0" name="Instance variable">ID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="201094447920115" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-28" name="Set effect parameter" sid="367158529652354" type="HudText">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">255</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="668107663767776" type="HudText">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">1</param>
+                            <param id="2" name="Value">255</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="248787247946011" type="HudText">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">2</param>
+                            <param id="2" name="Value">255</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="135887151491284" type="HudText">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">3</param>
+                            <param id="2" name="Value">255</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="706197109852676" type="HudText">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">4</param>
+                            <param id="2" name="Value">0</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="697724999759593" type="HudText">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">5</param>
+                            <param id="2" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="760043424648522">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="429072447923103" type="System">
+                            <param id="0" name="Variable">gameTimer</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="917869563095551" type="Ball" />
+                        <action behavior="Fade" id="1" name="Start fade" sid="855386686235113" type="Fade" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="295497586477270">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="138692351136277" type="HudText">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">4</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="956708776962070" type="HudText">
+                                    <param id="0" name="Text">Cash</param>
+                                </action>
+                                <action behavior="Fade" id="1" name="Start fade" sid="236793265371862" type="HudText" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="356736348582014">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="962322263561053" type="HudText">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Fade" id="1" name="Start fade" sid="952485451523178" type="HudText" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
                 <event-block sid="637341698341442">
                     <conditions>
                         <condition id="6" name="On object clicked" sid="288214279853160" type="Mouse">
@@ -3411,6 +3521,12 @@
                         <action id="0" name="Call function" sid="654289615491566" type="Function">
                             <param id="0" name="Name">&quot;SwitchToBowieTable&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Play" sid="861893831526403" type="Audio">
+                            <param id="0" name="Audio file">08_David_Bowie_-_The_Man_Who_Sold_The_World</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;BowieBkg&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -3557,6 +3673,69 @@
                                     </actions>
                                 </event-block>
                             </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="566862282945978">
+                    <conditions>
+                        <condition behavior="Fade" id="1" name="On fade-in finished" sid="301346268324171" type="Fade" />
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="768417777589533" type="System">
+                            <param id="0" name="Seconds">2</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="151625311234189">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="500772347613684" type="HudText">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">4</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Fade" id="4" name="Set fade-out time" sid="178211189670651" type="HudText">
+                                    <param id="0" name="Fade-out time">1</param>
+                                </action>
+                                <action behavior="Fade" id="2" name="Set fade-in time" sid="435817614055628" type="HudText">
+                                    <param id="0" name="Fade-in time">0</param>
+                                </action>
+                                <action behavior="Fade" id="1" name="Start fade" sid="523228759921189" type="HudText" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="930430932802053">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="876058048561279" type="HudText">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Fade" id="4" name="Set fade-out time" sid="505002941030609" type="HudText">
+                                    <param id="0" name="Fade-out time">1</param>
+                                </action>
+                                <action behavior="Fade" id="2" name="Set fade-in time" sid="461286426858723" type="HudText">
+                                    <param id="0" name="Fade-in time">0</param>
+                                </action>
+                                <action behavior="Fade" id="1" name="Start fade" sid="577623622938078" type="HudText" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="167255965545054">
+                            <conditions />
+                            <actions>
+                                <action id="-16" name="Wait" sid="894123138155498" type="System">
+                                    <param id="0" name="Seconds">2</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="312953260413063" type="Fade">
+                                    <param id="0" name="Opacity">0</param>
+                                </action>
+                                <action id="33" name="Stop all" sid="598654704704162" type="Audio" />
+                                <action id="-2" name="Go to layout" sid="753064946745865" type="System">
+                                    <param id="0" name="Layout">Menu</param>
+                                </action>
+                            </actions>
                         </event-block>
                     </sub-events>
                 </event-block>

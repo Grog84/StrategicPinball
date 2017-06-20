@@ -10,6 +10,7 @@
     <unique-id>26j9go2i1yn1</unique-id>
     <saved-with-version>24400</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
@@ -21,10 +22,13 @@
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
     </used-plugins>
     <used-behaviors>
+        <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
+        <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
         <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
         <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
+        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
     </used-behaviors>
     <used-effects>
         <effect author="Scirra" id="blurhorizontal">Blur Horizontal</effect>
@@ -70,6 +74,16 @@
             <instance-variables>
                 <instance-variable name="ID" sid="928593575113265" type="number" />
             </instance-variables>
+            <behaviors>
+                <behavior-type name="Fade" sid="787129947124703">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <effects>
+                <effect-type name="ReplaceColor">
+                    <effect id="replacecolor" />
+                </effect-type>
+            </effects>
         </object-type>
         <object-type name="Button" sid="530703559098919">
             <plugin id="Button" />
@@ -1349,6 +1363,11 @@
             <instance-variables>
                 <instance-variable name="isOpen" sid="194971870872118" type="number" />
             </instance-variables>
+            <behaviors>
+                <behavior-type name="DestroyOutsideLayout" sid="298319844550864">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
             <animation-folder>
                 <animation framecount="4" loop="0" name="Opening" pingpong="0" repeatcount="1" repeatto="0" sid="206900147671736" speed="0">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.501779" original-source="C:\Users\dbga_55\Pictures\bowie1.png">
@@ -1774,6 +1793,11 @@
         </object-type>
         <object-type name="Mouth" sid="104357486361824">
             <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="DestroyOutsideLayout" sid="941667591314541">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="736192640192201" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
@@ -1867,6 +1891,9 @@
                 <behavior-type name="Rotate" sid="376768831043532">
                     <behavior id="Rotate" />
                 </behavior-type>
+                <behavior-type name="Sine" sid="947547775968256">
+                    <behavior id="Sin" />
+                </behavior-type>
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="588492341642178" speed="5">
@@ -1887,6 +1914,14 @@
         </object-type>
         <object-type name="PlayButton" sid="176171391315246">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="isSelected" sid="252840931990365" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Flash" sid="153989915932728">
+                    <behavior id="Flash" />
+                </behavior-type>
+            </behaviors>
             <animation-folder>
                 <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="870279189824377" speed="0">
                     <frame duration="1" hotspotX="0.502183" hotspotY="0.5" original-source="C:\Users\PU\Pictures\play.png">
@@ -1910,6 +1945,11 @@
         </object-type>
         <object-type name="blackPinball" sid="536160901305337">
             <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Sine" sid="686452677193839">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="737032604095659" speed="5">
                     <frame duration="1" hotspotX="0.47648" hotspotY="0.5" original-source="C:\Users\PU\Pictures\BlackPinball.png">
@@ -1929,6 +1969,11 @@
         </object-type>
         <object-type name="redPinball" sid="479460656116049">
             <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Sine" sid="869886674368994">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="866732816775485" speed="5">
                     <frame duration="1" hotspotX="0.507576" hotspotY="0.5" original-source="C:\Users\PU\Pictures\redPinball.png">
@@ -1943,6 +1988,26 @@
                             <point x="0.0621212" y="0.5" />
                         </collision-poly>
                     </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="TiledBackground" sid="243985780786120">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="Audio" sid="135447282900447">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="Fade" sid="350491082626185">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Fade" sid="232677793288755">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="805136176518354" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -2021,6 +2086,20 @@
         <global-instance type="Keyboard" uid="17" />
         <global-instance type="Function" uid="10" />
         <global-instance type="Mouse" uid="63" />
+        <global-instance type="Audio" uid="76">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
     </global-instances>
     <sounds-folder>
         <file name="manWhoSoldSolo.m4a" />
