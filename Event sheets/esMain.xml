@@ -3536,6 +3536,20 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="824700428486290">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="753723309751662" type="PowerUpsArea">
+                            <param id="0" name="Instance variable">Type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;TopWall&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="502110356116739" type="PowerUpsArea">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="190876508616587">
                     <conditions>
                         <condition id="0" name="On function" sid="551787667213490" type="Function">
